@@ -38,7 +38,7 @@ namespace MEI.Pages
                             {
                                 tagImage.Source = tagECompany.companyLogo;
                                 Regex initials = new Regex(@"(\b[a-zA-Z])[a-zA-Z]* ?");
-                                string init = initials.Replace(tagECompany.companyName, "$1");
+                                string init = initials.Replace(tagECompany.CompanyName, "$1");
                                 if (init.Length > 3)
                                     init = init.Substring(0, 3);
                                 logoText.Text = init.ToUpper();
@@ -47,12 +47,12 @@ namespace MEI.Pages
                             {
                                 tagImage.Source = "";
                                 Regex initials = new Regex(@"(\b[a-zA-Z])[a-zA-Z]* ?");
-                                string init = initials.Replace(tagECompany.companyName, "$1");
+                                string init = initials.Replace(tagECompany.CompanyName, "$1");
                                 if (init.Length > 3)
                                     init = init.Substring(0, 3);
                                 logoText.Text = init.ToUpper();
                             }
-                            tagName.Text = tagECompany.companyName;
+                            tagName.Text = tagECompany.CompanyName;
                         }
                         else
                         {

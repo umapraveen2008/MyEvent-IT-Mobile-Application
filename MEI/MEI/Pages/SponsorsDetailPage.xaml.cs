@@ -39,9 +39,9 @@ namespace MEI.Pages
             currentSponsor = _sponsor;
             sponsorTemp = parentSponsor;
             VcardContact c_user = new VcardContact();
-            c_user.FirstName = currentSponsor.company.companyName;
-            c_user.LastName = currentSponsor.company.companyName;
-            c_user.company = currentSponsor.company.companyName;
+            c_user.FirstName = currentSponsor.company.CompanyName;
+            c_user.LastName = currentSponsor.company.CompanyName;
+            c_user.company = currentSponsor.company.CompanyName;
             c_user.phoneNumber = currentSponsor.company.companyPhone;
             c_user.email = currentSponsor.company.companyEmail;
             App.contactuser = c_user;
@@ -52,7 +52,7 @@ namespace MEI.Pages
                 {
                     sponsorLogo.Source = currentSponsor.company.companyLogo;
                     Regex initials = new Regex(@"(\b[a-zA-Z])[a-zA-Z]* ?");
-                    string init = initials.Replace(currentSponsor.company.companyName, "$1");
+                    string init = initials.Replace(currentSponsor.company.CompanyName, "$1");
                     if (init.Length > 3)
                         init = init.Substring(0, 3);
                     logoText.Text = init.ToUpper();
@@ -61,13 +61,13 @@ namespace MEI.Pages
                 {
                     sponsorLogo.Source = "";
                     Regex initials = new Regex(@"(\b[a-zA-Z])[a-zA-Z]* ?");
-                    string init = initials.Replace(currentSponsor.company.companyName, "$1");
+                    string init = initials.Replace(currentSponsor.company.CompanyName, "$1");
                     if (init.Length > 3)
                         init = init.Substring(0, 3);
                     logoText.Text = init.ToUpper();
                 }
-                if (!string.IsNullOrEmpty(currentSponsor.company.companyName))
-                    sponsorName.Text = currentSponsor.company.companyName;
+                if (!string.IsNullOrEmpty(currentSponsor.company.CompanyName))
+                    sponsorName.Text = currentSponsor.company.CompanyName;
                 else
                     sponsorName.Text = "";
                 if (currentSponsor.sponsor.sponsorFields.Count > 0)

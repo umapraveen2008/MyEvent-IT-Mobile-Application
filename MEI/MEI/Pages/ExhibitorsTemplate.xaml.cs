@@ -69,7 +69,7 @@ namespace MEI.Pages
                 companyLogo.Source = exhibitorCompany.companyLogo;
                 //logoGrid.BackgroundColor = Color.Transparent;
                 Regex initials = new Regex(@"(\b[a-zA-Z])[a-zA-Z]* ?");
-                string init = initials.Replace(exhibitorCompany.companyName, "$1");
+                string init = initials.Replace(exhibitorCompany.CompanyName, "$1");
                 if (init.Length > 3)
                     init = init.Substring(0, 3);
                 logoText.Text = init.ToUpper();
@@ -80,13 +80,13 @@ namespace MEI.Pages
                 companyLogo.Source = "";
                 //logoGrid.BackgroundColor = Color.FromHex("#31c3ee");
                 Regex initials = new Regex(@"(\b[a-zA-Z])[a-zA-Z]* ?");
-                string init = initials.Replace(exhibitorCompany.companyName, "$1");
+                string init = initials.Replace(exhibitorCompany.CompanyName, "$1");
                 if (init.Length > 3)
                     init = init.Substring(0, 3);
                 logoText.Text = init.ToUpper();
             }
-            if (!string.IsNullOrEmpty(exhibitorCompany.companyName))               
-                companyName.Text = exhibitorCompany.companyName;
+            if (!string.IsNullOrEmpty(exhibitorCompany.CompanyName))               
+                companyName.Text = exhibitorCompany.CompanyName;
             else                
                 companyName.Text = "";        
             id = _exhibitor.exhibitor.exhibitorID;

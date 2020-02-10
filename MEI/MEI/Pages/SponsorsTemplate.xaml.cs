@@ -99,7 +99,7 @@ namespace MEI.Pages
                 companyLogo.Source = company.companyLogo;
                 //logoGrid.BackgroundColor = Color.Transparent;
                 Regex initials = new Regex(@"(\b[a-zA-Z])[a-zA-Z]* ?");
-                string init = initials.Replace(company.companyName, "$1");
+                string init = initials.Replace(company.CompanyName, "$1");
                 if (init.Length > 3)
                     init = init.Substring(0, 3);
                 logoText.Text = init.ToUpper();
@@ -109,7 +109,7 @@ namespace MEI.Pages
                 companyLogo.Source = "";
                 //logoGrid.BackgroundColor = Color.FromHex("#31c3ee");
                 Regex initials = new Regex(@"(\b[a-zA-Z])[a-zA-Z]* ?");
-                string init = initials.Replace(company.companyName, "$1");
+                string init = initials.Replace(company.CompanyName, "$1");
                 if (init.Length > 3)
                     init = init.Substring(0, 3);
                 logoText.Text = init.ToUpper();

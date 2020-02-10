@@ -85,7 +85,7 @@ namespace MEI.Pages
                 {
                     ExhibitorGroup company = await App.serverData.GetOneExhibitor(_session.sessionExhibitors[i]);
                     if (company != null)
-                        sessionExhibitors.Text = sessionExhibitors.Text + (i + 1).ToString() + ". " + company.company.companyName + "<br>";
+                        sessionExhibitors.Text = sessionExhibitors.Text + (i + 1).ToString() + ". " + company.company.CompanyName + "<br>";
                 }
             }
             exhibitorsLoading.IsVisible = false;
@@ -97,7 +97,7 @@ namespace MEI.Pages
                 {
                     SponsorGroup company = await App.serverData.GetOneSponsor(_session.sessionSponsors[i]);
                     if (company != null)
-                        sessionSponsors.Text = sessionSponsors.Text + (i+1).ToString() + ". " + company.company.companyName+ "<br>";
+                        sessionSponsors.Text = sessionSponsors.Text + (i+1).ToString() + ". " + company.company.CompanyName+ "<br>";
                 }              
             }
             sponsorsLoading.IsVisible = false;

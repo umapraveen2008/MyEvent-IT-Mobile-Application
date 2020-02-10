@@ -12,9 +12,9 @@ namespace MEI.Pages
         List<string> information = new List<string>()
         {
             "Search for Organizations to Join.",
-            "Verify You are Joining the Correct Organization.",
-            "View all Event Items.",
+            "Verify You are Joining the Correct Organization.",            
             "View all Events Within the Organization.",
+            "View all Event Items.",
             "Manage Settings Here."
 
         };

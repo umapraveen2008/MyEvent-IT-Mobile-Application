@@ -86,8 +86,8 @@ namespace MEI.Pages
                         await progressBar.ProgressTo(0.8, 250, Easing.Linear);
                         loadingText.Text = "Syncing shipping addresses...";
                         
-                        await App.serverData.GetUserAddressList(); 
-                        await App.serverData.CreateUserTokenList();
+                        App.serverData.GetUserAddressList(); 
+                        App.serverData.CreateUserTokenList();
                         //await progressBar.ProgressTo(0.9, 250, Easing.Linear);
                         loadingText.Text = "Syncing subscriptions...";
                         await App.serverData.GetUserSubscriptions();

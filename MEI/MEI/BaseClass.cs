@@ -245,7 +245,7 @@ namespace MEI
             {
                 exhibitors.Add(s.exhibitor.exhibitorID);
                 App.serverData.mei_user.b_exhibitorList.Add(s);
-                await App.Current.MainPage.DisplayAlert(MEIStrings.MEI_BOOKMARK_ADDED, "You have added " + s.company.companyName + " to bookmarks", MEIStrings.MEI_OK);
+                await App.Current.MainPage.DisplayAlert(MEIStrings.MEI_BOOKMARK_ADDED, "You have added " + s.company.CompanyName + " to bookmarks", MEIStrings.MEI_OK);
                 try
                 {
                     var k = await BaseFunctions.SaveUserToServer();
@@ -261,7 +261,7 @@ namespace MEI
         {
             if (exhibitors.Find(x => x == s.exhibitor.exhibitorID) != null)
             {
-                await App.Current.MainPage.DisplayAlert(MEIStrings.MEI_BOOKMARK_REMOVED, "You have removed " + s.company.companyName + " from bookmarks", MEIStrings.MEI_OK);
+                await App.Current.MainPage.DisplayAlert(MEIStrings.MEI_BOOKMARK_REMOVED, "You have removed " + s.company.CompanyName + " from bookmarks", MEIStrings.MEI_OK);
                 exhibitors.Remove(exhibitors.Find(x => x == s.exhibitor.exhibitorID));
                 App.serverData.mei_user.b_exhibitorList.Remove(App.serverData.mei_user.b_exhibitorList.Single(x => x.exhibitor.exhibitorID == s.exhibitor.exhibitorID));
                 try
@@ -282,7 +282,7 @@ namespace MEI
             {
                 sponsors.Add(s.sponsor.sponsorID);
                 App.serverData.mei_user.b_sponsorList.Add(s);
-                await App.Current.MainPage.DisplayAlert(MEIStrings.MEI_BOOKMARK_ADDED, "You have added " + s.company.companyName + " to bookmarks", MEIStrings.MEI_OK);
+                await App.Current.MainPage.DisplayAlert(MEIStrings.MEI_BOOKMARK_ADDED, "You have added " + s.company.CompanyName + " to bookmarks", MEIStrings.MEI_OK);
                 try
                 {
                     var k = await BaseFunctions.SaveUserToServer();
@@ -299,7 +299,7 @@ namespace MEI
 
             if (sponsors.Find(x => x == s.sponsor.sponsorID) != null)
             {
-                await App.Current.MainPage.DisplayAlert(MEIStrings.MEI_BOOKMARK_REMOVED, "You have removed " + s.company.companyName + " from bookmarks", MEIStrings.MEI_OK);
+                await App.Current.MainPage.DisplayAlert(MEIStrings.MEI_BOOKMARK_REMOVED, "You have removed " + s.company.CompanyName + " from bookmarks", MEIStrings.MEI_OK);
                 sponsors.Remove(sponsors.Find(x => x == s.sponsor.sponsorID));
                 App.serverData.mei_user.b_sponsorList.Remove(App.serverData.mei_user.b_sponsorList.Single(x => x.sponsor.sponsorID == s.sponsor.sponsorID));
                 try

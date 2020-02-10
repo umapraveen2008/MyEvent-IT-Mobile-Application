@@ -96,9 +96,9 @@ namespace MEI.Pages
             currentExhibitor = _exhibitor;
             parentExhibitor = parentEx;
             VcardContact c_user = new VcardContact();
-            c_user.FirstName = currentExhibitor.company.companyName;
-            c_user.LastName = currentExhibitor.company.companyName;
-            c_user.company = currentExhibitor.company.companyName;
+            c_user.FirstName = currentExhibitor.company.CompanyName;
+            c_user.LastName = currentExhibitor.company.CompanyName;
+            c_user.company = currentExhibitor.company.CompanyName;
             c_user.phoneNumber = currentExhibitor.company.companyPhone;            
             c_user.email = currentExhibitor.company.companyEmail;
             App.contactuser = c_user;
@@ -109,7 +109,7 @@ namespace MEI.Pages
                 {
                     exhibitorLogo.Source = currentExhibitor.company.companyLogo;
                     Regex initials = new Regex(@"(\b[a-zA-Z])[a-zA-Z]* ?");
-                    string init = initials.Replace(currentExhibitor.company.companyName, "$1");
+                    string init = initials.Replace(currentExhibitor.company.CompanyName, "$1");
                     if (init.Length > 3)
                         init = init.Substring(0, 3);
                     logoText.Text = init.ToUpper();
@@ -118,13 +118,13 @@ namespace MEI.Pages
                 {
                     exhibitorLogo.Source = "";
                     Regex initials = new Regex(@"(\b[a-zA-Z])[a-zA-Z]* ?");
-                    string init = initials.Replace(currentExhibitor.company.companyName, "$1");
+                    string init = initials.Replace(currentExhibitor.company.CompanyName, "$1");
                     if (init.Length > 3)
                         init = init.Substring(0, 3);
                     logoText.Text = init.ToUpper();
                 }
-                if (!string.IsNullOrEmpty(currentExhibitor.company.companyName))
-                    exhibitorName.Text = currentExhibitor.company.companyName;                
+                if (!string.IsNullOrEmpty(currentExhibitor.company.CompanyName))
+                    exhibitorName.Text = currentExhibitor.company.CompanyName;                
                 if (currentExhibitor.exhibitor.exhibitorFields.Count>0)
                     BaseFunctions.GetCustomFields(customFieldsLayout,currentExhibitor.exhibitor.exhibitorFields);
                 id = currentExhibitor.exhibitor.exhibitorID;

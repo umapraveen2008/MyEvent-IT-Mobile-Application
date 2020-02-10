@@ -7,11 +7,11 @@ namespace MEI
 {
     public class VcardContact
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string phoneNumber { get; set; }
-        public string email { get; set; }
-        public string company { get; set; }
+        public string FirstName { get; set; } = "";
+        public string LastName { get; set; } = "";
+        public string phoneNumber { get; set; } = "";
+        public string email { get; set; } = "";
+        public string company { get; set; } = "";
     }
 
     public class ServerTransaction
@@ -40,18 +40,18 @@ namespace MEI
 
     public class ServerInventoryItem
     {
-        public string firmID { get; set; }
-        public string universal { get; set; }
-        public string itemID { get; set; }
-        public string itemName { get; set; }
-        public string itemType { get; set; }
-        public string itemPrice { get; set; }
-        public string itemImage { get; set; }
-        public string itemMaxQuantity { get; set; }
-        public string itemCurrentQuantity { get; set; }
-        public string itemDescription { get; set; }
-        public string itemShippingType { get; set; }
-        public string itemRefund { get; set; }
+        public string firmID { get; set; } = "";
+        public string universal { get; set; } = "";
+        public string itemID { get; set; } = "";
+        public string itemName { get; set; } = "";
+        public string itemType { get; set; } = "";
+        public string itemPrice { get; set; } = "";
+        public string itemImage { get; set; } = "";
+        public string itemMaxQuantity { get; set; } = "";
+        public string itemCurrentQuantity { get; set; } = "";
+        public string itemDescription { get; set; } = "";
+        public string itemShippingType { get; set; } = "";
+        public string itemRefund { get; set; } = "";
     }
 
     public class ServerCatalogGroup
@@ -85,11 +85,11 @@ namespace MEI
 
     public class ServerCatalogItem
     {
-        public string itemID { get; set; }
-        public string eventID { get; set; }
-        public string itemMaxQuantity { get; set; }
-        public string itemPrice { get; set; }
-        public string itemCurrentQuantity { get; set; }
+        public string itemID { get; set; } = "";
+        public string eventID { get; set; } = "";
+        public string itemMaxQuantity { get; set; } = "";
+        public string itemPrice { get; set; } = "";
+        public string itemCurrentQuantity { get; set; } = "";
     }
 
     public class ServerDomain
@@ -153,8 +153,8 @@ namespace MEI
 
     public class ServerVenueMap
     {
-        public string venueMapName { get; set; }
-        public string venueAddress { get; set; }
+        public string venueMapName { get; set; } = "";
+        public string venueAddress { get; set; } = "";
         public List<ServerMarkerPoints> venuePoints { get; set; }
 
     }
@@ -162,103 +162,112 @@ namespace MEI
 
     public class ServerMarkerPoints
     {
-        public string lat { get; set; }
-        public string lng { get; set; }
+        public string lat { get; set; } = "";
+        public string lng { get; set; } = "";
     }
 
     public class ServerFAQModule
     {
         public ServerWifiDetails wifiDetails { get; set; }
         public List<ServerQandA> eventQandA { get; set; }
-        public string eventTerms { get; set; }
-        public string eventPolicy { get; set; }
-        public string eventCodeOfConduct { get; set; }
+        public string eventTerms { get; set; } = "";
+        public string eventPolicy { get; set; } = "";
+        public string eventCodeOfConduct { get; set; } = "";
     }
 
 
     public class ServerWifiDetails
     {
-        public string name { get; set; }
-        public string password { get; set; }
+        public string name { get; set; } = "";
+        public string password { get; set; } = "";
     }
 
     public class ServerQandA
     {
-        public string question { get; set; }
-        public string answer { get; set; }
+        public string question { get; set; } = "";
+        public string answer { get; set; } = "";
     }
 
     public class ServerRSVP
     {
-        public string eventID { get; set; }
-        public string userID { get; set; }
-        public string firmID { get; set; }
-        public string rsvpStatus { get; set; }
+        public string eventID { get; set; } = "";
+        public string userID { get; set; } = "";
+        public string firmID { get; set; } = "";
+        public string rsvpStatus { get; set; } = "";
     }
 
     public class ServerFloorMap
     {
-        public string eventFloorMapName { get; set; }
-        public string eventFloorMapURL { get; set; }
-        public string eventFloorMapIndex { get; set; }
+        public string eventFloorMapName { get; set; } = "";
+        public string eventFloorMapURL { get; set; } = "";
+        public string eventFloorMapIndex { get; set; } = "";
     }
 
     public class ServerCompany
     {
-        public string companyID { get; set; }
-        public string firmID { get; set; }
-        public string companyLogo { get; set; }
-        public string companyName { get; set; }
-        public string companyWebsite { get; set; }
-        public string companyEmail { get; set; }
-        public string companyDescription { get; set; }
-        public string companyFacebook { get; set; }
-        public string companyTwitter { get; set; }
-        public string companyGplus { get; set; }
-        public string companyLinkedIn { get; set; }
-        public string companyType { get; set; }
-        public string companyPhone { get; set; }
-        public string companyAddress { get; set; }
+        public string companyID { get; set; } = "";
+        public string firmID { get; set; } = "";
+        public string companyLogo { get; set; } = "";
+        public string companyName { get; set; } = "A";
+        public string companyWebsite { get; set; } = "";
+        public string companyEmail { get; set; } = "";
+        public string companyDescription { get; set; } = "";
+        public string companyFacebook { get; set; } = "";
+        public string companyTwitter { get; set; } = "";
+        public string companyGplus { get; set; } = "";
+        public string companyLinkedIn { get; set; } = "";
+        public string companyType { get; set; } = "";
+        public string companyPhone { get; set; } = "";
+        public string companyAddress { get; set; } = "";
+
+        public string CompanyName
+        {
+            get
+            {
+                return string.IsNullOrEmpty(companyName) ? string.Empty : companyName.ToString();
+            }
+
+        }
     }
 
     public class ServerExhibitor
     {
-        public string eventID { get; set; }
-        public string firmID { get; set; }
-        public List<ServerCustomField> exhibitorFields { get; set; }
-        public string exhibitorID { get; set; }
-        public string exhibitorCompanyID { get; set; }
+        public string eventID { get; set; } = "";
+        public string firmID { get; set; } = "";
+        public List<ServerCustomField> exhibitorFields { get; set; } 
+        public string exhibitorID { get; set; } = "";
+        public string exhibitorCompanyID { get; set; } = "";
 
     }
 
     public class ExhibitorGroup
     {
         public ServerExhibitor exhibitor { get; set; }
-        public ServerCompany company { get; set; }
+        public ServerCompany company { get; set; } 
     }
 
     public class ServerSponsor
     {
-        public string eventID { get; set; }
-        public string firmID { get; set; }
+        public string eventID { get; set; } = "";
+        public string firmID { get; set; } = "";
         public List<ServerCustomField> sponsorFields { get; set; }
-        public string sponsorID { get; set; }
-        public string sponsorCompanyID { get; set; }
+        public string sponsorID { get; set; } = "";
+        public string sponsorCompanyID { get; set; } = "";
     }
 
     public class ServerSubscription
     {
-        public string planID { get; set; }
-        public string firmID { get; set; }
-        public string subscriptionID { get; set; }
-        public string subscriptionDate { get; set; }
-        public string subscriptionType { get; set; }
+        public string planID { get; set; } = "";
+        public string firmID { get; set; } = "";
+        public string subscriptionID { get; set; } = "";
+        public string subscriptionDate { get; set; } = "";
+        public string subscriptionType { get; set; } = "";
     }
 
     public class ServerCustomField
     {
-        public string type { get; set; }
-        public string value { get; set; }
+        public string type { get; set; } = "";
+        public string value { get; set; } = "";
     }
 
     public class SponsorGroup
@@ -288,113 +297,113 @@ namespace MEI
 
     public class ServerSession
     {
-        public string sessionStartTime { get; set; }
-        public string sessionName { get; set; }
-        public string eventID { get; set; }
-        public string firmID { get; set; }
-        public string sessionID { get; set; }
-        public string sessionTrack { get; set; }
-        public string sessionLocation { get; set; }
-        public string sessionEndTime { get; set; }
-        public string sessionDescription { get; set; }
-        public List<string> sessionSpeakers { get; set; }
-        public List<string> sessionCatalogItems { get; set; }
-        public List<string> sessionSponsors { get; set; }
-        public List<string> sessionExhibitors { get; set; }
+        public string sessionStartTime { get; set; } = "";
+        public string sessionName { get; set; } = "";
+        public string eventID { get; set; } = "";
+        public string firmID { get; set; } = "";
+        public string sessionID { get; set; } = "";
+        public string sessionTrack { get; set; } = "";
+        public string sessionLocation { get; set; } = "";
+        public string sessionEndTime { get; set; } = "";
+        public string sessionDescription { get; set; } = "";
+        public List<string> sessionSpeakers { get; set; } = new List<string>();
+        public List<string> sessionCatalogItems { get; set; } = new List<string>();
+        public List<string> sessionSponsors { get; set; } = new List<string>();
+        public List<string> sessionExhibitors { get; set; } = new List<string>();
         public int sessionDay { get; set; }
     }
 
     public class ServerVoteOption
     {
-        public string voteOption { get; set; }
-        public List<string> votedUsers { get; set; }
+        public string voteOption { get; set; } = "";
+        public List<string> votedUsers { get; set; } = new List<string>();
     }
 
     public class ServerComment
     {
-        public string commentMessage { get; set; }
-        public List<string> commentLikes { get; set; }
+        public string commentMessage { get; set; } = "";
+        public List<string> commentLikes { get; set; } = new List<string>();
     }
 
     public class ServerEventPost
     {
-        public string time { get; set; }
-        public string postType { get; set; }
-        public List<string> postUsers { get; set; }
+        public string time { get; set; } = "";
+        public string postType { get; set; } = "";
+        public List<string> postUsers { get; set; } = new List<string>();
         public List<ServerVoteOption> voteOptions { get; set; }
         public List<ServerComment> comments { get; set; }
-        public List<string> likeUsers { get; set; }
-        public string postPicture { get; set; }
-        public string postMessage { get; set; }
-        public string postHeader { get; set; }
-        public string firmID { get; set; }
-        public string postID { get; set; }
-        public string eventID { get; set; }
+        public List<string> likeUsers { get; set; } = new List<string>();
+        public string postPicture { get; set; } = "";
+        public string postMessage { get; set; } = "";
+        public string postHeader { get; set; } = "";
+        public string firmID { get; set; } = "";
+        public string postID { get; set; } = "";
+        public string eventID { get; set; } = "";
     }
 
     public class BillingInformation
     {
-        public string firstName { get; set; }
-        public string lastName { get; set; }
-        public string email { get; set; }
-        public string phone { get; set; }
-        public string addressLine1 { get; set; }
-        public string addressLine2 { get; set; }
-        public string city { get; set; }
-        public string state { get; set; }
-        public string postalCode { get; set; }
-        public string country { get; set; }
+        public string firstName { get; set; } = "";
+        public string lastName { get; set; } = "";
+        public string email { get; set; } = "";
+        public string phone { get; set; } = "";
+        public string addressLine1 { get; set; } = "";
+        public string addressLine2 { get; set; } = "";
+        public string city { get; set; } = "";
+        public string state { get; set; } = "";
+        public string postalCode { get; set; } = "";
+        public string country { get; set; } = "";
     }
 
     public class CardObject
     {
-        public string cardName { get; set; }
-        public string cardNumber { get; set; }
-        public string card4Digits { get; set; }
-        public string cardExpMonth { get; set; }
-        public string cardType { get; set; }
-        public string cardExpYear { get; set; }
-        public string cardCVV { get; set; }
-        public string cardImageURL { get; set; }
-        public string cardBillingFirstName { get; set; }
-        public string cardBillingLastName { get; set; }
-        public string cardBillingAddress { get; set; }
-        public string cardBillingCity { get; set; }
-        public string cardBillingState { get; set; }
-        public string cardBillingZipCode { get; set; }
+        public string cardName { get; set; } = "";
+        public string cardNumber { get; set; } = "";
+        public string card4Digits { get; set; } = "";
+        public string cardExpMonth { get; set; } = "";
+        public string cardType { get; set; } = "";
+        public string cardExpYear { get; set; } = "";
+        public string cardCVV { get; set; } = "";
+        public string cardImageURL { get; set; } = "";
+        public string cardBillingFirstName { get; set; } = "";
+        public string cardBillingLastName { get; set; } = "";
+        public string cardBillingAddress { get; set; } = "";
+        public string cardBillingCity { get; set; } = "";
+        public string cardBillingState { get; set; } = "";
+        public string cardBillingZipCode { get; set; } = "";
     }
 
     public class UserCard
     {
-        public string cardToken { get; set; }
+        public string cardToken { get; set; } = "";
         public CardObject card { get; set; }
     }
 
     public class ServerUser
     {
-        public string userFirstName { get; set; }
-        public string userLastName { get; set; }
-        public string userEmail { get; set; }
-        public string userPosition { get; set; }
-        public string userImage { get; set; }
-        public string userPhone { get; set; }
-        public string userWebsite { get; set; }
-        public string userFacebook { get; set; }
-        public string userGplus { get; set; }
-        public string userTwitter { get; set; }
-        public string userLinkedIn { get; set; }
-        public string userAddress { get; set; }
-        public string userCity { get; set; }
-        public string userState { get; set; }
-        public string userPostal { get; set; }
-        public string userCompany { get; set; }
-        public string userPrivacy { get; set; }
+        public string userFirstName { get; set; } = "";
+        public string userLastName { get; set; } = "";
+        public string userEmail { get; set; } = "";
+        public string userPosition { get; set; } = "";
+        public string userImage { get; set; } = "";
+        public string userPhone { get; set; } = "";
+        public string userWebsite { get; set; } = "";
+        public string userFacebook { get; set; } = "";
+        public string userGplus { get; set; } = "";
+        public string userTwitter { get; set; } = "";
+        public string userLinkedIn { get; set; } = "";
+        public string userAddress { get; set; } = "";
+        public string userCity { get; set; } = "";
+        public string userState { get; set; } = "";
+        public string userPostal { get; set; } = "";
+        public string userCompany { get; set; } = "";
+        public string userPrivacy { get; set; } = "";
         public string userID { get; set; } = "";
-        public string userDescription { get; set; }
-        public List<string> userCustomerID { get; set; }
+        public string userDescription { get; set; } = "";
+        public List<string> userCustomerID { get; set; } = new List<string>();
         //public List<UserCard> userCustomerTokenList { get; set; }
         public BookMark userBookmarks { get; set; }
-        public List<string> userNotes { get; set; }
+        public List<string> userNotes { get; set; } = new List<string>();
     }
 
     public class RegisteredDomainViewModel : INotifyPropertyChanged

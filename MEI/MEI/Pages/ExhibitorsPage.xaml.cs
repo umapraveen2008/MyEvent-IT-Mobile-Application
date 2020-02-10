@@ -143,7 +143,7 @@ namespace MEI.Pages
                 for (int i = 0; i < exhibitors.Count; i++)
                 {
                     var exibitorCompany = exhibitors[i].company;
-                    if (exibitorCompany.companyName.Contains(peopleSearch.Text, StringComparison.OrdinalIgnoreCase))
+                    if (exibitorCompany.CompanyName.Contains(peopleSearch.Text, StringComparison.OrdinalIgnoreCase))
                     {
                         filterPeople.Add(exhibitors[i]);
                     }
@@ -165,8 +165,8 @@ namespace MEI.Pages
         {
 
             var sorted = from child in list
-                         orderby child.company.companyName
-                         group child by child.company.companyName.ToCharArray()[0].ToString() into _group
+                         orderby child.company.CompanyName
+                         group child by string.IsNullOrEmpty(child.company.CompanyName)?"A":child.company.CompanyName.ToCharArray()[0].ToString() into _group
                          select new Grouping<string, ExhibitorGroup>(_group.Key, _group);
 
             var childGrouped = new ObservableCollection<Grouping<string, ExhibitorGroup>>(sorted);
