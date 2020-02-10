@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MEI.Pages.WebPage">    
+    <WebView  x:Name="webView" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0">
+  
+</WebView>
+    <ActivityIndicator x:Name="loading" Grid.Row="0" Grid.Column="0"  WidthRequest="30" HeightRequest="30" Color="#31c3ee" IsRunning="True" VerticalOptions="Center" HorizontalOptions="Center"></ActivityIndicator>
+</Grid>

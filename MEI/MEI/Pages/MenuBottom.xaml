@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MEI.Pages.MenuBottom"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+           xmlns:local="clr-namespace:MEI.Controls;assembly=MEI" Spacing="5">
+    <StackLayout VerticalOptions="FillAndExpand" Spacing="1" x:Name="userProfile" HeightRequest="150">
+        <ContentView BackgroundColor="#bfc9d3" Padding="3" HorizontalOptions="CenterAndExpand" HeightRequest="70" WidthRequest="70">
+            <Grid x:Name="logoGrid">
+                <ContentView BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0">
+                    <Label x:Name="logoText" Text="" TextColor="#31c3ee" HorizontalOptions="CenterAndExpand" FontSize="Large" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" VerticalOptions="FillAndExpand"></Label>
+                </ContentView>
+                <ContentView Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <ffimageloading:CachedImage 
+	WidthRequest="70" HeightRequest="70"
+	DownsampleToViewSize="true"
+	Source = "mei_appicon_g.png" Aspect="Fill" x:Name="userProfilePic" >
+                    </ffimageloading:CachedImage>
+                </ContentView>
+            </Grid>
+        </ContentView>
+        <Label x:Name="userName" HorizontalTextAlignment="Center" TextColor="White"  HorizontalOptions="CenterAndExpand" FontSize="Medium" Text="First Name Last Name"></Label>
+    </StackLayout>
+    <StackLayout Margin="5,0,5,0" HeightRequest="40" Orientation="Horizontal">
+        <ContentView x:Name="settingsButton" Padding="5" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+            <Image  Source="mei_settingsicon_w.png" VerticalOptions="Center" HorizontalOptions="Center"/>
+        </ContentView>
+        <!--<BoxView WidthRequest="2" Margin="0,10,0,10" BackgroundColor="#FBFBFF" HeightRequest="50"></BoxView>-->
+        <ContentView x:Name="notesButton" Padding="5" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+            <Image  Source="mei_notesicon_w.png" VerticalOptions="Center" HorizontalOptions="Center" />
+        </ContentView>
+        <!--<BoxView WidthRequest="2" Margin="0,10,0,10" BackgroundColor="#FBFBFF" HeightRequest="50" ></BoxView>-->
+        <ContentView x:Name="bookmarksButton" Padding="5" HorizontalOptions="FillAndExpand"  VerticalOptions="Center">
+            <Image Source="mei_bookmarksicon_w.png" VerticalOptions="Center" HorizontalOptions="Center"/>
+        </ContentView>
+        <!--<BoxView WidthRequest="2" Margin="0,10,0,10" BackgroundColor="#FBFBFF" HeightRequest="50" ></BoxView>-->
+
+        <ContentView x:Name="domainButton" Padding="5" HorizontalOptions="FillAndExpand"  VerticalOptions="Center">
+            <Image Source="mei_domainicon_w.png" VerticalOptions="Center" HorizontalOptions="Center"/>
+        </ContentView>
+    </StackLayout>
+</StackLayout>

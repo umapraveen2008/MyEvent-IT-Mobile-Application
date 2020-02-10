@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MEI.Pages.ScheduleTimeTemplate"
+             xmlns:local ="clr-namespace:MEI.Pages;assembly=MEI"
+             xmlns:control ="clr-namespace:MEI.Controls;assembly=MEI">
+
+  <StackLayout Spacing="0" BackgroundColor="White">
+    <ContentView Padding="10" BackgroundColor="#ebeff2" >
+      <Label x:Name="time" Text="9:00 AM" TextColor="#36404a" HorizontalOptions="Start" FontSize="Medium" ></Label>
+    </ContentView>
+    <StackLayout Margin="10" x:Name="scheduleParent">
+    </StackLayout>
+    </StackLayout>  
+</ContentView>

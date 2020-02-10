@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MEI.Pages.MenuSideItem"
+             xmlns:local="clr-namespace:MEI.Controls;assembly=MEI"
+              xmlns:abstractions="clr-namespace:RoundedBoxView.Forms.Plugin.Abstractions;assembly=RoundedBoxView.Forms.Plugin.Abstractions"
+             HeightRequest="50" Orientation="Horizontal" WidthRequest="55" Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <Grid  Padding="5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Button Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="selectedButton" Clicked="OnSideButtonClick" BackgroundColor="#31c3ee" BorderRadius="15"></Button>
+            <ContentView InputTransparent="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0" Padding="5">
+            <Image InputTransparent="True"  x:Name="buttonImage" Source="mei_timelineicon_b.png" Aspect="AspectFit" />
+            </ContentView>
+        </Grid>        
+        <BoxView BackgroundColor="#31c3ee" x:Name="selected" WidthRequest="5" Margin="0,5,0,5" VerticalOptions="FillAndExpand"></BoxView>    
+</StackLayout>

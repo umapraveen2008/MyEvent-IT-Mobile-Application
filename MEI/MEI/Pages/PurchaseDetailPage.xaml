@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MEI.Pages.PurchaseDetailPage"
+             xmlns:controls="clr-namespace:MEI.Controls;assembly=MEI"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             HorizontalOptions="FillAndExpand" Padding="0,20,0,0" VerticalOptions="FillAndExpand" BackgroundColor="#ebeff2">
+
+    <ScrollView>
+        <StackLayout Spacing="0">
+            <StackLayout HorizontalOptions="FillAndExpand">
+                <ContentView BackgroundColor="#bfc9d3" Padding="3" HorizontalOptions="CenterAndExpand">
+                    <Grid HeightRequest="120" WidthRequest="120"  Grid.Column="0" Grid.Row="0" x:Name="logoGrid">
+                        <ContentView BackgroundColor="#31c3ee" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0">
+                            <Label x:Name="logoText" Text="" TextColor="White" HorizontalOptions="CenterAndExpand" FontSize="Large" VerticalOptions="CenterAndExpand"></Label>
+                        </ContentView>
+                        <ContentView Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <ffimageloading:CachedImage 
+	WidthRequest="60" HeightRequest="60"
+	DownsampleToViewSize="true"
+	Source = "mei_appicon_g.png" Aspect="Fill" x:Name="purchaseItemImage" >
+                            </ffimageloading:CachedImage>
+                        </ContentView>
+                    </Grid>
+                </ContentView>
+                <Label x:Name="purchaseItemName" Text="Item Name" XAlign="Center" FontSize="Medium" TextColor="#36404a"/>
+            </StackLayout>
+            <StackLayout Spacing="0" BackgroundColor="White" VerticalOptions="FillAndExpand">
+                <ContentView Grid.Row="0" Grid.Column="0" BackgroundColor="#ebeff2" Padding="10,5,5,5">
+                    <Label Text="Order Information" TextColor="#36404a"  FontSize="Medium"/>
+                </ContentView>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10,5,5,5">
+                    <Label FontSize="Small" Text="Order ID : " TextColor="#505f6d" WidthRequest="110"/>
+                    <Label x:Name="purchaseID"  FontSize="Small" Text="12345656846" TextColor="#505f6d" HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10,5,5,5">
+                    <Label FontSize="Small" Text="Order Date : " TextColor="#505f6d" WidthRequest="110"/>
+                    <Label x:Name="purchaseDate"  FontSize="Small" Text="Dec 1, 2016" TextColor="#505f6d" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10,5,5,5">
+                    <Label FontSize="Small" Text="Order Type : " TextColor="#505f6d" WidthRequest="110"/>
+                    <Label x:Name="purchaseType"  FontSize="Small" Text="Sale" TextColor="#505f6d" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10,5,5,5">
+                    <Label FontSize="Small" Text="Quantity : " TextColor="#505f6d" WidthRequest="110"/>
+                    <Label x:Name="purchaseQuantity"  FontSize="Small" Text="5" TextColor="#505f6d" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10,5,5,5">
+                    <Label FontSize="Small" Text="Order Card Type : " TextColor="#505f6d" WidthRequest="110"/>
+                    <Label x:Name="purchasePaymentCardType"  FontSize="Small" Text="Visa" TextColor="#505f6d" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10,5,5,5">
+                    <Label FontSize="Small" Text="Total : " TextColor="#505f6d" WidthRequest="110"/>
+                    <Label x:Name="purchaseAmount"  FontSize="Small" Text="5" TextColor="#505f6d" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10,5,5,5">
+                    <Label FontSize="Small" Text="Refund : " TextColor="#505f6d" WidthRequest="110"/>
+                    <Label x:Name="purchaseRefund"  FontSize="Small" Text="Not Available" TextColor="#505f6d" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout x:Name="managePurchasesLayout" Spacing="0" BackgroundColor="White">
+                <ContentView BackgroundColor="#ebeff2" Padding="10,5,5,5">
+                    <Label Text="Manage Order" TextColor="#36404a"  FontSize="Medium"/>
+                </ContentView>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10">
+                    <Button TextColor="White" x:Name="emailInvoice" BorderRadius="20" Clicked="EmailInvoiceFunction" Text="Email Invoice" Margin="5" HorizontalOptions="FillAndExpand" FontSize="Small" BackgroundColor="#31c3ee"></Button>
+                    <Button TextColor="White" x:Name="contactSender" BorderRadius="20" Clicked="ContactSenderFunction" Text="Contact Sender" Margin="5" HorizontalOptions="FillAndExpand" FontSize="Small" BackgroundColor="#31c3ee"></Button>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Spacing="0" BackgroundColor="White" VerticalOptions="FillAndExpand" x:Name="shippingInformation">
+                <ContentView BackgroundColor="#ebeff2" Padding="10,5,5,5">
+                    <Label Text="Shipping Information" TextColor="#36404a"  FontSize="Medium"/>
+                </ContentView>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10,5,5,5">
+                    <Label FontSize="Small" Text="Shipping Address : " TextColor="#505f6d" WidthRequest="110"/>
+                    <Label x:Name="purchaseShippingAddress"  FontSize="Small" Text="2736 Candlewood ct, Apopka, FL, 32703" TextColor="#505f6d" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10,5,5,5">
+                    <Label FontSize="Small" Text="Shipping Type : " TextColor="#505f6d" WidthRequest="110"/>
+                    <Label x:Name="purchaseShippingType"  FontSize="Small" Text="Digital Download" TextColor="#505f6d" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10,5,5,5">
+                    <Label FontSize="Small" Text="Tracking Details : " TextColor="#505f6d" WidthRequest="110"/>
+                    <Label x:Name="purchaseTracking"  FontSize="Small" FontAttributes="Bold" Text="Download Link" TextColor="#505f6d" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <StackLayout VerticalOptions="End" x:Name="cancelSubscriptionLayout">
+                    <Button TextColor="White" BorderRadius="0" x:Name="cancelSubscription" Clicked="CancelSubscriptionFunction" Text="Cancel Subscription" HorizontalOptions="FillAndExpand" FontSize="Medium" BackgroundColor="#ff3232"></Button>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentView>

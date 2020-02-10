@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MEI.Pages.CatalogDetailPage"
+             xmlns:controls="clr-namespace:MEI.Controls;assembly=MEI"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             HorizontalOptions="FillAndExpand" Padding="0,20,0,0" VerticalOptions="FillAndExpand" BackgroundColor="#ebeff2">
+
+    <ScrollView>
+        <StackLayout Spacing="0">
+            <StackLayout Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand">
+                <ContentView BackgroundColor="#bfc9d3" Padding="3" HorizontalOptions="CenterAndExpand">
+                    <Grid HeightRequest="120" WidthRequest="120"  Grid.Column="0" Grid.Row="0" x:Name="logoGrid">
+                        <ContentView BackgroundColor="#31c3ee" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0">
+                            <Label x:Name="logoText" Text="" TextColor="White" HorizontalOptions="CenterAndExpand" FontSize="Large" VerticalOptions="CenterAndExpand"></Label>
+                        </ContentView>
+                        <ContentView Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <ffimageloading:CachedImage 
+	WidthRequest="60" HeightRequest="60"
+	DownsampleToViewSize="true"
+	Source = "mei_appicon_g.png" Aspect="Fill" x:Name="itemImage" >
+                            </ffimageloading:CachedImage>
+                        </ContentView>
+                    </Grid>
+                </ContentView>
+                <Label x:Name="itemName" Text="Item Name" XAlign="Center" FontSize="Medium" TextColor="#36404a"/>
+                <Label x:Name="itemType" Text="Category : Product" XAlign="Center" FontSize="Small" TextColor="#505f6d"/>
+                <Label x:Name="itemPrice" Text="Price : $50.00" XAlign="Center" FontSize="Small" TextColor="#505f6d"/>
+                <Label x:Name="itemAvailable" Text="Quantity Available : 25" XAlign="Center" FontSize="Small" TextColor="#505f6d"/>             
+            </StackLayout>
+     
+            <Grid RowSpacing="0" BackgroundColor="White" VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <ContentView Grid.Row="0" Grid.Column="0" Padding="10,5,5,5" BackgroundColor="#ebeff2" >
+                    <Label Text="Item Description" TextColor="#36404a"  FontSize="Medium" VerticalOptions="CenterAndExpand"/>
+                </ContentView>
+                <ContentView Grid.Row="1" Grid.Column="0" Padding="10" VerticalOptions="FillAndExpand">
+                    <Label x:Name="description"  FontSize="Small" Text="Item Description" TextColor="#505f6d"/>
+                </ContentView>
+            </Grid>
+
+            <Grid RowSpacing="0" BackgroundColor="White" VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <ContentView Grid.Row="0" Grid.Column="0" Padding="10,5,5,5" BackgroundColor="#ebeff2" >
+                    <Label Text="Shipping" TextColor="#36404a"  FontSize="Medium" VerticalOptions="CenterAndExpand"/>
+                </ContentView>
+                <ContentView Grid.Row="1" Grid.Column="0" Padding="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <Label FontSize="Small" Text="Shipping Type : " TextColor="#505f6d" WidthRequest="110"/>
+                        <Label x:Name="shipping"  FontSize="Small" Text="Digital Download " TextColor="#505f6d" HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>                    
+                </ContentView>
+            </Grid>
+            <Grid RowSpacing="0" BackgroundColor="White" VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <ContentView Grid.Row="0" Grid.Column="0" Padding="10,5,5,5" BackgroundColor="#ebeff2" >
+                    <Label Text="Refund" TextColor="#36404a"  FontSize="Medium" VerticalOptions="CenterAndExpand"/>
+                </ContentView>
+                <ContentView Grid.Row="1" Grid.Column="0" Padding="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <Label FontSize="Small" Text="Refund : " TextColor="#505f6d" WidthRequest="110"/>
+                        <Label x:Name="refund"  FontSize="Small" Text="Available " TextColor="#505f6d" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+            </ContentView>
+    </Grid>
+            <StackLayout VerticalOptions="End">
+                <Button TextColor="White" x:Name="purchaseButton" BorderRadius="0" Clicked="PurchaseItemFunction" Text="Add to Cart" HorizontalOptions="FillAndExpand" FontSize="Medium" BackgroundColor="#31c3ee"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentView>

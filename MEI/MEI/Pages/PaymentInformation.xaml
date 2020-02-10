@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="MEI.Pages.PaymentInformation"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:abstractions="clr-namespace:RoundedBoxView.Forms.Plugin.Abstractions;assembly=RoundedBoxView.Forms.Plugin.Abstractions"
+    xmlns:local="clr-namespace:MEI.Controls;assembly=MEI"
+    BackgroundColor="#ebeff2">
+    <StackLayout BackgroundColor="White">
+        <ScrollView>
+            <StackLayout
+                Margin="0,10,0,10"
+                HorizontalOptions="FillAndExpand"
+                Spacing="10"
+                VerticalOptions="FillAndExpand">
+                <!--<Label Margin="10,0,0,0" TextColor="#36404a" VerticalOptions="Center" Text="Card Information" HorizontalOptions="FillAndExpand" FontSize="Small"  XAlign="Start"/>-->
+                <StackLayout Padding="10,5,10,5" Spacing="10">
+                    <Label
+                        Margin="5,0,0,0"
+                        FontSize="Small"
+                        HorizontalOptions="FillAndExpand"
+                        Text="Name on Card"
+                        TextColor="#36404a"
+                        VerticalOptions="Center"
+                        XAlign="Start" />
+                    <Entry
+                        x:Name="NameOnCard"
+                        BackgroundColor="#ebeff2"
+                        FontSize="Small"
+                        HeightRequest="50"
+                        HorizontalOptions="FillAndExpand"
+                        HorizontalTextAlignment="Start"
+                        Placeholder="Full Name"
+                        PlaceholderColor="#bfc9d3"
+                        TextColor="#505f6d" />
+                    <Label
+                        Margin="5,0,0,0"
+                        FontSize="Small"
+                        HorizontalOptions="FillAndExpand"
+                        Text="Card Number"
+                        TextColor="#36404a"
+                        VerticalOptions="Center"
+                        XAlign="Start" />
+                    <Entry
+                        x:Name="cardNumber"
+                        BackgroundColor="#ebeff2"
+                        FontSize="Small"
+                        HeightRequest="50"
+                        HorizontalOptions="FillAndExpand"
+                        HorizontalTextAlignment="Start"
+                        Keyboard="Telephone"
+                        Placeholder="XXXX XXXX XXXX 5677"
+                        PlaceholderColor="#bfc9d3"
+                        TextColor="#505f6d" />
+                    <StackLayout Orientation="Horizontal">
+                        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical">
+                            <Label
+                                Margin="5,0,0,0"
+                                FontSize="Small"
+                                HorizontalOptions="FillAndExpand"
+                                Text="Exp Date"
+                                TextColor="#36404a"
+                                VerticalOptions="Center"
+                                XAlign="Start" />
+                            <StackLayout Orientation="Horizontal">
+                                <Entry
+                                    x:Name="cardMonth"
+                                    BackgroundColor="#ebeff2"
+                                    FontSize="Small"
+                                    HeightRequest="50"
+                                    HorizontalOptions="FillAndExpand"
+                                    HorizontalTextAlignment="Start"
+                                    Keyboard="Telephone"
+                                    Placeholder="MM"
+                                    PlaceholderColor="#bfc9d3"
+                                    TextColor="#505f6d" />
+                                <Entry
+                                    x:Name="cardYear"
+                                    BackgroundColor="#ebeff2"
+                                    FontSize="Small"
+                                    HeightRequest="50"
+                                    HorizontalOptions="FillAndExpand"
+                                    HorizontalTextAlignment="Start"
+                                    Keyboard="Telephone"
+                                    Placeholder="YYYY"
+                                    PlaceholderColor="#bfc9d3"
+                                    TextColor="#505f6d" />
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical">
+                            <Label
+                                Margin="5,0,0,0"
+                                FontSize="Small"
+                                HorizontalOptions="FillAndExpand"
+                                Text="CVV"
+                                TextColor="#36404a"
+                                VerticalOptions="Center"
+                                XAlign="Start" />
+                            <Entry
+                                x:Name="cardCvv"
+                                BackgroundColor="#ebeff2"
+                                FontSize="Small"
+                                HeightRequest="50"
+                                HorizontalOptions="FillAndExpand"
+                                HorizontalTextAlignment="Start"
+                                Keyboard="Telephone"
+                                Placeholder="123"
+                                PlaceholderColor="#bfc9d3"
+                                TextColor="#505f6d" />
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+                <ContentView BackgroundColor="#ebeff2" HeightRequest="50">
+                    <Label
+                        Margin="10,0,0,0"
+                        FontSize="Medium"
+                        HorizontalOptions="FillAndExpand"
+                        Text="Billing Address"
+                        TextColor="#36404a"
+                        VerticalOptions="Center"
+                        XAlign="Start" />
+                </ContentView>
+                <StackLayout Padding="10,5,10,5" Spacing="10">
+                    <Label
+                        Margin="5,0,0,0"
+                        FontSize="Small"
+                        HorizontalOptions="FillAndExpand"
+                        Text="First Name"
+                        TextColor="#36404a"
+                        VerticalOptions="Center"
+                        XAlign="Start" />
+                    <Entry
+                        x:Name="billingFirstName"
+                        BackgroundColor="#ebeff2"
+                        FontSize="Small"
+                        HeightRequest="50"
+                        HorizontalOptions="FillAndExpand"
+                        HorizontalTextAlignment="Start"
+                        Placeholder="First Name"
+                        PlaceholderColor="#bfc9d3"
+                        TextColor="#505f6d" />
+                    <Label
+                        Margin="5,0,0,0"
+                        FontSize="Small"
+                        HorizontalOptions="FillAndExpand"
+                        Text="Last Name"
+                        TextColor="#36404a"
+                        VerticalOptions="Center"
+                        XAlign="Start" />
+                    <Entry
+                        x:Name="billingLastName"
+                        BackgroundColor="#ebeff2"
+                        FontSize="Small"
+                        HeightRequest="50"
+                        HorizontalOptions="FillAndExpand"
+                        HorizontalTextAlignment="Start"
+                        Placeholder="Last Name"
+                        PlaceholderColor="#bfc9d3"
+                        TextColor="#505f6d" />
+                    <Label
+                        Margin="5,0,0,0"
+                        FontSize="Small"
+                        HorizontalOptions="FillAndExpand"
+                        Text="Address"
+                        TextColor="#36404a"
+                        VerticalOptions="Center"
+                        XAlign="Start" />
+                    <Entry
+                        x:Name="billingAddressLine"
+                        BackgroundColor="#ebeff2"
+                        FontSize="Small"
+                        HeightRequest="50"
+                        HorizontalOptions="FillAndExpand"
+                        HorizontalTextAlignment="Start"
+                        Placeholder="Street Address, Apt #, Apt Name,"
+                        PlaceholderColor="#bfc9d3"
+                        TextColor="#505f6d" />
+                    <StackLayout Orientation="Horizontal">
+                        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical">
+                            <Label
+                                Margin="5,0,0,0"
+                                FontSize="Small"
+                                HorizontalOptions="FillAndExpand"
+                                Text="City"
+                                TextColor="#36404a"
+                                VerticalOptions="Center"
+                                XAlign="Start" />
+                            <Entry
+                                x:Name="billingCity"
+                                BackgroundColor="#ebeff2"
+                                FontSize="Small"
+                                HeightRequest="50"
+                                HorizontalOptions="FillAndExpand"
+                                HorizontalTextAlignment="Start"
+                                Placeholder="City"
+                                PlaceholderColor="#bfc9d3"
+                                TextColor="#505f6d"
+                                VerticalOptions="FillAndExpand" />
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical">
+                            <Label
+                                Margin="5,0,0,0"
+                                FontSize="Small"
+                                HorizontalOptions="FillAndExpand"
+                                Text="State"
+                                TextColor="#36404a"
+                                VerticalOptions="Center"
+                                XAlign="Start" />
+                            <Picker
+                                x:Name="billingState"
+                                Title="State"
+                                BackgroundColor="#ebeff2"
+                                HorizontalOptions="FillAndExpand" />
+                        </StackLayout>
+                    </StackLayout>
+                    <Label
+                        Margin="5,0,0,0"
+                        FontSize="Small"
+                        HorizontalOptions="FillAndExpand"
+                        Text="Postal / Zip Code"
+                        TextColor="#36404a"
+                        VerticalOptions="Center"
+                        XAlign="Start" />
+                    <Entry
+                        x:Name="billingPostalCode"
+                        BackgroundColor="#ebeff2"
+                        FontSize="Small"
+                        HeightRequest="50"
+                        HorizontalOptions="FillAndExpand"
+                        HorizontalTextAlignment="Start"
+                        Keyboard="Telephone"
+                        Placeholder="Postal / Zip Code"
+                        PlaceholderColor="#bfc9d3"
+                        TextColor="#505f6d" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label
+                        x:Name="AcceptTerms"
+                        Margin="10,0,0,0"
+                        FontSize="Small"
+                        HorizontalOptions="FillAndExpand"
+                        Text="Agree terms and conditions"
+                        TextColor="#36404a"
+                        VerticalOptions="Center"
+                        XAlign="Start" />
+                    <Switch x:Name="agreeTermSwitch" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label
+                        x:Name="AcceptPolicy"
+                        Margin="10,0,0,0"
+                        FontSize="Small"
+                        HorizontalOptions="FillAndExpand"
+                        Text="Agree privacy policy"
+                        TextColor="#36404a"
+                        VerticalOptions="Center"
+                        XAlign="Start" />
+                    <Switch x:Name="agreePrivacySwitch" />
+                </StackLayout>
+                <Button
+                    x:Name="deleteCardButton"
+                    BackgroundColor="#ff3232"
+                    BorderRadius="0"
+                    Clicked="DeleteCard"
+                    FontSize="Small"
+                    HorizontalOptions="FillAndExpand"
+                    Text="Delete Card"
+                    TextColor="White" />
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentView>

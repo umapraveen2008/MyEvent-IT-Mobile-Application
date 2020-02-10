@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MEI.Pages.PeopleDetailsTemplate"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:local="clr-namespace:MEI.Pages;assembly=MEI"  
+             xmlns:controls="clr-namespace:MEI.Controls;assembly=MEI"              VerticalOptions="FillAndExpand" BackgroundColor="White">    
+    <ScrollView>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="190"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackLayout BackgroundColor="#ebeff2" Padding="0,20,0,0" Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <ContentView BackgroundColor="#bfc9d3" Padding="3" HorizontalOptions="CenterAndExpand">
+                    <Grid HeightRequest="120" WidthRequest="120"  Grid.Column="0" Grid.Row="0" x:Name="logoGrid">
+                        <ContentView BackgroundColor="#31c3ee" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0">
+                            <Label x:Name="logoText" Text="" TextColor="White" HorizontalOptions="CenterAndExpand" FontSize="Large" VerticalOptions="CenterAndExpand"></Label>
+                        </ContentView>
+                        <ContentView Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <ffimageloading:CachedImage 
+	WidthRequest="60" HeightRequest="60"
+	DownsampleToViewSize="true"
+	Source = "mei_appicon_g.png" Aspect="Fill" x:Name="peopleImage" >
+                            </ffimageloading:CachedImage>
+                        </ContentView>
+                    </Grid>
+                </ContentView>
+                <Label x:Name="fullNameText" Text="Full Name" XAlign="Center" FontSize="Medium" TextColor="#36404a"/>
+                <Label x:Name="positionText" Text="Position"  FontSize="Small" HorizontalOptions="Center" TextColor="#505f6d"/>
+                <Label x:Name="companyText" Text="Company"  FontSize="Small" HorizontalOptions="Center" TextColor="#505f6d"/>
+            </StackLayout>
+
+            <StackLayout Grid.Row="1" Grid.Column="0" Spacing="0">
+                <ContentView Padding="15,10" BackgroundColor="#ebeff2" >                    
+                </ContentView>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10,10" BackgroundColor="White"  >
+                    <ContentView HorizontalOptions="FillAndExpand" HeightRequest="40"  x:Name="bookmarkButton" Padding="1">
+                        <Image Source="mei_bookmark_active.png" x:Name="bookmarkIcon"/>
+                    </ContentView>
+                    <ContentView  HorizontalOptions="FillAndExpand" HeightRequest="40" BackgroundColor="Transparent" x:Name="AddNotesButton" Padding="1">
+                        <Image Source="mei_addnote_active.png" />
+                    </ContentView>
+                    <ContentView HorizontalOptions="FillAndExpand" HeightRequest="40"  x:Name="VisitWebsite" Padding="1">
+                        <Image Source="mei_weblinkicon_active.png" />
+                    </ContentView>
+                    <ContentView HorizontalOptions="FillAndExpand" HeightRequest="40" x:Name="vCardButton" Padding="1">
+                        <Image Source="mei_vcarddownloadicon_active.png" />
+                    </ContentView>
+
+                </StackLayout>
+                <ContentView Padding="15,10" BackgroundColor="#ebeff2" >
+                    <Label Text="Social" TextColor="#36404a"  FontSize="Medium"/>
+                </ContentView>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10,10" BackgroundColor="White"  >
+                    <ContentView HorizontalOptions="FillAndExpand" HeightRequest="40" BackgroundColor="Transparent" x:Name="twitterButton" Padding="1">
+                        <Image Source="mei_twittericon_active.png"  />
+                    </ContentView>
+                    <ContentView HorizontalOptions="FillAndExpand" HeightRequest="40" BackgroundColor="Transparent" x:Name="facebookButton" Padding="1">
+                        <Image Source="mei_fbicon_active.png" />
+                    </ContentView>
+
+                    <ContentView HorizontalOptions="FillAndExpand" HeightRequest="40" BackgroundColor="Transparent" x:Name="gmailButton" Padding="1">
+                        <Image Source="mei_gplusicon_active.png" />
+                    </ContentView>
+                    <ContentView  HorizontalOptions="FillAndExpand" HeightRequest="40" BackgroundColor="Transparent" x:Name="linkedInButton" Padding="1">
+                        <Image Source="mei_linkedinicon_active.png" />
+                    </ContentView>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Grid.Row="2" Grid.Column="0" Spacing="0" BackgroundColor="White" VerticalOptions="FillAndExpand">
+                <ContentView Padding="5" BackgroundColor="#ebeff2" >
+                    <Label Text="User Bio" TextColor="#36404a"  FontSize="Medium"/>
+                </ContentView>
+                <ContentView Padding="10" VerticalOptions="FillAndExpand" x:Name="bioView" >
+                    <Label x:Name="bioDescriptionText" VerticalOptions="FillAndExpand"  FontSize="Small" Text="User Bio" TextColor="#505f6d"/>
+                </ContentView>
+                <ContentView BackgroundColor="White" x:Name="emptyList" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="5">
+                    <StackLayout VerticalOptions="CenterAndExpand">
+                        <Image Source="mei_nobioicon_g.png" HeightRequest="50" WidthRequest="50"></Image>
+                        <Label x:Name="emptyText" Text="Bio Unavailable!" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Medium"  TextColor="#bfc9d3"/>
+                    </StackLayout>
+                </ContentView>
+            </StackLayout>
+        </Grid>
+    </ScrollView>
+</ContentView> 

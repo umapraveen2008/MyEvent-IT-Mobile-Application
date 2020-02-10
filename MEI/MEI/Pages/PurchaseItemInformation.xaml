@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             mc:Ignorable="d"
+             x:Class="MEI.Pages.PurchaseItemInformation" BackgroundColor="White" Padding="10">
+    <ContentView.Content>
+        <Frame BackgroundColor="#ebeff2">
+            <StackLayout>
+                <ContentView BackgroundColor="#bfc9d3" Padding="3" HorizontalOptions="CenterAndExpand">
+                    <Grid HeightRequest="120" WidthRequest="120"  Grid.Column="0" Grid.Row="0" x:Name="logoGrid">
+                        <ContentView BackgroundColor="#31c3ee" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0">
+                            <Label x:Name="logoText" Text="" TextColor="White" HorizontalOptions="CenterAndExpand" FontSize="Large" VerticalOptions="CenterAndExpand"></Label>
+                        </ContentView>
+                        <ContentView Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Image	WidthRequest="60" HeightRequest="60"
+	Source = "mei_appicon_g.png" Aspect="Fill" x:Name="productImage" >
+                            </Image>
+                        </ContentView>
+                    </Grid>
+                </ContentView>
+                <StackLayout Padding="10,2">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+                        <ContentView  Padding="10,5,5,5" HorizontalOptions="FillAndExpand">
+                            <Label x:Name="ItemName" Text="Product Name" TextColor="#505f6d"  FontSize="Medium"/>
+                        </ContentView>
+                    </StackLayout>
+                    <ContentView Padding="10,5,5,5">
+                        <Label x:Name="ItemQuantity" Text="Quantity : 1" TextColor="#505f6d"  FontSize="Medium"/>
+                    </ContentView>
+                    <ContentView Padding="10,5,5,5">
+                        <Label x:Name="ItemPrice" Text="Price : 1" TextColor="#505f6d"  FontSize="Medium"/>
+                    </ContentView>
+                    <ContentView Padding="10,5,5,5">
+                        <Label x:Name="ItemTotalPrice" Text="Total Price : 1" TextColor="#505f6d"  FontSize="Medium"/>
+                    </ContentView>
+                    <ContentView Padding="10,5,5,5" HeightRequest="30">
+                        <Label x:Name="ItemCategory" Text="Item Type" TextColor="#505f6d"  FontSize="Medium" VerticalOptions="Center"/>
+                    </ContentView>
+                    <StackLayout Spacing="0" BackgroundColor="White" VerticalOptions="FillAndExpand">
+                        <ContentView BackgroundColor="#ebeff2" Padding="10,5,5,5">
+                            <Label Text="Shipping and Refund Information" TextColor="#36404a"  FontSize="Medium"/>
+                        </ContentView>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10,5,5,5">
+                            <Label FontSize="Small" Text="Shipping Type : " TextColor="#505f6d" WidthRequest="110"/>
+                            <Label x:Name="purchaseShippingType"  FontSize="Small" Text="12345656846" TextColor="#505f6d" HorizontalOptions="FillAndExpand"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10,5,5,5">
+                            <Label FontSize="Small" Text="Refund Type : " TextColor="#505f6d" WidthRequest="110"/>
+                            <Label x:Name="purchaseRefund"  FontSize="Small" Text="Not Available" TextColor="#505f6d" HorizontalOptions="FillAndExpand"/>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+    </ContentView.Content>
+</ContentView>

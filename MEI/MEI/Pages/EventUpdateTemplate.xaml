@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"-->
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MEI.Pages.EventUpdateTemplateView"   
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:controls="clr-namespace:MEI.Controls;assembly=MEI">
+    <StackLayout BackgroundColor="White" Orientation="Vertical" Padding="10" Margin="0,10,0,10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <StackLayout Orientation="Horizontal" HeightRequest="50" Padding="5" HorizontalOptions="FillAndExpand" x:Name="headerbar">
+            <ContentView BackgroundColor="#bfc9d3" Padding="0.2">
+                <Grid WidthRequest="50" Padding="2" x:Name="logoGrid">
+                    <ContentView BackgroundColor="#31c3ee" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0">
+                        <Label x:Name="logoText" Text="" TextColor="White" HorizontalOptions="CenterAndExpand" FontSize="Large" VerticalOptions="CenterAndExpand"></Label>
+                    </ContentView>
+                    <ContentView Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <ffimageloading:CachedImage HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"			
+			DownsampleToViewSize="true"
+			Source = "mei_appicon_g.png" Aspect="Fill" x:Name="domainLogo" >
+                        </ffimageloading:CachedImage>
+                        <!--<Image x:Name="domainLogo" Source="mei_appicon_g.png" Aspect="Fill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"></Image>-->
+                    </ContentView>
+                </Grid>
+            </ContentView>
+            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Spacing="0">
+                <Label  FontSize="Small" Text="" x:Name="postHeader" VerticalOptions="CenterAndExpand" TextColor="#36404A"/>
+                <Label  FontSize="Micro" Text="" x:Name="postInfo" VerticalOptions="CenterAndExpand" TextColor="#505F6D"/>
+            </StackLayout>
+        </StackLayout>
+        <ContentView Padding="1" HorizontalOptions="FillAndExpand">
+            <Label  FontSize="Small" Text="Sample Text" x:Name="eventPost" TextColor="#36404a" />
+        </ContentView>
+        <StackLayout IsVisible="False" Padding="1" x:Name="postList">
+        </StackLayout>        
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsVisible="False" Padding="1" HeightRequest="200" x:Name="postImageLayout">
+            <ContentView BackgroundColor="White" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="0" Grid.Column="0">
+                <ActivityIndicator x:Name="loading" IsRunning="True" Color="#31c3ee" HeightRequest="50" WidthRequest="50" ></ActivityIndicator>
+            </ContentView>
+            <ContentView Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Image x:Name ="postImage" HorizontalOptions="FillAndExpand" VerticalOptions="Center"  Source="" Aspect="AspectFill"></Image>
+            </ContentView>
+        </Grid>        
+        <StackLayout Padding="1" HorizontalOptions="FillAndExpand" Orientation="Horizontal" HeightRequest="20" VerticalOptions="End" >
+            <Image x:Name="likeImage" Source="mei_likeicon_r.png"></Image>
+            <Label VerticalOptions="Center"  FontSize="Small" Text="" x:Name="likeCount" TextColor="#BFC9D3"/>
+            <ContentView HorizontalOptions="FillAndExpand"></ContentView>
+            <Label  FontSize="Small" VerticalOptions="Center" Text="" x:Name="postTime" TextColor="#bfc9d3" XAlign="End" HorizontalOptions="End"/>
+        </StackLayout>
+    </StackLayout>
+</ContentView>

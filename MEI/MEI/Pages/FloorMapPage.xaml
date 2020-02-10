@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MEI.Pages.FloorMapPage"
+             xmlns:local="clr-namespace:MEI.Controls;assembly=MEI" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="White">
+    <StackLayout Spacing="0">
+        <ContentView BackgroundColor="White" x:Name="emptyList" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="5">
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <Image Source="mei_nofloormapicon_g.png"  WidthRequest="100" HeightRequest="100"></Image>
+                <Label x:Name="emptyText" Text="No floormaps for this event!" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Small"  TextColor="#bfc9d3"/>
+            </StackLayout>
+        </ContentView>
+        <Grid VerticalOptions="FillAndExpand" RowSpacing="0" x:Name="floorMaps" IsVisible="False">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="2" Grid.Column="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <ContentView Grid.Row="0" Grid.Column="0" >
+                    <ActivityIndicator x:Name="loading" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="30" WidthRequest="30" Color="#31c3ee" IsRunning="True"></ActivityIndicator>
+                </ContentView>
+                <local:PinchZoomContainer x:Name="zoomContainer" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0">
+                    <local:PinchZoomContainer.Content>
+                        <Image x:Name="mapImage" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Source="" Aspect="AspectFit">
+                        </Image>
+                    </local:PinchZoomContainer.Content>
+                </local:PinchZoomContainer>
+            </Grid>
+            <ContentView BackgroundColor="#ebeff2"  Grid.Row="1" Grid.Column="0"  HorizontalOptions="FillAndExpand">
+                <Label x:Name="mapHeading"  TextColor="#36404a" XAlign="Center"  Text="Floor map Name" FontSize="Medium"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+            </ContentView>
+            <ScrollView Grid.Row="0" Grid.Column="0" Padding="10,10,10,10"  BackgroundColor="White" Orientation="Horizontal" x:Name="floorMapScroll">
+
+                <StackLayout Orientation="Horizontal" x:Name="floorList">
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </StackLayout>
+</ContentView>

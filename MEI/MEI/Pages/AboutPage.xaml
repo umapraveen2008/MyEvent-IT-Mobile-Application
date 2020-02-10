@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ScrollView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MEI.Pages.AboutPage"
+             xmlns:pages="clr-namespace:MEI.Pages;assembly=MEI"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+      HorizontalOptions="FillAndExpand" Padding="0,0,0,0" VerticalOptions="FillAndExpand"
+     BackgroundColor="White">
+        <StackLayout Spacing="0" VerticalOptions="FillAndExpand">            
+            <StackLayout Padding="0,10,0,0" BackgroundColor="#ebeff2">
+                <StackLayout HorizontalOptions="Center"  >
+                    <ContentView BackgroundColor="#bfc9d3" Padding="3" HorizontalOptions="CenterAndExpand">
+                        <Grid HeightRequest="120" WidthRequest="120"  Grid.Column="0" Grid.Row="0" x:Name="logoGrid">
+                            <ContentView BackgroundColor="#31c3ee" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0">
+                                <Label x:Name="logoText" Text="" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="Large"></Label>
+                            </ContentView>
+                            <ContentView Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <ffimageloading:CachedImage 
+	WidthRequest="60" HeightRequest="60"
+	DownsampleToViewSize="true"
+	Source = "mei_appicon_g.png" Aspect="Fill" x:Name="aboutEventLogo" >
+                                </ffimageloading:CachedImage>
+                            </ContentView>
+                        </Grid>
+                    </ContentView>
+                    <Label x:Name="eventName" TextColor="#36404a" XAlign="Center" Text="Event Name" FontSize="Medium" HorizontalOptions="Center"/>
+                    <Label x:Name="eventDays" Text="May 01 - 07, 2016" XAlign="Center" FontSize="Small" TextColor="#505f6d"/>
+                    <Label x:Name="eventVenueName" TextColor="#505f6d" Text="Convention Center Name" FontSize="Small" HorizontalOptions="Center"/>
+                    <Label x:Name="eventCityState" TextColor="#505f6d" Text="City, State" FontSize="Small" HorizontalOptions="Center"/>                    
+                </StackLayout>                
+                <pages:RSVPTemplate HeightRequest="220" x:Name="rsvpTemplate"></pages:RSVPTemplate>
+                
+                    <ContentView Padding="10" HeightRequest="40" BackgroundColor="#ebeff2" >
+                        <Label Text="About Event" TextColor="#36404a" XAlign="Start" FontSize="Medium" VerticalOptions="CenterAndExpand"/>
+                    </ContentView>
+                    <StackLayout  Padding="10" VerticalOptions="FillAndExpand">
+                        <Label x:Name="eventDescription" XAlign="Start" FontSize="Small" Text="Event Description" VerticalOptions="FillAndExpand" TextColor="#505f6d"/>
+                        <ContentView BackgroundColor="White" x:Name="emptyList" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="5">
+                            <StackLayout VerticalOptions="CenterAndExpand">
+                                <Image Source="mei_nobioicon_g.png" WidthRequest="50" HeightRequest="50"></Image>
+                                <Label x:Name="emptyText" Text="Event Description Unavailable!" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Medium"  TextColor="#bfc9d3"/>
+                            </StackLayout>
+                        </ContentView>
+                    </StackLayout>
+                <Button IsVisible="False" TextColor="White" BorderRadius="5" x:Name="cancelSubscription" Clicked="CancelSubscriptionFunction" Text="Cance Subscription" HorizontalOptions="FillAndExpand" FontSize="Medium" BackgroundColor="#ff3232"></Button>
+            </StackLayout>
+        </StackLayout>    
+</ScrollView>

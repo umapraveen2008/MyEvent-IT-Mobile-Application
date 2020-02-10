@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MEI.Pages.Education"
+            VerticalOptions="FillAndExpand"  BackgroundColor="White">
+    <ContentView.Content>
+        <StackLayout Orientation="Vertical">
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="30"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="next" Grid.Column="0" Grid.Row="0" Clicked="PreviousEducation" VerticalOptions="CenterAndExpand" ImageSource="mei_backicon_w.png" BackgroundColor="#31c3ee"></Button>
+                <ContentView Grid.Column="1" BackgroundColor="#bfc9d3" Grid.Row="0" Padding="5">
+                <Image x:Name="educationImage" Aspect="AspectFit" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Image></ContentView>
+                <Button x:Name="previous" Grid.Column="2" Grid.Row="0" Clicked="NextEducation" VerticalOptions="CenterAndExpand" RotationY="180" ImageSource="mei_backicon_w.png" BackgroundColor="#31c3ee"></Button>
+            </Grid>
+            <Label HeightRequest="50" x:Name="info" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="Large" />
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

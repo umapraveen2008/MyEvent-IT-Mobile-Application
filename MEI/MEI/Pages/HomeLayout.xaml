@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             x:Class="MEI.HomeLayout"
+             xmlns:local="clr-namespace:MEI.Pages;assembly=MEI" BackgroundColor="White">
+    <MasterDetailPage.Detail>
+        <ContentPage BackgroundColor="#ebeff2">
+            <RelativeLayout>
+                <RelativeLayout VerticalOptions="FillAndExpand" x:Name="mainPage" HorizontalOptions="FillAndExpand">
+                    <Grid x:Name="PrimaryScreen" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" RowSpacing="0"  RelativeLayout.WidthConstraint=
+         "{ConstraintExpression Type=RelativeToParent,
+                                Property=Width,
+                                Factor=1}"
+     RelativeLayout.HeightConstraint=
+         "{ConstraintExpression Type=RelativeToParent,
+                                Property=Height,
+                                Factor=1}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <StackLayout Grid.Row="1" Grid.Column="0" x:Name="ParentLayout" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0">
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" x:Name="parentNoScrollLayout" Grid.Row="1" Grid.Column="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"></StackLayout>
+                        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical" HeightRequest="150" Grid.Row="0" Grid.Column="0" Spacing="0">
+                            <Grid x:Name="iosBar" HorizontalOptions="FillAndExpand" HeightRequest="50"  BackgroundColor="#31c3ee" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="6.5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <ContentView Grid.Row="0" Grid.Column="0"  Padding="5,0,0,0" x:Name="settingsButton" >
+                                    <Image Source="mei_menuicon1_w.png" HeightRequest="35" WidthRequest="35"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                                </ContentView>
+                                <StackLayout Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                                    <ContentView x:Name="homeButton" >
+                                        <Image Source="mei_menuicon4_w.png" HeightRequest="30" WidthRequest="30"  VerticalOptions="Center" HorizontalOptions="Center"/>
+                                    </ContentView>
+                                    <ContentView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                        <Label TextColor="White"  VerticalOptions="Center" HorizontalOptions="CenterAndExpand" LineBreakMode="TailTruncation" Text="About Event" x:Name="screenName"  FontSize="Medium" />
+                                    </ContentView>
+                                </StackLayout>
+                                <ContentView  Grid.Column="2" Grid.Row="0" Padding="5" x:Name="cartButton">
+                                    <ContentView.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="CreateCartPage"/>
+                                    </ContentView.GestureRecognizers>
+                                    <Grid>
+                                        <Image Source="mei_carticon_w.png"/>
+                                        <Label x:Name="cartItemCount" Text="0" TextColor="White" FontSize="Medium" HorizontalTextAlignment="End" FontAttributes="Bold" Margin="0,-3,0,0"/>
+                                    </Grid>
+                                </ContentView>
+                                <ContentView  Grid.Column="3" Grid.Row="0" Padding="5" x:Name="feedbackButton">
+                                    <Image Source="mei_eventfeedback_w.png"/>
+                                </ContentView>
+                            </Grid>
+                        </StackLayout>
+                    </Grid>
+                    <Grid d:IsVisible="False" x:Name="domainsListPage" IsVisible="True" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" RowSpacing="0"  RelativeLayout.WidthConstraint=
+         "{ConstraintExpression Type=RelativeToParent,
+                                Property=Width,
+                                Factor=1}"
+     RelativeLayout.HeightConstraint=
+         "{ConstraintExpression Type=RelativeToParent,
+                                Property=Height,
+                                Factor=1}" BackgroundColor="White">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="50"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <StackLayout Orientation="Vertical"  Spacing="0" Grid.Row="0" Grid.Column="0" HeightRequest="50">
+
+                            <Grid HorizontalOptions="FillAndExpand"  HeightRequest="50"  BackgroundColor="#31c3ee">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="7*"></ColumnDefinition>
+                                    <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <ContentView Grid.Row="0" Grid.Column="0"  Padding="10" x:Name="backToScreenButton" >
+                                    <Image Source="mei_menuicon1_w.png" />
+                                </ContentView>
+                                <ContentView HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="1" VerticalOptions="FillAndExpand">
+                                    <Label TextColor="White" Text="My Domains"  FontSize="Medium" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </ContentView>
+                                <ContentView Grid.Row="0" Grid.Column="2" Padding="10" x:Name="resyncDomains">
+                                    <Image Source="mei_refreshicon_w.png" />
+                                </ContentView>
+                            </Grid>
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="1" Grid.Column="0" HorizontalOptions="FillAndExpand">
+                            <ContentView BackgroundColor="White" x:Name="emptyList" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="5">
+                                <StackLayout VerticalOptions="CenterAndExpand">
+                                    <Image Source="mei_adddomainemptyicon_g.png" HeightRequest="100" WidthRequest="100"></Image>
+                                    <Label x:Name="emptyText" Text="You haven't registered for any domains yet!" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Medium"  TextColor="#bfc9d3"/>
+                                </StackLayout>
+                            </ContentView>
+
+                            <ListView IsVisible="False" CachingStrategy="RecycleElement" IsPullToRefreshEnabled="True"  SeparatorVisibility="Default" SeparatorColor="#bfc9d3" x:Name="registeredDomainList" BackgroundColor="White" >
+                            </ListView>
+                            <!--<StackLayout>
+                            <local:MenuSideItem x:Name="eventSpeakersSideItemSample" ItemIcon="mei_speakericon_w.png" ItemID="2" SelectedColor="#039dfd"></local:MenuSideItem>
+                            </StackLayout>-->
+                        </StackLayout>
+
+                        <ContentView Grid.Row="2" Grid.Column="0" BackgroundColor="White" Padding="50,0,50,10">
+                            <Button HorizontalOptions="FillAndExpand" BackgroundColor="#31c3ee" TextColor="White" Text="ADD DOMAINS" BorderRadius="20" Clicked="SearchDomains" ></Button>
+                        </ContentView>
+                    </Grid>
+
+                </RelativeLayout>
+                <ContentView  BackgroundColor="#31c3ee" x:Name="indicator" RelativeLayout.WidthConstraint=
+         "{ConstraintExpression Type=RelativeToParent,
+                                Property=Width,
+                                Factor=0.06}"
+     RelativeLayout.HeightConstraint=
+         "{ConstraintExpression Type=RelativeToParent,
+                                Property=Height,
+                                Factor=0.1}" RelativeLayout.YConstraint=
+                 "{ConstraintExpression Type=Constant, 
+                                        Constant=200}" >
+                    <Image Source="mei_backicon_w.png" WidthRequest="5" HeightRequest="5"></Image>
+                </ContentView>
+                <ContentView x:Name="isLoadingView" BackgroundColor="#31c3ee" IsVisible="False"  RelativeLayout.WidthConstraint= "{ConstraintExpression Type=RelativeToParent,
+                                Property=Width,
+                                Factor=1}"
+     RelativeLayout.HeightConstraint=
+         "{ConstraintExpression Type=RelativeToParent,
+                                Property=Height,
+                                Factor=1}">
+                    <StackLayout MinimumWidthRequest="300"  HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Margin="10,0">
+                        <ActivityIndicator x:Name="activityIndicator" Color="White" IsRunning="True"></ActivityIndicator>
+                        <Label XAlign="Center"  TextColor="White" HorizontalOptions="CenterAndExpand"  FontSize="Small" x:Name="loadingText" Text="Loading..."></Label>
+                        <ProgressBar x:Name="progressBar" ></ProgressBar>
+                    </StackLayout>
+                </ContentView>
+            </RelativeLayout>
+        </ContentPage>
+    </MasterDetailPage.Detail>
+    <MasterDetailPage.Master>
+        <ContentPage Title="Event Updates"  x:Name="masterContent" BackgroundColor="White">
+            <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" RowSpacing="1" Padding="0,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="170"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                </Grid.RowDefinitions>
+                <ContentView Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" Padding="0,15,0,5" BackgroundColor="#31c3ee">
+                    <local:MenuBottom VerticalOptions="FillAndExpand" x:Name="sideMenuBottom"></local:MenuBottom>
+                </ContentView>
+                <StackLayout Grid.Row="1" Grid.Column="0" BackgroundColor="White" Spacing="0"  Orientation="Horizontal" VerticalOptions="FillAndExpand">
+                    <ContentView BackgroundColor="White" x:Name="emptyEventList" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="5">
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                            <Image Source="mei_nosessionsicon_g.png" HeightRequest="100" WidthRequest="100"></Image>
+                            <Label Text="No events!" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Small"  TextColor="#bfc9d3"/>
+                        </StackLayout>
+                    </ContentView>
+                    <ScrollView Orientation="Vertical" x:Name="eventListParent" HorizontalOptions="FillAndExpand" BackgroundColor="White">
+                        <StackLayout  x:Name="eventList" Spacing="1" Orientation="Vertical" BackgroundColor="White">
+                        </StackLayout>
+                    </ScrollView>
+                    <ScrollView BackgroundColor="#ebeff2" IsVisible="False" Orientation="Vertical" x:Name="sideEventMenuSection" HorizontalOptions="End" WidthRequest="55" VerticalOptions="FillAndExpand">
+                        <StackLayout x:Name="sideMenuSection" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <local:MenuSideItem x:Name="aboutEventSideItem" ItemIcon="mei_infoicon_w.png" ItemID="0" SelectedColor="#f7c614" ></local:MenuSideItem>
+                            <local:MenuSideItem x:Name="eventPostsSideitem" ItemIcon="mei_timelineicon_w.png" ItemID="1" SelectedColor="#ff5b32"></local:MenuSideItem>
+                            <local:MenuSideItem x:Name="eventSpeakersSideItem" ItemIcon="mei_speakericon_w.png" ItemID="2" SelectedColor="#039dfd"></local:MenuSideItem>
+                            <local:MenuSideItem x:Name="eventPeopleSideItem" ItemIcon="mei_attendeeicon_w.png" ItemID="3" SelectedColor="#eb346d"></local:MenuSideItem>
+                            <local:MenuSideItem x:Name="eventSessionSideItem" ItemIcon="mei_dateicon_w.png" ItemID="4" SelectedColor="#bc1eca"></local:MenuSideItem>
+                            <local:MenuSideItem x:Name="eventExhibitorsSideItem" ItemIcon="mei_exhibitoricon_w.png" ItemID="5" SelectedColor="#2bc33d"></local:MenuSideItem>
+                            <local:MenuSideItem x:Name="eventSponsorsSideItem" ItemIcon="mei_sponsoricon_w.png" ItemID="6" SelectedColor="#f59000"></local:MenuSideItem>
+                            <local:MenuSideItem x:Name="eventCatalogSideItem" ItemIcon="mei_shoppingbagicon_w.png" ItemID="7" SelectedColor="#3899fa"></local:MenuSideItem>
+                            <local:MenuSideItem x:Name="eventFLoorMapSideItem" ItemIcon="mei_flooricon_w.png" ItemID="8" SelectedColor="#a045fa"></local:MenuSideItem>
+                            <local:MenuSideItem x:Name="eventVenueMapSideItem" ItemIcon="mei_venueicon_w.png" ItemID="9" SelectedColor="#67d55a"></local:MenuSideItem>
+                            <local:MenuSideItem x:Name="eventFAQSideItem" ItemIcon="mei_faqicon_w.png" ItemID="10" SelectedColor="#FF3947"></local:MenuSideItem>
+                        </StackLayout>
+                    </ScrollView>
+                </StackLayout>
+                <ContentView Grid.Row="2" Grid.Column="0" x:Name="aboutDomainSideButton" IsVisible="False" BackgroundColor="#31c3ee" HeightRequest="50" >
+                    <StackLayout Orientation="Horizontal" Spacing="20" Margin="10,0,10,0">
+                        <Image WidthRequest="25" VerticalOptions="Center" HeightRequest="25" Source="mei_aboutdomainicon_w.png"></Image>
+                        <Label HorizontalOptions="FillAndExpand" x:Name="aboutDomainLabel" FontSize="Small" Text="About" TextColor="White" VerticalOptions="Center"></Label>
+                        <Image WidthRequest="25" VerticalOptions="Center" HeightRequest="25" Source="mei_attendeeicon_w.png" x:Name="domainUserDirectory"></Image>
+                    </StackLayout>
+                </ContentView>
+            </Grid>
+        </ContentPage>
+    </MasterDetailPage.Master>
+</MasterDetailPage>

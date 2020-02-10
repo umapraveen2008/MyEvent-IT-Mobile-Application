@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MEI.Pages.RSVPTemplate"
+             BackgroundColor="White" Padding="10"
+             xmlns:controls="clr-namespace:MEI.Controls;assembly=MEI">
+  
+  <StackLayout>
+    <ContentView BackgroundColor="#31c3ee" HorizontalOptions="Start" Padding="5">
+      <Label x:Name="rsvpHeader"  FontSize="Medium" Text="RSVP here" TextColor="White"/>
+    </ContentView>
+        <Label x:Name="adminPost"  FontSize="Small" Text="Admin Post" TextColor="#505f6d"/>
+    <Grid HeightRequest="40" x:Name="buttonGrid">
+      <Button Clicked="Yes"  FontSize="Small" Grid.Row="0" Grid.Column="0" BackgroundColor="White" BorderColor="#00a651" x:Name="yesButton" BorderWidth="1" BorderRadius="20" Text="YES" TextColor="#00a651"/>
+      <Button Clicked="MayBe"  FontSize="Small" Grid.Row="0" Grid.Column="1" BackgroundColor="White" BorderColor="#ffac4e" x:Name="maybeButton" BorderWidth="1" BorderRadius="20" Text="MAYBE" TextColor="#ffac4e"/>
+      <Button Clicked="No"  FontSize="Small" Grid.Row="0" Grid.Column="2" BackgroundColor="White" BorderColor="#ef4300" x:Name="noButton" BorderWidth="1" BorderRadius="20" Text="NO" TextColor="#ef4300" />
+    </Grid>
+   <Button Clicked="AddToCalender"  FontSize="Medium" BackgroundColor="#31c3ee" x:Name="AddtoCalender" BorderRadius="20" Text="Add event to calendar" TextColor="White" Margin="0,50,0,0"/>
+    </StackLayout>
+  </ContentView>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              x:Class="MEI.Pages.PeopleTemplateView"           
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:local="clr-namespace:MEI.Controls;assembly=MEI">    
+    <Grid Padding="10,5,10,5"  HeightRequest="70" BackgroundColor="White">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="70"/>
+        <ColumnDefinition Width="*"/>
+        <!--<ColumnDefinition Width="1.5*"/>-->
+      </Grid.ColumnDefinitions>
+        
+        <Grid BackgroundColor="#bfc9d3" Padding="2" HorizontalOptions="FillAndExpand" Grid.Column="0" Grid.Row="0" x:Name="logoGrid">
+            <ContentView BackgroundColor="#31c3ee" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0">
+                <Label x:Name="logoText" Text="" TextColor="White" HorizontalOptions="CenterAndExpand" FontSize="Large" VerticalOptions="CenterAndExpand"></Label>
+            </ContentView>
+            <ContentView Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Image HorizontalOptions="Center" VerticalOptions="Center"
+			WidthRequest="300" HeightRequest="300"
+			Source = "mei_appicon_g.png" Aspect="Fill" x:Name="peopleImage" >
+                </Image>
+            </ContentView>
+        </Grid>
+      <StackLayout Grid.Row="0" Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Spacing="0">
+            <Label x:Name="fullName" Text="-" TextColor="#36404a" FontSize="Small" />
+            <Label x:Name="position" Text="-" TextColor="#505f6d" FontSize="Micro" />
+            <Label x:Name="company" Text="-" TextColor="#505f6d" FontSize="Micro" />
+      </StackLayout>
+      <!--<StackLayout Grid.Row="0" Grid.Column="2" Padding="8" x:Name="bookmarkPersonButton" VerticalOptions="Center">
+        <Image IsOpaque="True" Source="addicon.png" x:Name="bookmarkIcon" HeightRequest="25" WidthRequest="25"/>
+      </StackLayout>-->
+    </Grid>
+  
+</ContentView>

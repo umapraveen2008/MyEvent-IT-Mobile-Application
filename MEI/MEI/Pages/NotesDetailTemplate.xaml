@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MEI.Pages.NotesDetailTemplate"
+             xmlns:controls="clr-namespace:MEI.Controls;assembly=MEI"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="White">
+  
+  <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+    <StackLayout Padding="10,5,10,5"  HeightRequest="70" BackgroundColor="#31c3ee" x:Name="tagObject" Orientation="Horizontal">
+            <Grid HeightRequest="70" WidthRequest="70"  x:Name="logoGrid">
+                <ContentView BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0">
+                    <Label x:Name="logoText" Text="" TextColor="#31c3ee" HorizontalOptions="FillAndExpand" FontSize="Large" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" VerticalOptions="FillAndExpand"></Label>
+                </ContentView>
+                <ContentView Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <ffimageloading:CachedImage 
+	WidthRequest="60" HeightRequest="60"
+	DownsampleToViewSize="true"
+	Source = "mei_appicon_g.png" Aspect="Fill" x:Name="tagImage" >
+                    </ffimageloading:CachedImage>
+                </ContentView>
+            </Grid>
+
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center" Spacing="0">
+        <Label x:Name="tagDescription" Text="Tagged " TextColor="White" FontSize="Small" />
+        <Label x:Name="tagName" Text="" TextColor="White" FontSize="Medium" />       
+      </StackLayout>
+    </StackLayout>
+        <Editor BackgroundColor="#ebeff2" x:Name="noteEditor" VerticalOptions="FillAndExpand" TextColor="#36404a" />
+  </StackLayout>
+</ContentView>

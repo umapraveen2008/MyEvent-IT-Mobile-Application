@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             mc:Ignorable="d"
+             x:Class="MEI.Pages.CartItemTemplateView">
+  <ContentView.Content>
+        <StackLayout Padding="10,5,10,5" Orientation="Horizontal" HeightRequest="70" VerticalOptions="FillAndExpand" Spacing="0">
+            <Grid BackgroundColor="#bfc9d3" Padding="2" WidthRequest="70" x:Name="logoGrid" MinimumWidthRequest="70">
+                <ContentView BackgroundColor="#31c3ee" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0">
+                    <Label x:Name="logoText" Text="" TextColor="White" HorizontalOptions="CenterAndExpand" FontSize="Large" VerticalOptions="CenterAndExpand"></Label>
+                </ContentView>
+                <ContentView Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Image HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"						
+			Source = "mei_appicon_g.png" Aspect="Fill" x:Name="itemImage" >
+                    </Image>
+                </ContentView>
+            </Grid>
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="6*"></ColumnDefinition>
+                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <ContentView Grid.Row="0" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="10,0,5,0">
+                    <Label  x:Name="itemName" Text="Item Name" LineBreakMode="WordWrap" TextColor="#36404a" FontSize="Small" VerticalOptions="CenterAndExpand"/>
+                </ContentView>
+                <StackLayout Orientation="Vertical" Grid.Row="0" Grid.Column="1" WidthRequest="50" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <Label HorizontalTextAlignment="Center"  VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" x:Name="quantityIncreaseButton" Padding="2" TextColor="White" HorizontalOptions="FillAndExpand" BackgroundColor="#31c3ee" Text="+">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="IncreaseQuantity" NumberOfTapsRequired="1"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label HorizontalOptions="Center"  x:Name="itemQuantity" VerticalTextAlignment="Center" Text="1" TextColor="#36404a" FontSize="Small" />
+                    <Label HorizontalTextAlignment="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" x:Name="quantityDecreaseButton" Padding="2" TextColor="White" HorizontalOptions="FillAndExpand" BackgroundColor="#31c3ee" Text="-">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="DecreaseQuantity" NumberOfTapsRequired="1"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <ContentView Grid.Row="0" Grid.Column="2" WidthRequest="50" VerticalOptions="Center" HorizontalOptions="FillAndExpand">                    
+                    <Label  x:Name="itemPrice" Text="$25.00" TextColor="#36404a" FontSize="Small" />
+                </ContentView>
+            </Grid>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

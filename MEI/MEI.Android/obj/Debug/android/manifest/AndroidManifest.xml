@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.cgsgroup.myeventit" android:installLocation="auto" android:versionName="1.17" xmlns:tools="http://schemas.android.com/tools" android:versionCode="17">
+  <uses-sdk android:minSdkVersion="28" android:targetSdkVersion="28" android:allowBackup="false" />
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+  <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+  <uses-permission android:name="android.permission.CAMERA" />
+  <uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL" />
+  <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+  <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+  <uses-permission android:name="android.permission.READ_CONTACTS" />
+  <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+  <uses-permission android:name="android.permission.WAKE_LOCK" />
+  <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+  <uses-permission android:name="android.permission.READ_CALENDAR" />
+  <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+  <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+  <uses-permission android:name="com.sec.android.provider.badge.permission.READ" />
+  <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE" />
+  <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS" />
+  <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT" />
+  <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE" />
+  <uses-permission android:name="com.sonymobile.home.permission.PROVIDER_INSERT_BADGE" />
+  <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT" />
+  <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE" />
+  <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE" />
+  <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS" />
+  <uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS" />
+  <uses-permission android:name="android.permission.READ_APP_BADGE" />
+  <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS" />
+  <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS" />
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <permission android:name="com.cgsgroup.myeventit.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+  <uses-feature android:name="android.hardware.camera" android:required="false" />
+  <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+  <application android:label="MyEvent it" android:icon="@drawable/mei_appicon_g" android:usesCleartextTraffic="true" android:name="android.app.Application" android:allowBackup="true" android:debuggable="true">
+    <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyAtmGqf6gzZAgHo7kjziBL9O1XelBy4DqI" />
+    <uses-library android:name="org.apache.http.legacy" android:required="false" />
+    <receiver android:name="com.google.android.gms.gcm.GcmReceiver" android:exported="true" android:permission="com.google.android.c2dm.permission.SEND">
+      <intent-filter>
+        <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+        <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+        <category android:name="com.cgsgroup.myeventit" />
+      </intent-filter>
+    </receiver>
+    <activity android:configChanges="orientation|screenSize" android:launchMode="singleTop" android:screenOrientation="portrait" android:theme="@style/noactionBar" android:windowSoftInputMode="stateUnspecified|adjustPan" android:name="crc647879a520828330d1.MainActivity" />
+    <activity android:launchMode="singleTop" android:noHistory="true" android:screenOrientation="portrait" android:theme="@style/MyTheme.Splash" android:name="crc647879a520828330d1.SplashScreen">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+    <service android:name="crc6494e14b9856016c30.PNFirebaseIIDService">
+      <intent-filter>
+        <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+      </intent-filter>
+    </service>
+    <service android:name="crc6494e14b9856016c30.PNFirebaseMessagingService">
+      <intent-filter>
+        <action android:name="com.google.firebase.MESSAGING_EVENT" />
+      </intent-filter>
+    </service>
+    <receiver android:name="crc6494e14b9856016c30.PushNotificationActionReceiver" />
+    <receiver android:name="crc6494e14b9856016c30.PushNotificationDeletedReceiver" />
+    <activity android:configChanges="orientation|screenSize" android:name="crc646957603ea1820544.MediaPickerActivity" />
+    <receiver android:enabled="true" android:exported="false" android:name="crc643f46942d9dd1fff9.PowerSaveModeBroadcastReceiver" />
+    <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="1999999999" android:authorities="com.cgsgroup.myeventit.mono.MonoRuntimeProvider.__mono_init__" />
+    <!--suppress ExportedReceiver-->
+    <receiver android:name="mono.android.Seppuku">
+      <intent-filter>
+        <action android:name="mono.android.intent.action.SEPPUKU" />
+        <category android:name="mono.android.intent.category.SEPPUKU.com.cgsgroup.myeventit" />
+      </intent-filter>
+    </receiver>
+    <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:exported="true" android:permission="com.google.android.c2dm.permission.SEND">
+      <intent-filter>
+        <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+        <category android:name="com.cgsgroup.myeventit" />
+      </intent-filter>
+    </receiver>
+    <!-- Internal (not exported) receiver used by the app to start its own exported services
+             without risk of being spoofed. -->
+    <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver" android:exported="false" />
+    <!-- FirebaseInstanceIdService performs security checks at runtime,
+             no need for explicit permissions despite exported="true" -->
+    <service android:name="com.google.firebase.iid.FirebaseInstanceIdService" android:exported="true">
+      <intent-filter android:priority="-500">
+        <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+      </intent-filter>
+    </service>
+    <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+    <!-- FirebaseMessagingService performs security checks at runtime,
+             no need for explicit permissions despite exported="true" -->
+    <service android:name="com.google.firebase.messaging.FirebaseMessagingService" android:exported="true">
+      <intent-filter android:priority="-500">
+        <action android:name="com.google.firebase.MESSAGING_EVENT" />
+      </intent-filter>
+    </service>
+    <activity android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:exported="false" />
+    <provider android:authorities="com.cgsgroup.myeventit.firebaseinitprovider" android:name="com.google.firebase.provider.FirebaseInitProvider" android:exported="false" android:initOrder="100" />
+  </application>
+  <!--<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />-->
+  <uses-permission android:name="com.cgsgroup.myeventit.permission.C2D_MESSAGE" />
+</manifest>

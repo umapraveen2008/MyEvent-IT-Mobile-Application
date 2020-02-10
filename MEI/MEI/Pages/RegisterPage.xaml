@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<local:GradientPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MEI.Pages.RegisterPage"
+             xmlns:local="clr-namespace:MEI.Controls;assembly=MEI">
+  <RelativeLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+    <Image Source="mei_bgpattern_w.png" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RelativeLayout.WidthConstraint= "{ConstraintExpression Type=RelativeToParent,
+                                Property=Width,
+                                Factor=1}"
+       RelativeLayout.HeightConstraint=
+         "{ConstraintExpression Type=RelativeToParent,
+                                Property=Height,
+                                Factor=1.4}"></Image>
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical"  Spacing="20" RelativeLayout.WidthConstraint= "{ConstraintExpression Type=RelativeToParent,
+                                Property=Width,
+                                Factor=1}"
+      RelativeLayout.HeightConstraint=
+         "{ConstraintExpression Type=RelativeToParent,
+                                Property=Height,
+                                Factor=1}">
+      <Grid x:Name="registerPage" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  Padding="20,10,20,10">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="0.5*"></RowDefinition>
+          <RowDefinition Height="8.5*"></RowDefinition>
+          <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackLayout Grid.Row="0" Grid.Column="0">
+
+        </StackLayout>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Grid.Row="1" Grid.Column="0" Spacing="20" Margin="20,0,20,0" >
+          <!--<Image Source="mei_mainlogo.png" WidthRequest="150" HeightRequest="150"></Image>-->
+          <Entry BackgroundColor="Transparent" x:Name="fName" PlaceholderColor="White" TextColor="White" Placeholder="First Name" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" FontSize="Small" />
+          <Entry BackgroundColor="Transparent" x:Name="lName" PlaceholderColor="White" TextColor="White" Placeholder="Last Name" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" FontSize="Small" />
+          <Entry BackgroundColor="Transparent" x:Name="emailAddress" PlaceholderColor="White" TextColor="White" Placeholder="Email Address" HorizontalOptions="FillAndExpand" FontSize="Small" HorizontalTextAlignment="Start" />          
+          <Entry BackgroundColor="Transparent" x:Name="password" PlaceholderColor="White" TextColor="White" Placeholder="Password" HorizontalOptions="FillAndExpand" FontSize="Small"  IsPassword="True"  HorizontalTextAlignment="Start"/>
+          <Entry BackgroundColor="Transparent" x:Name="retypePassword" PlaceholderColor="White" TextColor="White" Placeholder="Confirm Password" HorizontalOptions="FillAndExpand" FontSize="Small" IsPassword="True"  HorizontalTextAlignment="Start"/>
+          <Button Text="Sign Up" Clicked="CheckSignUp" TextColor="#31c3ee" HorizontalOptions="FillAndExpand" FontSize="Small "  BackgroundColor="White" BorderRadius="20"/>
+          <Grid VerticalOptions="End" HorizontalOptions="Center" RowSpacing="5" Padding="5">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="4.5*"></ColumnDefinition>
+              <ColumnDefinition Width="5.5*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="EULA" TextColor="White"  Grid.Row="0" Grid.Column="0" XAlign="End"   Text="EULA" FontSize="Micro" ></Label>
+            <Label x:Name="privacyPolicy" TextColor="White"  Grid.Row="0" Grid.Column="1"  XAlign="Start"  Text="Privacy policy" FontSize="Micro" ></Label>
+          </Grid>
+
+        </StackLayout>
+        <Grid VerticalOptions="Start" HorizontalOptions="Center" RowSpacing="5" Padding="5" Grid.Column="0" Grid.Row="2">
+          <Label x:Name="loginHere" TextColor="White"  Grid.Row="0" Grid.Column="0"   Text="LOGIN HERE" FontSize="Small" ></Label>
+        </Grid>
+      </Grid>      
+      <Grid x:Name="webOverlay" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" IsVisible="False">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="50"></RowDefinition>
+          <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid x:Name="iosBar" HorizontalOptions="FillAndExpand" HeightRequest="50" Grid.Row="0" Grid.Column="0">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.5*"></ColumnDefinition>
+            <ColumnDefinition Width="7*"></ColumnDefinition>
+            <ColumnDefinition Width="1.5*"></ColumnDefinition>
+          </Grid.ColumnDefinitions>
+          <ContentView Grid.Row="0" Grid.Column="0"  Padding="15" x:Name="backButton" >
+            <Image Source="mei_backicon_w.png"  VerticalOptions="Center" HorizontalOptions="Center"/>
+          </ContentView>
+          <Label TextColor="White" YAlign="Center" Text="Event Updates" x:Name="webHeader"  FontSize="Small" Grid.Row="0" Grid.Column="1" XAlign="Center"/>
+          <ContentView  Grid.Column="2" Grid.Row="0" Padding="5">
+
+          </ContentView>
+        </Grid>
+        <ContentView Grid.Row="1" Grid.Column="0"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
+        <!--<BoxView HorizontalOptions="FillAndExpand" HeightRequest="5" BackgroundColor="#ebeff2"></BoxView>-->
+        <WebView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Source="http://www.myeventit.com"  x:Name="webLinks" BackgroundColor="White">
+
+        </WebView>
+        </ContentView>
+      </Grid>
+    </StackLayout>
+  </RelativeLayout>
+</local:GradientPage>

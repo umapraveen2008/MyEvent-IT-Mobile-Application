@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:GradientPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MEI.Pages.LoginPage"
+             xmlns:local="clr-namespace:MEI.Controls;assembly=MEI">
+  <RelativeLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+    <Image Source="mei_bgpattern_w.png" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RelativeLayout.WidthConstraint= "{ConstraintExpression Type=RelativeToParent,
+                                Property=Width,
+                                Factor=1}"
+       RelativeLayout.HeightConstraint=
+         "{ConstraintExpression Type=RelativeToParent,
+                                Property=Height,
+                                Factor=1.4}"></Image>
+    <StackLayout x:Name="loginForm" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical" Grid.Row="1" Grid.Column="0" Spacing="20" Padding="20,10,20,10" RelativeLayout.WidthConstraint= "{ConstraintExpression Type=RelativeToParent,
+                                Property=Width,
+                                Factor=1}"
+       RelativeLayout.HeightConstraint=
+         "{ConstraintExpression Type=RelativeToParent,
+                                Property=Height,
+                                Factor=1}" >
+      <ContentView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"></ContentView>
+      <Image x:Name="logo" Source="mei_mainlogo.png" WidthRequest="100" HeightRequest="75" HorizontalOptions="FillAndExpand"></Image>
+      <ContentView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"></ContentView>
+      <Entry TextColor="White" BackgroundColor="Transparent" PlaceholderColor="White" x:Name="username" Placeholder="Email" HorizontalOptions="FillAndExpand" FontSize="Small" HorizontalTextAlignment="Start" >
+
+      </Entry>
+      <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+        <Entry TextColor="White" BackgroundColor="Transparent" PlaceholderColor="White" x:Name="password" Placeholder="Password" HorizontalOptions="FillAndExpand" FontSize="Small" HorizontalTextAlignment="Start"  IsPassword="True">
+        </Entry>
+        <ContentView Padding="5" x:Name="showPassword">
+          <Image x:Name="showPasswordIcon" WidthRequest="20" Source="mei_showicon_w.png" ></Image>
+        </ContentView>
+      </StackLayout>
+      <ContentView HeightRequest="30" x:Name="forgotPassword">
+        <Label TextColor="White" HorizontalOptions="Center" Text="Forgot password?"  FontSize="Small"></Label>
+      </ContentView>
+
+
+      <Button BackgroundColor="White" TextColor="#31c3ee" Text="LOG IN" x:Name="loginButton" Clicked="CheckLogin" HorizontalOptions="FillAndExpand" Margin="20,0,20,0" FontSize="Small" BorderRadius="20"></Button>
+      <ContentView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"></ContentView>
+      <Label x:Name="signUpHere" TextColor="White" Text="SIGNUP HERE"  HorizontalOptions="Center" VerticalOptions="End" FontSize="Small"></Label>
+    </StackLayout>
+    <ContentView  x:Name="loading" IsVisible="false"  RelativeLayout.WidthConstraint= "{ConstraintExpression Type=RelativeToParent,
+                                Property=Width,
+                                Factor=1}"
+       RelativeLayout.HeightConstraint=
+         "{ConstraintExpression Type=RelativeToParent,
+                                Property=Height,
+                                Factor=1}" >
+      <StackLayout HorizontalOptions="Center" VerticalOptions="Center" >
+        <ActivityIndicator IsRunning="True" IsVisible="true"  Color="White"  ></ActivityIndicator>
+        <Label x:Name="loadingText" TextColor="White" HorizontalOptions="Center" Text="Preparing MEI..."  FontSize="Medium"></Label>
+        <ProgressBar x:Name="progressBar"></ProgressBar>
+      </StackLayout>
+    </ContentView>
+  </RelativeLayout>
+</local:GradientPage>

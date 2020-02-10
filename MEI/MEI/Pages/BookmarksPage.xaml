@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MEI.Pages.BookmarksPage"
+             xmlns:local="clr-namespace:MEI.Pages;assembly=MEI"
+              VerticalOptions="FillAndExpand">
+    <StackLayout BackgroundColor="White" Spacing="0">
+        <Grid x:Name="bookmarksTypeTab">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="65"/>
+                <RowDefinition Height="65"/>
+                <RowDefinition Height="65"/>
+                <RowDefinition Height="65"/>
+                <RowDefinition Height="65"/>
+            </Grid.RowDefinitions>
+            <ContentView Grid.Row="0" Grid.Column="0" BackgroundColor="#ebeff2" HorizontalOptions="FillAndExpand" x:Name="peopleButton">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <ContentView Grid.Row="0" Grid.Column="0" BackgroundColor="#31c3ee">
+                        <Label  x:Name="peopleBCount" Text="0" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"  FontSize="Medium" ></Label>
+                    </ContentView>
+                    <Label Grid.Row="0" Grid.Column="1" Text="People" TextColor="#36404a" YAlign="Center" FontSize="Medium"></Label>
+                </Grid>
+            </ContentView>
+            <ContentView Grid.Row="1" Grid.Column="0" BackgroundColor="#ebeff2" HorizontalOptions="FillAndExpand" x:Name="sessionsButton">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <ContentView Grid.Row="0" Grid.Column="0" BackgroundColor="#31c3ee">
+                        <Label  x:Name="sessionsBCount" Text="0" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"  FontSize="Medium" ></Label>
+                    </ContentView>                    
+                    <Label Grid.Row="0" Grid.Column="1" Text="Sessions" TextColor="#36404a" YAlign="Center" FontSize="Medium" ></Label>
+                </Grid>
+            </ContentView>
+            <ContentView Grid.Row="2" Grid.Column="0" BackgroundColor="#ebeff2" HorizontalOptions="FillAndExpand" x:Name="speakersButton">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <ContentView Grid.Row="0" Grid.Column="0" BackgroundColor="#31c3ee">
+                        <Label  x:Name="speakersBCount" Text="0" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"  FontSize="Medium" ></Label>
+                    </ContentView>                    
+                    <Label Grid.Row="0" Grid.Column="1" Text="Speakers" TextColor="#36404a" YAlign="Center" FontSize="Medium" ></Label>
+                </Grid>
+            </ContentView>
+            <ContentView Grid.Row="3" Grid.Column="0" BackgroundColor="#ebeff2" HorizontalOptions="FillAndExpand" x:Name="sponsorsButton">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <ContentView Grid.Row="0" Grid.Column="0" BackgroundColor="#31c3ee">
+                        <Label  x:Name="sponsorsBCount" Text="0" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"  FontSize="Medium" ></Label>
+                    </ContentView>                    
+                    <Label Grid.Row="0" Grid.Column="1" Text="Sponsors" TextColor="#36404a" YAlign="Center" FontSize="Medium" ></Label>
+                </Grid>
+            </ContentView>
+            <ContentView Grid.Row="4" Grid.Column="0" BackgroundColor="#ebeff2" HorizontalOptions="FillAndExpand" x:Name="exhibitorsButton">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <ContentView Grid.Row="0" Grid.Column="0" BackgroundColor="#31c3ee">
+                        <Label  x:Name="exhibitorsBCount" Text="0" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"  FontSize="Medium" ></Label>
+                    </ContentView>                    
+                    <Label  Grid.Row="0" Grid.Column="1" Text="Exhibitors" TextColor="#36404a" YAlign="Center" FontSize="Medium" ></Label>
+                </Grid>
+            </ContentView>
+        </Grid>
+        <StackLayout x:Name="bookmarksDetailTab">
+
+        </StackLayout>
+    </StackLayout>
+</ContentView>

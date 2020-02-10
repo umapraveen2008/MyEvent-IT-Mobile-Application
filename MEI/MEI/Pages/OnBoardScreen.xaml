@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CarouselPage  xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MEI.Pages.OnBoardScreen"
+             xmlns:local="clr-namespace:MEI.Pages;assembly=MEI"
+             xmlns:controls="clr-namespace:MEI.Controls;assembly=MEI" BackgroundColor="#1C1D21">
+
+</CarouselPage>

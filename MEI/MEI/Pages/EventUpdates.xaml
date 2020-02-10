@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MEI.Pages.EventUpdates" VerticalOptions="FillAndExpand"
+             xmlns:local="clr-namespace:MEI.Pages;assembly=MEI"
+             xmlns:controls="clr-namespace:MEI.Controls;assembly=MEI" BackgroundColor="#ebeff2">
+    <StackLayout x:Name="eventsList">
+        <ContentView BackgroundColor="White" x:Name="emptyList" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="5">
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <Image Source="mei_notimelineicon_g.png" WidthRequest="100" HeightRequest="100"></Image>
+                <Label x:Name="emptyText" Text="No posts for this event yet!" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Medium"  TextColor="#BFC9D3"/>
+            </StackLayout>
+        </ContentView>
+        <ListView IsVisible="False" x:Name="eventUpdatesList" CachingStrategy="RecycleElement" HeightRequest="-1" HasUnevenRows="True" IsPullToRefreshEnabled="True"  SeparatorVisibility="None" SeparatorColor="White">
+
+        </ListView>
+
+    </StackLayout>
+</ContentView>

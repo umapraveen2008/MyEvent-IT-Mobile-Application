@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Button xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MEI.Pages.DayButtonTemplate"
+             BackgroundColor="White" BorderColor="#31c3ee"
+             Text="May 01" TextColor="#31c3ee" FontSize="Small"
+             BorderWidth="1" BorderRadius="20" WidthRequest="70">
+</Button>

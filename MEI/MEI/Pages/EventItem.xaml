@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MEI.Pages.EventItem"
+             xmlns:local="clr-namespace:MEI.Pages;assembly=MEI"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:controls="clr-namespace:MEI.Controls;assembly=MEI"
+             Spacing="0" BackgroundColor="White" HorizontalOptions="FillAndExpand" >
+
+    <StackLayout  Orientation="Horizontal" HeightRequest="70" Spacing="5" Padding="0,2,0,2">
+        <BoxView x:Name="selectedIcon" IsVisible="False" BackgroundColor="#31c3ee" WidthRequest="5" VerticalOptions="FillAndExpand"></BoxView>
+        <Grid HorizontalOptions="FillAndExpand">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="0" Grid.Column="1" RowSpacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                <!--<Label TextColor="#00a651" LineBreakMode="NoWrap" IsVisible="False" x:Name="eventActiveStatus" Grid.Row="1" Grid.Column="0" Text="Active" FontSize="Micro" HorizontalOptions="FillAndExpand" />-->
+                <Label TextColor="#36404a" LineBreakMode="TailTruncation" XAlign="Start" x:Name="eventName" Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" Text="Event Name" FontSize="Small"/>
+                <Label TextColor="#505f6d" LineBreakMode="NoWrap" x:Name="date" Grid.Row="1" Grid.Column="0" Text="June 20 - June 23, 2016" FontSize="Micro" HorizontalOptions="FillAndExpand" />
+                <!--<Label TextColor="#505f6d" LineBreakMode="NoWrap" IsVisible="False" x:Name="centerName" Grid.Row="3" Grid.Column="0" Text="Convention Centre Name" FontSize="Micro" HorizontalOptions="FillAndExpand" />-->
+                <Label TextColor="#505F6D"  LineBreakMode="NoWrap" x:Name="place" Grid.Row="2" Grid.Column="0" Text="City, State" FontSize="Micro" HorizontalOptions="FillAndExpand" />
+            </Grid>
+            <Grid Margin="5" BackgroundColor="#bfc9d3" Padding="2" HorizontalOptions="FillAndExpand" Grid.Column="0" Grid.Row="0" x:Name="logoGrid">
+                <ContentView BackgroundColor="#31c3ee" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0">
+                    <Label x:Name="logoText" Text="" TextColor="White" HorizontalOptions="CenterAndExpand" FontSize="Large" VerticalOptions="CenterAndExpand"></Label>
+                </ContentView>
+                <ContentView Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Image WidthRequest="60" HeightRequest="60"	Source = "mei_appicon_g.png" Aspect="Fill" x:Name="eventImage" >
+                    </Image>
+                </ContentView>
+            </Grid>
+        </Grid>
+        <ContentView x:Name="loading" IsVisible="False">
+            <ActivityIndicator  WidthRequest="30" HeightRequest="30" Color="#D9E0E6" IsRunning="True"></ActivityIndicator>
+        </ContentView>
+        <ContentView Margin="5" WidthRequest="20" HorizontalOptions="End" x:Name="eventLock">            
+            <Image Source="mei_lock_dg.png" WidthRequest="10" HeightRequest="10"></Image>
+        </ContentView>
+    </StackLayout>
+    <BoxView BackgroundColor="#bfc9d3" HeightRequest="1" HorizontalOptions="FillAndExpand"></BoxView>
+</StackLayout>

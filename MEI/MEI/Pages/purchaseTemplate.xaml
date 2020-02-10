@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MEI.Pages.PurchaseTemplateView"
+             x:Name="purchaseTemplate"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:local="clr-namespace:MEI.Controls;assembly=MEI" BackgroundColor="White"
+              >
+
+    <StackLayout Padding="10,5,10,5" Orientation="Horizontal" HeightRequest="70" VerticalOptions="FillAndExpand" Spacing="0">
+        <Grid BackgroundColor="#bfc9d3" Padding="2" WidthRequest="70" x:Name="logoGrid">
+            <ContentView BackgroundColor="#31c3ee" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0">
+                <Label x:Name="logoText" Text="" TextColor="White" HorizontalOptions="CenterAndExpand" FontSize="Large" VerticalOptions="CenterAndExpand"></Label>
+            </ContentView>
+            <ContentView Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Image HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"						
+			Source = "mei_appicon_g.png" Aspect="Fill" x:Name="purchaseImage" >
+                </Image>
+            </ContentView>
+        </Grid>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center" Padding="10,0,5,0">
+            <Label  x:Name="purchaseName" Text="Item Name" TextColor="#36404a" FontSize="Small" />
+            <Label  x:Name="purchaseDate" Text="5/20/2016" TextColor="#36404a" FontSize="Micro" />
+            <Label  x:Name="purchaseID" Text="2342342234" TextColor="#36404a" FontSize="Micro" />
+        </StackLayout>
+        <ContentView WidthRequest="50" VerticalOptions="Center">
+            <Label  x:Name="purchasePrice" Text="$25.00" TextColor="#36404a" FontSize="Small" />
+        </ContentView>
+    </StackLayout>
+</ContentView>

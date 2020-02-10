@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MEI.Pages.FeedbackPage"
+              xmlns:control ="clr-namespace:MEI.Controls;assembly=MEI"
+             VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="White">
+  <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+    <ContentView Padding="10" BackgroundColor="#ebeff2" >
+      <Label x:Name="header" Text="Feedback and suggestions" TextColor="#36404a" HorizontalOptions="Start" FontSize="Medium" ></Label>
+    </ContentView>
+        <Editor BackgroundColor="#ebeff2" x:Name="noteEditor" VerticalOptions="FillAndExpand" TextColor="#36404a" />
+  </StackLayout>
+</ContentView>

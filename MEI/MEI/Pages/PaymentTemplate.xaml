@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MEI.Pages.PaymentTemplateView" BackgroundColor="White" Padding="10" >
+    <Frame BackgroundColor="#ebeff2">
+        <StackLayout>
+            <StackLayout Padding="10,2">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+                    <ContentView  Padding="10,5,5,5" HorizontalOptions="FillAndExpand">
+                        <Label x:Name="cardType" Text="VISA" TextColor="#505f6d"  FontSize="Medium"/>
+                    </ContentView>
+                    <Image x:Name="cardImage" Source="mei_idicon_w.png" WidthRequest="50" Margin="2" HeightRequest="20"></Image>
+                </StackLayout>                                
+                <ContentView Padding="10,5,5,5">
+                    <Label x:Name="cardNumber" Text="XXXX XXXX XXXX 1111" TextColor="#505f6d"  FontSize="Large"/>
+                </ContentView>                
+                <ContentView Padding="10,5,5,5" HeightRequest="30">
+                    <Label x:Name="cardName" Text="FULL NAME" TextColor="#505f6d"  FontSize="Medium" VerticalOptions="Center"/>
+                </ContentView>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HeightRequest="50" BackgroundColor="#36404a" Margin="-20,0">
+                <Button TextColor="White" x:Name="makePrimaryButton" BorderRadius="0" Clicked="MakePrimaryFunction" Text="MAKE PRIMARY" Margin="5" HorizontalOptions="FillAndExpand" FontSize="Medium" BackgroundColor="Transparent"></Button>
+                <Button TextColor="White" BorderRadius="0" Clicked="EditFunction" Text="EDIT" Margin="5" HorizontalOptions="FillAndExpand" FontSize="Medium" BackgroundColor="Transparent"></Button>
+            </StackLayout>
+        </StackLayout>
+    </Frame>
+</ContentView>

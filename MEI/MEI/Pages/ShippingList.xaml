@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MEI.Pages.ShippingList"
+             xmlns:local="clr-namespace:MEI.Pages;assembly=MEI"
+             xmlns:controls="clr-namespace:MEI.Controls;assembly=MEI"            
+             BackgroundColor="White" VerticalOptions="FillAndExpand">
+    <StackLayout VerticalOptions="FillAndExpand" Spacing="0">
+        <StackLayout.Resources>
+            <ResourceDictionary>
+                <OnPlatform x:TypeArguments="Color" x:Key="TextColor"
+            iOS     ="#505f6d"
+            Android ="White" />
+            </ResourceDictionary>
+        </StackLayout.Resources>
+        <SearchBar x:Name="itemSearch" Placeholder="Search Address" BackgroundColor="#31c3ee" HeightRequest="50"  TextColor="{StaticResource TextColor}">
+        </SearchBar>
+        <ContentView BackgroundColor="White" x:Name="emptyList" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="5">
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <Image Source="mei_novenuemapicon_g.png" WidthRequest="100" HeightRequest="100"></Image>
+                <Label x:Name="emptyText" Text="No addresses yet!" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Medium"  TextColor="#bfc9d3"/>
+            </StackLayout>
+        </ContentView>
+        <ListView IsVisible="False" x:Name="shippingParent" IsPullToRefreshEnabled="True" SeparatorVisibility="None" SeparatorColor="White" HasUnevenRows="True" CachingStrategy="RecycleElement">
+            <ListView.GroupHeaderTemplate >
+                <DataTemplate>
+                    <ViewCell Height="40">
+                        <ContentView BackgroundColor="#ebeff2" Padding="10,0,10,0">
+                            <Label x:Name="groupName" Text="{Binding Key}" YAlign="Center" TextColor="#36404a" HorizontalOptions="Start" FontSize="Medium" ></Label>
+                        </ContentView>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.GroupHeaderTemplate>
+        </ListView>
+        <Button BorderRadius="0" Text="Add Address" Clicked="CreateNewAddress"  FontSize="Medium" HorizontalOptions="FillAndExpand" BackgroundColor="#31c3ee" TextColor="White" ></Button>
+    </StackLayout>
+</ContentView>

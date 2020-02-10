@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MEI.Pages.RegisteredDomainTemplateView" 
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:abstractions="clr-namespace:RoundedBoxView.Forms.Plugin.Abstractions;assembly=RoundedBoxView.Forms.Plugin.Abstractions" HeightRequest="80" BackgroundColor="#ebeff2">
+    <StackLayout Padding="10,5,10,5" HeightRequest="70" VerticalOptions="FillAndExpand" Spacing="0" x:Name="colorBG" BackgroundColor="{Binding BGColor}">
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10,5,10,5" VerticalOptions="FillAndExpand">
+            <Grid WidthRequest="60" BackgroundColor="#bfc9d3" Padding="2" x:Name="logoGrid">
+                <ContentView BackgroundColor="#31c3ee" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0">
+                    <Label x:Name="logoText" Text="" TextColor="White" HorizontalOptions="CenterAndExpand" FontSize="Large" VerticalOptions="CenterAndExpand"></Label>
+                </ContentView>
+                <ContentView Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Image HorizontalOptions="FillAndExpand" VerticalOptions="Fill"			
+			Source = "mei_appicon_g.png" Aspect="Fill" x:Name="companyLogo" >
+                    </Image>
+                </ContentView>
+            </Grid>
+            <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="Center" Spacing="0">
+                <Label  x:Name="companyName" Text="Company Name" TextColor="#36404a" FontSize="Medium" />
+            </StackLayout>
+            <ContentView x:Name="viewDomainNotifications" HeightRequest="40" WidthRequest="40" VerticalOptions="Center">
+                <RelativeLayout Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <!--<BoxView x:Name="selectedIcon" BackgroundColor="#31c3ee" IsVisible="False" AbsoluteLayout.LayoutBounds="0,0,0.2,1" AbsoluteLayout.LayoutFlags="All"></BoxView>-->
+                    <ContentView Padding="5" RelativeLayout.WidthConstraint= "{ConstraintExpression Type=RelativeToParent,
+                                Property=Width,
+                                Factor=1}"
+     RelativeLayout.HeightConstraint=
+         "{ConstraintExpression Type=RelativeToParent,
+                                Property=Height,
+                                Factor=1}"  x:Name="grayBGNotifications" >
+                        <abstractions:RoundedBoxView CornerRadius="25" BorderColor="White" BackgroundColor="Transparent" IsVisible="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ></abstractions:RoundedBoxView>
+                    </ContentView>
+                    <Grid RelativeLayout.WidthConstraint= "{ConstraintExpression Type=RelativeToParent,
+                                Property=Width,
+                                Factor=1}"
+     RelativeLayout.HeightConstraint=
+         "{ConstraintExpression Type=RelativeToParent,
+                                Property=Height,
+                                Factor=1}"  Padding="10">
+                        <Image  Source="mei_notifyicon_w.png" Grid.Row="0" Grid.Column="0"/>
+                        <!--<Label x:Name="buttonText"  TextColor="White"  Text="Button Label" Grid.Row="0" Grid.Column="1" FontSize="Small" YAlign="Center"/>-->
+                    </Grid>
+                    <BoxView x:Name="unReadNotification" IsVisible="False" BackgroundColor="Red" RelativeLayout.WidthConstraint= "{ConstraintExpression Type=RelativeToParent,
+                                Property=Width,
+                                Factor=0.1}"
+     RelativeLayout.HeightConstraint=
+         "{ConstraintExpression Type=RelativeToParent,
+                                Property=Height,
+                                Factor=0.1}"/>
+                    <!--<Button  Image="icon.png" Text="Item Name" TextColor="#36404a" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" x:Name="menuButton" BackgroundColor="Transparent"></Button>-->
+                </RelativeLayout>
+            </ContentView>
+            <ContentView x:Name="viewDomain" HeightRequest="40" WidthRequest="40" VerticalOptions="Center">
+                <RelativeLayout Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <!--<BoxView x:Name="selectedIcon" BackgroundColor="#31c3ee" IsVisible="False" AbsoluteLayout.LayoutBounds="0,0,0.2,1" AbsoluteLayout.LayoutFlags="All"></BoxView>-->
+                    <ContentView Padding="5" RelativeLayout.WidthConstraint= "{ConstraintExpression Type=RelativeToParent,
+                                Property=Width,
+                                Factor=1}"
+     RelativeLayout.HeightConstraint=
+         "{ConstraintExpression Type=RelativeToParent,
+                                Property=Height,
+                                Factor=1}"  x:Name="grayBG" >
+                        <abstractions:RoundedBoxView CornerRadius="25" BorderColor="White" BackgroundColor="Transparent" IsVisible="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ></abstractions:RoundedBoxView>                        
+                    </ContentView>
+                   
+                    <Grid RelativeLayout.WidthConstraint= "{ConstraintExpression Type=RelativeToParent,
+                                Property=Width,
+                                Factor=1}"
+     RelativeLayout.HeightConstraint=
+         "{ConstraintExpression Type=RelativeToParent,
+                                Property=Height,
+                                Factor=1}"  Padding="10">
+                        <Image  Source="mei_showicon_b.png" Grid.Row="0" Grid.Column="0"/>                        
+                    </Grid>
+                    <!--<Button  Image="icon.png" Text="Item Name" TextColor="#36404a" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" x:Name="menuButton" BackgroundColor="Transparent"></Button>-->
+                </RelativeLayout>
+            </ContentView>
+        </StackLayout>
+        <!--<BoxView HorizontalOptions="FillAndExpand" VerticalOptions="End" HeightRequest="2" BackgroundColor="#ebeff2" Margin="10,0,10,0"></BoxView>-->
+    </StackLayout>
+</ContentView>

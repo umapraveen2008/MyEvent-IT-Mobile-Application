@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MEI.Pages.UserDetailBar" HorizontalOptions="FillAndExpand"
+             xmlns:local="clr-namespace:MEI.Controls;assembly=MEI" >
+  <StackLayout >    
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+      <Grid Grid.Row="0" Grid.Column="0" Margin="10,0,10,0">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="3.5*"></ColumnDefinition>
+          <ColumnDefinition Width="6.5*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Image Grid.Row="0" x:Name="eventIcon" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  Grid.Column="0" Source="eventicon.png" Aspect="AspectFit"></Image>
+        <StackLayout Grid.Row="0" Grid.Column="1" Spacing="0" VerticalOptions="StartAndExpand">
+          <Label TextColor="White" x:Name="currentEventName" Text="Event Name"  FontSize="Micro"></Label>
+          <Label TextColor="White" x:Name="currentSchedule"  LineBreakMode="NoWrap" Text="May 01- June 02" FontSize="Micro" ></Label>
+          <Label TextColor="White" x:Name="currentCenter" LineBreakMode="NoWrap"  Text="Convention Center Name"  FontSize="Micro"></Label>
+          <Label TextColor="White" x:Name="currentCityState" LineBreakMode="NoWrap" Text="City, State"  FontSize="Micro"></Label>
+        </StackLayout>
+      </Grid>
+
+    </Grid>
+  </StackLayout>
+
+</ContentView>

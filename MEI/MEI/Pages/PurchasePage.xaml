@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MEI.Pages.PurchasePage"
+             xmlns:controls="clr-namespace:MEI.Controls;assembly=MEI"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             HorizontalOptions="FillAndExpand" Padding="0,20,0,0" VerticalOptions="FillAndExpand" BackgroundColor="#ebeff2">
+
+    <ScrollView>
+        <StackLayout Spacing="0">
+            <StackLayout x:Name="TransactionItemList" HorizontalOptions="FillAndExpand">
+                
+            </StackLayout>
+            <StackLayout x:Name="TransactionImagePanel" HorizontalOptions="FillAndExpand">
+                <ContentView  BackgroundColor="#bfc9d3" Padding="3" HorizontalOptions="CenterAndExpand">
+                    <Grid HeightRequest="120" WidthRequest="120"  Grid.Column="0" Grid.Row="0" x:Name="logoGrid">
+                        <ContentView BackgroundColor="#31c3ee" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0">
+                            <Label x:Name="logoText" Text="" TextColor="White" HorizontalOptions="CenterAndExpand" FontSize="Large" VerticalOptions="CenterAndExpand"></Label>
+                        </ContentView>
+                        <ContentView Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <ffimageloading:CachedImage 
+	WidthRequest="60" HeightRequest="60"
+	DownsampleToViewSize="true"
+	Source = "mei_appicon_g.png" Aspect="Fill" x:Name="productImage" >
+                            </ffimageloading:CachedImage>
+                        </ContentView>
+                    </Grid>
+                </ContentView>
+                <Label x:Name="productName" Text="Product Name" XAlign="Center" FontSize="Medium" TextColor="#36404a"/>
+                
+            </StackLayout>           
+            <StackLayout Spacing="0" BackgroundColor="White" x:Name="quantityOrAmountLayout">
+                <ContentView BackgroundColor="#ebeff2" Padding="10,5,5,5">
+                    <Label x:Name="quantityOrAmountVariable" Text="Set Quantity or Donation Amount" TextColor="#36404a"  FontSize="Medium"/>
+                </ContentView>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10">
+                    <Entry TextColor="#36404a" Keyboard="Numeric" PlaceholderColor="#ebeff2" BackgroundColor="#bfc9d3" x:Name="purchaseAmountOrQuantity" HorizontalOptions="FillAndExpand" FontSize="Small" HorizontalTextAlignment="Start" ></Entry>
+                </StackLayout>
+            </StackLayout>           
+          
+            <StackLayout Spacing="0" BackgroundColor="White" VerticalOptions="FillAndExpand">
+                <ContentView BackgroundColor="#ebeff2" Padding="10,5,5,5">
+                    <Label Text="Order Information" TextColor="#36404a"  FontSize="Medium"/>
+                </ContentView>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10,5,5,5">
+                    <Label FontSize="Small" Text="Category : " TextColor="#505f6d" WidthRequest="110"/>
+                    <Label x:Name="productCategory" Text="Product" XAlign="Center" FontSize="Small" TextColor="#505f6d"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10,5,5,5">
+                    <Label FontSize="Small" Text="Price : " TextColor="#505f6d" WidthRequest="110"/>
+                    <Label x:Name="productPrice" Text="$50.00" XAlign="Center" FontSize="Small" TextColor="#505f6d"/>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Spacing="0" BackgroundColor="White" VerticalOptions="FillAndExpand">
+                <StackLayout BackgroundColor="#ebeff2" Padding="10,5,5,5" Orientation="Horizontal">
+                    <ContentView x:Name="previousCard" Padding="5" BackgroundColor="#bfc9d3">
+                        <Image Source="mei_backicon_w.png" HeightRequest="10" WidthRequest="10" ></Image>
+                    </ContentView>
+                    <Label Text="Your Payment Information" HorizontalOptions="FillAndExpand" XAlign="Center" TextColor="#36404a" VerticalOptions="FillAndExpand" FontSize="Medium"/>
+                    <ContentView x:Name="nextCard" Padding="5" BackgroundColor="#bfc9d3">
+                        <Image Source="mei_backicon_w.png" RotationY="180" HeightRequest="10" WidthRequest="10" ></Image>
+                    </ContentView>
+                </StackLayout>
+                <StackLayout Padding="10,5">
+                    <Label Margin="5,0,0,0" TextColor="#36404a" VerticalOptions="Center" Text="Card Type" HorizontalOptions="FillAndExpand" FontSize="Micro"  XAlign="Start"/>
+                    <ContentView BackgroundColor="#bfc9d3" Padding="10,5,5,5">
+                        <Label x:Name="purchaseCardType" Text="VISA" TextColor="#36404a"  FontSize="Small"/>
+                    </ContentView>
+                    <Label Margin="5,0,0,0" TextColor="#36404a" VerticalOptions="Center" Text="Card Number" HorizontalOptions="FillAndExpand" FontSize="Micro"  XAlign="Start"/>
+                    <ContentView BackgroundColor="#bfc9d3" Padding="10,5,5,5">
+                        <Label x:Name="purchaseCardNumber" Text="XXXX XXXX XXXX 1111" TextColor="#36404a"  FontSize="Small"/>
+                    </ContentView>
+                    <StackLayout Orientation="Horizontal">
+                        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                            <Label Margin="5,0,0,0" TextColor="#36404a" VerticalOptions="Center" Text="Exp Date" HorizontalOptions="FillAndExpand" FontSize="Micro"  XAlign="Start"/>
+                            <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand">
+                                <ContentView BackgroundColor="#bfc9d3" Padding="10,5,5,5" HorizontalOptions="FillAndExpand">
+                                    <Label x:Name="purchaseCardExpMonth" Text="08" TextColor="#36404a"  FontSize="Small"/>
+                                </ContentView>
+                                <ContentView BackgroundColor="#bfc9d3" Padding="10,5,5,5" HorizontalOptions="FillAndExpand">
+                                    <Label x:Name="purchaseCardExpYear" Text="2020" TextColor="#36404a"  FontSize="Small"/>
+                                </ContentView>
+                            </StackLayout>
+                        </StackLayout>
+                        <!--<StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                            <Label Margin="5,0,0,0" TextColor="#36404a" VerticalOptions="Center" Text="CVV" HorizontalOptions="FillAndExpand" FontSize="Micro"  XAlign="Start"/>
+                            <Entry TextColor="#36404a" Keyboard="Telephone" PlaceholderColor="#ebeff2" BackgroundColor="#bfc9d3" x:Name="cardCvv" Placeholder="123" HorizontalOptions="FillAndExpand" FontSize="Small" HorizontalTextAlignment="Start" ></Entry>
+                        </StackLayout>-->
+                    </StackLayout>
+                </StackLayout>                
+            </StackLayout>
+            <StackLayout Spacing="0" BackgroundColor="White" VerticalOptions="FillAndExpand">
+                <StackLayout BackgroundColor="#ebeff2" Padding="10,5,5,5" Orientation="Horizontal">
+                    <ContentView x:Name="previousAddress" Padding="5" BackgroundColor="#bfc9d3">
+                        <Image Source="mei_backicon_w.png" HeightRequest="10" WidthRequest="10" ></Image>
+                    </ContentView>
+                    <Label Text="Your Shipping Information" HorizontalOptions="FillAndExpand" XAlign="Center" TextColor="#36404a" VerticalOptions="FillAndExpand" FontSize="Medium"/>
+                    <ContentView x:Name="nextAddress" Padding="5" BackgroundColor="#bfc9d3">
+                        <Image Source="mei_backicon_w.png" RotationY="180" HeightRequest="10" WidthRequest="10" ></Image>
+                    </ContentView>
+                </StackLayout>
+                <StackLayout Padding="10,5">
+                    <Label Margin="5,0,0,0" TextColor="#36404a" VerticalOptions="Center" Text="First Name" HorizontalOptions="FillAndExpand" FontSize="Micro"  XAlign="Start"/>
+                    <ContentView BackgroundColor="#bfc9d3" Padding="10,5,5,5">
+                        <Label x:Name="shippingFirstName" Text="First Name" TextColor="#36404a"  FontSize="Small"/>
+                    </ContentView>
+                    <Label Margin="5,0,0,0" TextColor="#36404a" VerticalOptions="Center" Text="Last Name" HorizontalOptions="FillAndExpand" FontSize="Micro"  XAlign="Start"/>
+                    <ContentView BackgroundColor="#bfc9d3" Padding="10,5,5,5">
+                        <Label x:Name="shippingLastName" Text="Last Name" TextColor="#36404a"  FontSize="Small"/>
+                    </ContentView>
+                    <Label Margin="5,0,0,0" TextColor="#36404a" VerticalOptions="Center" Text="Address Line 1" HorizontalOptions="FillAndExpand" FontSize="Micro"  XAlign="Start"/>
+                    <ContentView BackgroundColor="#bfc9d3" Padding="10,5,5,5">
+                        <Label x:Name="shippingAddressLine1" Text="Address Line 1" TextColor="#36404a"  FontSize="Small"/>
+                    </ContentView>
+                    <Label Margin="5,0,0,0" TextColor="#36404a" VerticalOptions="Center" Text="Address Line 2" HorizontalOptions="FillAndExpand" FontSize="Micro"  XAlign="Start"/>
+                    <ContentView BackgroundColor="#bfc9d3" Padding="10,5,5,5">
+                        <Label x:Name="shippingAddressLine2" Text="Address Line 2" TextColor="#36404a"  FontSize="Small"/>
+                    </ContentView>                    
+                    <StackLayout Orientation="Horizontal">
+                        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                            <Label Margin="5,0,0,0" TextColor="#36404a" VerticalOptions="Center" Text="City" HorizontalOptions="FillAndExpand" FontSize="Micro"  XAlign="Start"/>                            
+                                <ContentView BackgroundColor="#bfc9d3" Padding="10,5,5,5" HorizontalOptions="FillAndExpand">
+                                    <Label x:Name="shippingCity" Text="City" TextColor="#36404a"  FontSize="Small"/>
+                                </ContentView>                                                        
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                            <Label Margin="5,0,0,0" TextColor="#36404a" VerticalOptions="Center" Text="State" HorizontalOptions="FillAndExpand" FontSize="Micro"  XAlign="Start"/>
+                            <ContentView BackgroundColor="#bfc9d3" Padding="10,5,5,5" HorizontalOptions="FillAndExpand">
+                                <Label x:Name="shippingState" Text="FL" TextColor="#36404a"  FontSize="Small"/>
+                            </ContentView>
+                        </StackLayout>
+                    </StackLayout>
+                    <Label Margin="5,0,0,0" TextColor="#36404a" VerticalOptions="Center" Text="Postal / Zip Code" HorizontalOptions="FillAndExpand" FontSize="Micro"  XAlign="Start"/>
+                    <ContentView BackgroundColor="#bfc9d3" Padding="10,5,5,5">
+                        <Label x:Name="shippingZipCode" Text="Postal Code" TextColor="#36404a"  FontSize="Small"/>
+                    </ContentView>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout VerticalOptions="End">
+                <Button TextColor="White" BorderRadius="0" x:Name="proceedButton" Clicked="ProceedFunction" Text="Proceed" HorizontalOptions="FillAndExpand" FontSize="Medium" BackgroundColor="#31c3ee"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentView>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MEI.Pages.DomainList" VerticalOptions="FillAndExpand">
+    <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White">
+        <StackLayout.Resources>
+            <ResourceDictionary>
+                <OnPlatform x:TypeArguments="Color" x:Key="TextColor"
+            iOS     ="#505f6d"
+            Android ="White" />
+            </ResourceDictionary>
+        </StackLayout.Resources>
+        <SearchBar CancelButtonColor="White" x:Name="domainSearch" Placeholder="Search Domains" BackgroundColor="#31c3ee" HeightRequest="50" TextColor="{StaticResource TextColor}">
+        </SearchBar>
+        <ContentView BackgroundColor="White" x:Name="emptyList" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="5">
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <Image Source="mei_nodomainsfoundicon_g.png" WidthRequest="100" HeightRequest="100"></Image>
+                <Label x:Name="emptyText" Text="No domains found.Type in organization you want to follow in the search section at the top!" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Medium"  TextColor="#bfc9d3"/>
+            </StackLayout>
+        </ContentView>
+        <ListView IsVisible="False" CachingStrategy="RecycleElement" IsPullToRefreshEnabled="True"  SeparatorVisibility="Default" SeparatorColor="#bfc9d3" x:Name="domainParent" BackgroundColor="White" >
+        </ListView>
+    </StackLayout>
+</ContentView>

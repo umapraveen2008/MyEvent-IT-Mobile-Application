@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MEI.Pages.SessionDetailPage"
+             xmlns:local="clr-namespace:MEI.Pages;assembly=MEI"
+             xmlns:controls="clr-namespace:MEI.Controls;assembly=MEI"
+             VerticalOptions="FillAndExpand" Padding="0,20,0,0" BackgroundColor="#ebeff2">
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="2" Grid.Column="0" HorizontalOptions="CenterAndExpand" x:Name="sessionCategory" Text="Session Category" TextColor="#505f6d" FontSize="Medium"  />
+            <Label Grid.Row="1" Grid.Column="0" HorizontalOptions="CenterAndExpand" x:Name="sessionEvent" Text="Session Event" TextColor="#505f6d" FontSize="Medium"  />
+            <Label Grid.Row="0" Grid.Column="0" HorizontalOptions="CenterAndExpand" x:Name="sessionName" Text="Session Name" TextColor="#36404a" FontSize="Large" />            
+            <Grid Grid.Row="3" Grid.Column="0" HorizontalOptions="CenterAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="15"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Row="0" Grid.Column="0" Source="mei_sessionlocation_dg.png" HeightRequest="15" WidthRequest="15"></Image>
+                <Label Grid.Row="0" Grid.Column="1" x:Name="location" Text="Location" YAlign="End" XAlign="Start" TextColor="#505f6d" FontSize="Small" />
+            </Grid>     
+            <Grid Grid.Row="4" Grid.Column="0" HorizontalOptions="CenterAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="15"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Row="0" Grid.Column="0" Source="mei_sessiontime_dg.png" HeightRequest="15" WidthRequest="15"></Image>
+                <Label Grid.Row="0" Grid.Column="1" x:Name="time" Text="1:00PM - 2:00PM" TextColor="#505f6d" YAlign="End" XAlign="Start" FontSize="Small" />
+            </Grid>
+            <StackLayout Grid.Row="5" Grid.Column="0" Spacing="0">
+                <ContentView Padding="5" BackgroundColor="#ebeff2" >                    
+                </ContentView>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="100,5,100,5" BackgroundColor="White"  >
+                    <ContentView HorizontalOptions="FillAndExpand" HeightRequest="40"  x:Name="bookmarkButton" Padding="1">                        
+                            <Image x:Name="bookmarkIcon" Source="mei_bookmark_active.png" />                        
+                    </ContentView>
+                    <ContentView  HorizontalOptions="FillAndExpand" HeightRequest="40" BackgroundColor="Transparent" x:Name="AddNotesButton" Padding="1">                        
+                            <Image Source="mei_addnote_active.png" />
+                    </ContentView>
+                </StackLayout>
+            </StackLayout>
+            <Grid Grid.Row="6" Grid.Column="0" BackgroundColor="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"></RowDefinition>            
+                    <RowDefinition Height="*"></RowDefinition>                    
+                </Grid.RowDefinitions>
+                <ContentView Grid.Row="0" Grid.Column="0" Padding="15,0" BackgroundColor="#ebeff2" >
+                    <Label Text="Description" TextColor="#36404a" XAlign="Start" VerticalOptions="CenterAndExpand" FontSize="Medium" />
+                </ContentView>
+                <StackLayout Grid.Row="1" Grid.Column="0" Padding="15" Margin="0">
+                    <Label x:Name="description" Text="Description" TextColor="#505f6d" XAlign="Start" FontSize="Small" />
+                    <ContentView BackgroundColor="White" x:Name="emptyList" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="5">
+                        <StackLayout VerticalOptions="CenterAndExpand">
+                            <Image Source="mei_nobioicon_g.png" HeightRequest="50" WidthRequest="50"></Image>
+                            <Label x:Name="emptyText" Text="Session description Unavailable!" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Medium"  TextColor="#bfc9d3"/>
+                        </StackLayout>
+                    </ContentView>
+                </StackLayout>
+            </Grid>
+            <Grid Grid.Row="7" Grid.Column="0" BackgroundColor="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <ContentView Grid.Row="0" Grid.Column="0" Padding="15,0" BackgroundColor="#ebeff2" >
+                    <Label Text="Speakers" TextColor="#36404a" XAlign="Start" VerticalOptions="CenterAndExpand" FontSize="Medium" />
+                </ContentView>
+                <ContentView Grid.Row="1" Grid.Column="0" Padding="10" Margin="0">
+                    <StackLayout>
+                    <ActivityIndicator IsRunning="True" Color="#31c3ee" x:Name="speakersLoading"></ActivityIndicator>
+                        <Label x:Name="sessionSpeakers" Text="none" TextColor="#505f6d" XAlign="Start" IsVisible="False" FontSize="Small" />
+                    </StackLayout>
+                </ContentView>
+            </Grid>
+            <Grid Grid.Row="8" Grid.Column="0" BackgroundColor="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <ContentView Grid.Row="0" Grid.Column="0" Padding="15,0" BackgroundColor="#ebeff2" >
+                    <Label Text="Exhibitors" TextColor="#36404a" XAlign="Start" FontSize="Medium" VerticalOptions="CenterAndExpand" />
+                </ContentView>
+                <ContentView Grid.Row="1" Grid.Column="0" Padding="10" Margin="0">
+                    <StackLayout>
+                        <ActivityIndicator IsRunning="True" Color="#31c3ee" x:Name="exhibitorsLoading"></ActivityIndicator>
+                        <Label x:Name="sessionExhibitors" Text="none" TextColor="#505f6d" XAlign="Start"  IsVisible="False" FontSize="Small" />
+                    </StackLayout>
+                    
+                </ContentView>     
+            </Grid>
+            <Grid Grid.Row="9" Grid.Column="0" BackgroundColor="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <ContentView Grid.Row="0" Grid.Column="0" Padding="15,0" BackgroundColor="#ebeff2" >
+                    <Label Text="Sponsors" TextColor="#36404a" XAlign="Start" FontSize="Medium" VerticalOptions="CenterAndExpand" />
+                </ContentView>
+                <ContentView Grid.Row="1" Grid.Column="0" Padding="10" Margin="0">
+                    <StackLayout>
+                        <ActivityIndicator IsRunning="True" Color="#31c3ee" x:Name="sponsorsLoading"></ActivityIndicator>
+                        <Label x:Name="sessionSponsors" Text="none" TextColor="#505f6d" IsVisible="False" XAlign="Start" FontSize="Small" />
+                    </StackLayout>                    
+                </ContentView>
+            </Grid>            
+        </Grid> 
+    </ScrollView>
+    
+</ContentView>

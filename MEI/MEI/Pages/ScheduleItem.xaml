@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MEI.Pages.ScheduleItemView">
+    <StackLayout Orientation="Horizontal" HeightRequest="100" Spacing="0">
+        <BoxView VerticalOptions="FillAndExpand" HorizontalOptions="Center" WidthRequest="5" BackgroundColor="Green" x:Name="timingColor"></BoxView>
+        <!--<StackLayout Orientation="Vertical" WidthRequest="30" BackgroundColor="White" Spacing="1">
+            <BoxView HeightRequest="35" WidthRequest="5" HorizontalOptions="Center" BackgroundColor="#505f6d"></BoxView>
+            <BoxView HeightRequest="10"  HorizontalOptions="Center" WidthRequest="10" BackgroundColor="Green"></BoxView>
+            <BoxView HeightRequest="35" WidthRequest="5"  HorizontalOptions="Center" BackgroundColor="#505f6d"></BoxView>
+        </StackLayout>-->
+        <StackLayout BackgroundColor="White" Padding="10,10,10,10"  HorizontalOptions="FillAndExpand">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="30"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Row="0" Grid.Column="0">
+                    <Label Grid.Row="0" Grid.Column="0" x:Name="sessionName" Text="Session Name" FontSize="Small" TextColor="#36404a"></Label>
+                    <Grid Grid.Row="1" Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="15"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Row="0" Grid.Column="0" Source="mei_sessionlocation_dg.png" HeightRequest="15" WidthRequest="15"></Image>
+                        <Label Grid.Row="0" Grid.Column="1" x:Name="location" Text="Location" TextColor="#505f6d" FontSize="Micro" LineBreakMode="TailTruncation" YAlign="Center"></Label>
+                    </Grid>
+                    <Grid Grid.Row="2" Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="15"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Row="0" Grid.Column="0" Source="mei_sessiontime_dg.png" HeightRequest="15" WidthRequest="15"></Image>
+                        <Label Grid.Row="0" Grid.Column="1" x:Name="time" Text="Time" TextColor="#505f6d" FontSize="Micro" LineBreakMode="TailTruncation" YAlign="Center"></Label>
+                    </Grid>
+                </Grid>
+                <!--<ContentView Grid.Row="0" Grid.Column="1" Padding="8" x:Name="bookmarkPersonButton" VerticalOptions="Center">
+      <Image Source="addicon.png" x:Name="bookmarkIcon" HeightRequest="25" WidthRequest="25"/>
+    </ContentView>-->
+            </Grid>
+            <!--<BoxView HeightRequest="2" HorizontalOptions="FillAndExpand" BackgroundColor="#ebeff2"></BoxView>-->
+        </StackLayout>
+    </StackLayout>
+</ContentView>

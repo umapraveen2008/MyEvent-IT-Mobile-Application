@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MEI.Pages.NotesPage"
+             xmlns:local="clr-namespace:MEI.Pages;assembly=MEI"
+             xmlns:controls="clr-namespace:MEI.Controls;assembly=MEI" VerticalOptions="FillAndExpand" BackgroundColor="White">
+  <StackLayout Spacing="0">
+        <ContentView BackgroundColor="White" x:Name="emptyList" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="5">
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <Image Source="mei_nonotesicon_g.png"  WidthRequest="100" HeightRequest="100"></Image>
+                <Label x:Name="emptyText" Text="No notes yet!" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Medium"  TextColor="#bfc9d3"/>
+            </StackLayout>
+        </ContentView>
+        <ListView IsVisible="False" x:Name="notesParent" SeparatorVisibility="Default" SeparatorColor="#bfc9d3" VerticalOptions="FillAndExpand" HasUnevenRows="True" CachingStrategy="RecycleElement">
+
+      <ListView.GroupHeaderTemplate >
+        <DataTemplate>
+          <ViewCell Height="30">
+            <ContentView BackgroundColor="#ebeff2" Padding="10,0,10,0">
+              <Label x:Name="groupName" Text="{Binding Key}" YAlign="Center" TextColor="#36404a" HorizontalOptions="Start" FontSize="Medium" ></Label>
+            </ContentView>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.GroupHeaderTemplate>
+    </ListView>
+        <Button BorderRadius="0" Text="Add New Note" x:Name="newNoteButton"  FontSize="Medium" HorizontalOptions="FillAndExpand" BackgroundColor="#31c3ee" TextColor="White" ></Button>
+    </StackLayout>
+</ContentView>

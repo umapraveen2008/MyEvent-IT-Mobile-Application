@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MEI.Pages.EventHomePage" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#ebeff2">
+    <ScrollView>
+        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Padding="0,30">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Grid HorizontalOptions="FillAndExpand" Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Button Clicked="CreateScreen" AutomationId="0"  HeightRequest="60" WidthRequest="60" HorizontalOptions="Center" Grid.Row="0" Grid.Column="0" VerticalOptions="Center"  BackgroundColor="#f7c614" BorderRadius="30"></Button>
+                    <ContentView InputTransparent="True" HeightRequest="30" WidthRequest="30" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"  Grid.Row="0" Grid.Column="0" Padding="7">
+                        <Image InputTransparent="True" Source="mei_infoicon_w.png" />
+                    </ContentView>
+                    <ContentView HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
+                        <Label Text="About" FontSize="Small" VerticalOptions="Start" HorizontalOptions="Center" TextColor="#505f6d"></Label>
+                    </ContentView>
+                </Grid>
+                <Grid HorizontalOptions="FillAndExpand" Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Button Clicked="CreateScreen" AutomationId="1" HeightRequest="60" WidthRequest="60" HorizontalOptions="Center" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" BackgroundColor="#ff5b32" BorderRadius="30"></Button>
+                    <ContentView InputTransparent="True" HeightRequest="30" WidthRequest="30" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"  Grid.Row="0" Grid.Column="0" Padding="7">
+                        <Image InputTransparent="True" Source="mei_timelineicon_w.png" />
+                    </ContentView>
+                    <ContentView HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
+                        <Label Text="Timeline" FontSize="Small" VerticalOptions="Start" HorizontalOptions="Center" TextColor="#505f6d"></Label>
+                    </ContentView>
+                </Grid>
+                <Grid HorizontalOptions="FillAndExpand" Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Button Clicked="CreateScreen" AutomationId="2" HeightRequest="60" WidthRequest="60" HorizontalOptions="Center" Grid.Row="0" Grid.Column="0" VerticalOptions="Center"  BackgroundColor="#039dfd" BorderRadius="30"></Button>
+                    <ContentView InputTransparent="True" HeightRequest="30" WidthRequest="30" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"  Grid.Row="0" Grid.Column="0" Padding="7">
+                        <Image InputTransparent="True" Source="mei_speakericon_w.png" />
+                    </ContentView>
+                    <ContentView HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
+                        <Label Text="Speakers" FontSize="Small" VerticalOptions="Start" HorizontalOptions="Center" TextColor="#505f6d"></Label>
+                    </ContentView>
+                </Grid>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">                
+                <Grid HorizontalOptions="FillAndExpand" Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Button Clicked="CreateScreen" AutomationId="3" HeightRequest="60" WidthRequest="60" HorizontalOptions="Center" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" BackgroundColor="#eb346d" BorderRadius="30"></Button>
+                    <ContentView InputTransparent="True" HeightRequest="30" WidthRequest="30" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"  Grid.Row="0" Grid.Column="0" Padding="7">
+                        <Image InputTransparent="True" Source="mei_attendeeicon_w.png" />
+                    </ContentView>
+                    <ContentView HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
+                        <Label Text="Attendees" FontSize="Small" VerticalOptions="Start" HorizontalOptions="Center" TextColor="#505f6d"></Label>
+                    </ContentView>
+                </Grid>
+                <Grid HorizontalOptions="FillAndExpand" Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Button Clicked="CreateScreen" AutomationId="4" HeightRequest="60" WidthRequest="60" HorizontalOptions="Center" Grid.Row="0" Grid.Column="0" VerticalOptions="Center"  BackgroundColor="#bc1eca" BorderRadius="30"></Button>
+                    <ContentView InputTransparent="True" HeightRequest="30" WidthRequest="30" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"  Grid.Row="0" Grid.Column="0" Padding="7">
+                        <Image InputTransparent="True" Source="mei_dateicon_w.png" />
+                    </ContentView>
+                    <ContentView HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
+                        <Label Text="Schedule" FontSize="Small" VerticalOptions="Start" HorizontalOptions="Center" TextColor="#505f6d"></Label>
+                    </ContentView>
+                </Grid>
+                <Grid HorizontalOptions="FillAndExpand" Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Button Clicked="CreateScreen" AutomationId="5" HeightRequest="60" WidthRequest="60" HorizontalOptions="Center" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" BackgroundColor="#2bc33d" BorderRadius="30"></Button>
+                    <ContentView InputTransparent="True" HeightRequest="30" WidthRequest="30" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"  Grid.Row="0" Grid.Column="0" Padding="7">
+                        <Image InputTransparent="True" Source="mei_exhibitoricon_w.png" />
+                    </ContentView>
+                    <ContentView HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
+                        <Label Text="Exhibitors" FontSize="Small" VerticalOptions="Start" HorizontalOptions="Center" TextColor="#505f6d"></Label>
+                    </ContentView>
+                </Grid>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Grid HorizontalOptions="FillAndExpand" Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Button Clicked="CreateScreen" AutomationId="6" HeightRequest="60" WidthRequest="60" HorizontalOptions="Center" Grid.Row="0" Grid.Column="0" VerticalOptions="Center"  BackgroundColor="#f59000" BorderRadius="30"></Button>
+                    <ContentView InputTransparent="True" HeightRequest="30" WidthRequest="30" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"  Grid.Row="0" Grid.Column="0" Padding="7">
+                        <Image InputTransparent="True" Source="mei_sponsoricon_w.png" />
+                    </ContentView>
+                    <ContentView HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
+                        <Label Text="Sponsors" FontSize="Small" VerticalOptions="Start" HorizontalOptions="Center" TextColor="#505f6d"></Label>
+                    </ContentView>
+                </Grid>
+                <Grid HorizontalOptions="FillAndExpand" Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Button Clicked="CreateScreen" AutomationId="7" HeightRequest="60" WidthRequest="60" HorizontalOptions="Center" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" BackgroundColor="#3899fa" BorderRadius="30"></Button>
+                    <ContentView InputTransparent="True" HeightRequest="30" WidthRequest="30" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"  Grid.Row="0" Grid.Column="0" Padding="7">
+                        <Image InputTransparent="True" Source="mei_shoppingbagicon_w.png" />
+                    </ContentView>
+                    <ContentView HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
+                        <Label Text="Store" FontSize="Small" VerticalOptions="Start" HorizontalOptions="Center" TextColor="#505f6d"></Label>
+                    </ContentView>
+                </Grid>
+                <Grid HorizontalOptions="FillAndExpand" Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Button Clicked="CreateScreen" AutomationId="8" HeightRequest="60" WidthRequest="60" HorizontalOptions="Center" Grid.Row="0" Grid.Column="0" VerticalOptions="Center"  BackgroundColor="#a045fa" BorderRadius="30"></Button>
+                    <ContentView InputTransparent="True" HeightRequest="30" WidthRequest="30" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"  Grid.Row="0" Grid.Column="0" Padding="7">
+                        <Image InputTransparent="True" Source="mei_flooricon_w.png" />
+                    </ContentView>
+                    <ContentView HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
+                        <Label Text="Floor Map" FontSize="Small" VerticalOptions="Start" HorizontalOptions="Center" TextColor="#505f6d"></Label>
+                    </ContentView>
+                </Grid>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+               
+                <Grid HorizontalOptions="FillAndExpand" Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Button Clicked="CreateScreen" AutomationId="9" HeightRequest="60" WidthRequest="60" HorizontalOptions="Center" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" BackgroundColor="#67d55a" BorderRadius="30"></Button>
+                    <ContentView InputTransparent="True" HeightRequest="30" WidthRequest="30" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"  Grid.Row="0" Grid.Column="0" Padding="7">
+                        <Image InputTransparent="True" Source="mei_venueicon_w.png" />
+                    </ContentView>
+                    <ContentView HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
+                        <Label Text="Venue Map" FontSize="Small" VerticalOptions="Start" HorizontalOptions="Center" TextColor="#505f6d"></Label>
+                    </ContentView>
+                </Grid>
+                <Grid HorizontalOptions="FillAndExpand" Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Button Clicked="CreateScreen" AutomationId="10" HeightRequest="60" WidthRequest="60" HorizontalOptions="Center" Grid.Row="0" Grid.Column="0" VerticalOptions="Center"  BackgroundColor="#FF3947" BorderRadius="30"></Button>
+                    <ContentView InputTransparent="True" HeightRequest="30" WidthRequest="30" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"  Grid.Row="0" Grid.Column="0" Padding="7">
+                        <Image InputTransparent="True" Source="mei_faqicon_w.png" />
+                    </ContentView>
+                    <ContentView HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">
+                        <Label Text="FAQ" FontSize="Small" VerticalOptions="Start" HorizontalOptions="Center" TextColor="#505f6d"></Label>
+                    </ContentView>
+                </Grid>
+                <Grid HorizontalOptions="FillAndExpand" Margin="5">
+                    <BoxView HeightRequest="80" WidthRequest="80"></BoxView>
+                </Grid>
+            </StackLayout>           
+        </StackLayout>
+    </ScrollView>
+</ContentView>

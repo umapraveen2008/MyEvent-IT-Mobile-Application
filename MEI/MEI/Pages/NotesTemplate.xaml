@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MEI.Pages.NotesTemplateView"            
+             xmlns:local="clr-namespace:MEI.Pages;assembly=MEI" 
+             xmlns:controls="clr-namespace:MEI.Controls;assembly=MEI" BackgroundColor="White">
+    <StackLayout Padding="10,10,10,10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="30"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackLayout  Grid.Row="0" Grid.Column="0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="4*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Row="0" Grid.Column="0" Source="mei_sessiontime_dg.png" HeightRequest="15" WidthRequest="15"></Image>
+                    <Label x:Name="notesTime" Grid.Row="0" Grid.Column="1" Text="4:00PM" XAlign="Start" VerticalOptions="Center" TextColor="#36404a" FontSize="Micro" />
+                    <Image Grid.Row="0" x:Name="tagIcon"  Grid.Column="2" Source="mei_pricetagiconcon_g.png" HeightRequest="15" WidthRequest="15"></Image>
+                    <Label x:Name="noteTag" Grid.Row="0" Grid.Column="3" Text="Tagged with" XAlign="Start" VerticalOptions="Center" TextColor="#36404a" FontSize="Micro" />
+                </Grid>
+                <Label x:Name="noteDescription" Text="User's notes goes here." TextColor="#36404a" FontSize="Small" />
+
+            </StackLayout>
+            <ContentView x:Name="noteDelete" Padding="0" Grid.Row="0" Grid.Column="1" VerticalOptions="Center">
+                <Image   Source="mei_deleteicon_dg.png"></Image>
+            </ContentView>
+        </Grid>
+        <!--<BoxView BackgroundColor="#ebeff2" HeightRequest="2" HorizontalOptions="FillAndExpand"></BoxView>-->
+    </StackLayout>
+</ContentView>

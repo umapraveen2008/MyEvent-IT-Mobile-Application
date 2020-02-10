@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MEI.Pages.EditProfile"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:local="clr-namespace:MEI.Controls;assembly=MEI" BackgroundColor="White"
+             xmlns:abstractions="clr-namespace:RoundedBoxView.Forms.Plugin.Abstractions;assembly=RoundedBoxView.Forms.Plugin.Abstractions">
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <ScrollView>
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="20"  >
+                <!--<BoxView HeightRequest="150" BackgroundColor="#31c3ee">-->
+                <ContentView BackgroundColor="#31c3ee" HorizontalOptions="FillAndExpand" HeightRequest="200">
+                    <!--<abstractions:RoundedBoxView CornerRadius="25" WidthRequest="100" HeightRequest="100">-->
+                    <ContentView HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <Grid WidthRequest="120" HeightRequest="120" BackgroundColor="#bfc9d3" Padding="2" x:Name="logoGrid">
+                            <ContentView BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0">
+                                <Label x:Name="logoText" Text="" TextColor="#31c3ee" HorizontalOptions="FillAndExpand" FontSize="Large" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" VerticalOptions="FillAndExpand"></Label>
+                            </ContentView>
+                            <ContentView Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <Image HorizontalOptions="FillAndExpand" VerticalOptions="Fill"						
+			Source = "mei_appicon_g.png" Aspect="Fill" x:Name="logo" >
+                                </Image>
+                            </ContentView>
+                        </Grid>
+                    </ContentView>
+                    <!--</abstractions:RoundedBoxView>-->
+                </ContentView>
+                <!--</BoxView>-->
+                <StackLayout Margin="5,0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <StackLayout Orientation="Horizontal" BackgroundColor="#ebeff2" HeightRequest="50">
+                        <ContentView Padding="10" HorizontalOptions="Start">
+                            <Image Source="mei_editname_dg.png" ></Image>
+                        </ContentView>
+                        <Entry TextColor="#505f6d" PlaceholderColor="#bfc9d3" BackgroundColor="#ebeff2" x:Name="FirstName" Placeholder="First Name" HorizontalOptions="FillAndExpand" FontSize="Small"  HorizontalTextAlignment="Start" ></Entry>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" BackgroundColor="#ebeff2" HeightRequest="50">
+                        <ContentView Padding="10" HorizontalOptions="Start">
+                            <Image Source="mei_editname_dg.png" ></Image>
+                        </ContentView>
+                        <Entry TextColor="#505f6d" PlaceholderColor="#bfc9d3" BackgroundColor="#ebeff2" x:Name="LastName" Placeholder="Last Name" HorizontalOptions="FillAndExpand" FontSize="Small" HorizontalTextAlignment="Start"  ></Entry>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" BackgroundColor="#ebeff2" HeightRequest="50">
+                        <ContentView Padding="10" HorizontalOptions="Start">
+                            <Image Source="mei_roleicon_dg.png" ></Image>
+                        </ContentView>
+                        <Entry TextColor="#505f6d" PlaceholderColor="#bfc9d3" BackgroundColor="#ebeff2" x:Name="position" Placeholder="Position" HorizontalOptions="FillAndExpand" FontSize="Small" HorizontalTextAlignment="Start" ></Entry>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" BackgroundColor="#ebeff2" HeightRequest="50">
+                        <ContentView Padding="10" HorizontalOptions="Start">
+                            <Image Source="mei_jobcompanyicon_dg.png" ></Image>
+                        </ContentView>
+                        <Entry TextColor="#505f6d" PlaceholderColor="#bfc9d3" BackgroundColor="#ebeff2" x:Name="company" Placeholder="Company" HorizontalOptions="FillAndExpand" FontSize="Small" HorizontalTextAlignment="Start" ></Entry>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" BackgroundColor="#ebeff2" HeightRequest="50">
+                        <ContentView Padding="10" HorizontalOptions="Start">
+                            <Image Source="mei_phoneicon_dg.png" ></Image>
+                        </ContentView>
+                        <Entry TextColor="#505f6d" PlaceholderColor="#bfc9d3" BackgroundColor="#ebeff2" x:Name="phone" Placeholder="Phone" HorizontalOptions="FillAndExpand" FontSize="Small" HorizontalTextAlignment="Start"></Entry>
+                    </StackLayout>
+                    <!--<StackLayout Orientation="Horizontal" Grid.Row="5" Grid.Column="0" BackgroundColor="#ebeff2">
+                            <ContentView Padding="10" HorizontalOptions="Start">
+                                <Image Source="mei_emailicon_dg.png" ></Image>
+                            </ContentView>
+                            <Entry TextColor="#505f6d" IsEnabled="False" PlaceholderColor="#36404a" BackgroundColor="#ebeff2" x:Name="email" Placeholder="Email" HorizontalOptions="FillAndExpand" FontSize="Small" HorizontalTextAlignment="Start"></Entry>
+                        </StackLayout>-->
+                    <StackLayout Orientation="Horizontal" BackgroundColor="#ebeff2" HeightRequest="50">
+                        <ContentView Padding="10" HorizontalOptions="Start">
+                            <Image Source="mei_websiteicon_dg.png" ></Image>
+                        </ContentView>
+                        <Entry TextColor="#505f6d" PlaceholderColor="#bfc9d3" BackgroundColor="#ebeff2" x:Name="website" Placeholder="Website" HorizontalOptions="FillAndExpand" FontSize="Small" HorizontalTextAlignment="Start" ></Entry>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" BackgroundColor="#ebeff2" HeightRequest="50">
+                        <ContentView Padding="10" HorizontalOptions="Start">
+                            <Image Source="mei_addressicon_dg.png" ></Image>
+                        </ContentView>
+                        <Entry TextColor="#505f6d" PlaceholderColor="#bfc9d3" BackgroundColor="#ebeff2" x:Name="address" Placeholder="Address" HorizontalOptions="FillAndExpand" FontSize="Small" HorizontalTextAlignment="Start" ></Entry>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" BackgroundColor="#ebeff2" HeightRequest="50">
+                        <ContentView Padding="10" HorizontalOptions="Start">
+                            <Image Source="mei_addressicon_dg.png" ></Image>
+                        </ContentView>
+                        <Entry TextColor="#505f6d" PlaceholderColor="#bfc9d3" BackgroundColor="#ebeff2" x:Name="city" Placeholder="City" HorizontalOptions="FillAndExpand" FontSize="Small" HorizontalTextAlignment="Start" ></Entry>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" BackgroundColor="#ebeff2" HeightRequest="50">
+                        <ContentView Padding="10" HorizontalOptions="Start">
+                            <Image Source="mei_addressicon_dg.png" ></Image>
+                        </ContentView>
+                        <Picker Title="State" BackgroundColor="#ebeff2" x:Name="state" HorizontalOptions="FillAndExpand" >
+                        </Picker>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" BackgroundColor="#ebeff2" HeightRequest="50">
+                        <ContentView Padding="10" HorizontalOptions="Start">
+                            <Image Source="mei_addressicon_dg.png" ></Image>
+                        </ContentView>
+                        <Entry Keyboard="Numeric" TextColor="#505f6d" PlaceholderColor="#bfc9d3" BackgroundColor="#ebeff2" x:Name="postal" Placeholder="Postal / Zip Code" HorizontalOptions="FillAndExpand" FontSize="Small" HorizontalTextAlignment="Start" ></Entry>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" BackgroundColor="#ebeff2" HeightRequest="50">
+                        <ContentView  Padding="10" HorizontalOptions="Start">
+                            <Image Source="mei_bioicon_dg.png" ></Image>
+                        </ContentView>
+                        <Entry  TextColor="#505f6d" PlaceholderColor="#bfc9d3" BackgroundColor="#ebeff2" x:Name="shortBio" Placeholder="Short Bio" HorizontalOptions="FillAndExpand" FontSize="Small" HorizontalTextAlignment="Start"></Entry>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" BackgroundColor="#ebeff2" HeightRequest="50">
+                        <ContentView  Padding="10" HorizontalOptions="Start">
+                            <Image Source="mei_fbicon_active.png" ></Image>
+                        </ContentView>
+                        <Entry Keyboard="Url" TextColor="#505f6d" PlaceholderColor="#bfc9d3" BackgroundColor="#ebeff2" x:Name="userFacebook" Placeholder="Facebook URL" HorizontalOptions="FillAndExpand" FontSize="Small" HorizontalTextAlignment="Start"></Entry>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" BackgroundColor="#ebeff2" HeightRequest="50">
+                        <ContentView Padding="10" HorizontalOptions="Start">
+                            <Image Source="mei_twittericon_active.png" ></Image>
+                        </ContentView>
+                        <Entry  Keyboard="Url" TextColor="#505f6d" PlaceholderColor="#bfc9d3" BackgroundColor="#ebeff2" x:Name="userTwitter" Placeholder="Twitter URL" HorizontalOptions="FillAndExpand" FontSize="Small" HorizontalTextAlignment="Start"></Entry>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" BackgroundColor="#ebeff2" HeightRequest="50">
+                        <ContentView  Padding="10" HorizontalOptions="Start">
+                            <Image Source="mei_gplusicon_active.png" ></Image>
+                        </ContentView>
+                        <Entry  Keyboard="Url" TextColor="#505f6d" PlaceholderColor="#bfc9d3" BackgroundColor="#ebeff2" x:Name="userGPlus" Placeholder="Instagram URL" HorizontalOptions="FillAndExpand" FontSize="Small" HorizontalTextAlignment="Start"></Entry>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" BackgroundColor="#ebeff2" HeightRequest="50">
+                        <ContentView Padding="10" HorizontalOptions="Start">
+                            <Image Source="mei_linkedinicon_active.png" ></Image>
+                        </ContentView>
+                        <Entry Keyboard="Url" TextColor="#505f6d" PlaceholderColor="#bfc9d3" BackgroundColor="#ebeff2" x:Name="userLinkedIn" Placeholder="LinkedIn URL" HorizontalOptions="FillAndExpand" FontSize="Small" HorizontalTextAlignment="Start"></Entry>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentView>
