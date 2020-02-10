@@ -346,7 +346,6 @@
         "dependencies": {
           "Newtonsoft.Json": "12.0.3",
           "Plugin.FirebasePushNotification": "2.3.6",
-          "Xam.Plugin.Badge": "1.0.0",
           "Xam.Plugin.DeviceInfo": "4.1.1",
           "Xam.Plugin.Media": "4.0.1.5",
           "Xam.Plugins.Forms.RoundedBoxView": "1.0.0.7",
@@ -710,7 +709,6 @@
         "dependencies": {
           "Newtonsoft.Json": "12.0.3",
           "Plugin.FirebasePushNotification": "2.3.6",
-          "Xam.Plugin.Badge": "1.0.0",
           "Xam.Plugin.DeviceInfo": "4.1.1",
           "Xam.Plugin.Media": "4.0.1.5",
           "Xam.Plugins.Forms.RoundedBoxView": "1.0.0.7",
@@ -1074,7 +1072,6 @@
         "dependencies": {
           "Newtonsoft.Json": "12.0.3",
           "Plugin.FirebasePushNotification": "2.3.6",
-          "Xam.Plugin.Badge": "1.0.0",
           "Xam.Plugin.DeviceInfo": "4.1.1",
           "Xam.Plugin.Media": "4.0.1.5",
           "Xam.Plugins.Forms.RoundedBoxView": "1.0.0.7",
@@ -1438,7 +1435,6 @@
         "dependencies": {
           "Newtonsoft.Json": "12.0.3",
           "Plugin.FirebasePushNotification": "2.3.6",
-          "Xam.Plugin.Badge": "1.0.0",
           "Xam.Plugin.DeviceInfo": "4.1.1",
           "Xam.Plugin.Media": "4.0.1.5",
           "Xam.Plugins.Forms.RoundedBoxView": "1.0.0.7",
@@ -2303,24 +2299,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\House144\\.nuget\\packages\\": {},
+    "C:\\Users\\ADELFOS-PC\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Uma Dropbox\\Dropbox\\MEI\\MEI\\MEI.iOS\\MEI.iOS.csproj",
+      "projectUniqueName": "E:\\CG Solutions Group\\MEI Mobile Application\\MEI\\MEI.iOS\\MEI.iOS.csproj",
       "projectName": "MEI.iOS",
-      "projectPath": "D:\\Uma Dropbox\\Dropbox\\MEI\\MEI\\MEI.iOS\\MEI.iOS.csproj",
-      "packagesPath": "C:\\Users\\House144\\.nuget\\packages\\",
-      "outputPath": "D:\\Uma Dropbox\\Dropbox\\MEI\\MEI\\MEI.iOS\\obj\\",
+      "projectPath": "E:\\CG Solutions Group\\MEI Mobile Application\\MEI\\MEI.iOS\\MEI.iOS.csproj",
+      "packagesPath": "C:\\Users\\ADELFOS-PC\\.nuget\\packages\\",
+      "outputPath": "E:\\CG Solutions Group\\MEI Mobile Application\\MEI\\MEI.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\House144\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ADELFOS-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -2334,8 +2330,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "D:\\Uma Dropbox\\Dropbox\\MEI\\MEI\\MEI\\MEI.csproj": {
-              "projectPath": "D:\\Uma Dropbox\\Dropbox\\MEI\\MEI\\MEI\\MEI.csproj"
+            "E:\\CG Solutions Group\\MEI Mobile Application\\MEI\\MEI\\MEI.csproj": {
+              "projectPath": "E:\\CG Solutions Group\\MEI Mobile Application\\MEI\\MEI\\MEI.csproj"
             }
           }
         }
