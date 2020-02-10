@@ -15,7 +15,12 @@
 **/*.Android/**/[Rr]esource.[Dd]esigner.cs
 **/Android/**/[Rr]esource.[Dd]esigner.cs
 **/Droid/**/[Rr]esource.[Dd]esigner.cs
-
+MEI/MEI/bin/
+MEI/MEI/obj/
+MEI/MEI.Android/bin/
+MEI/MEI.Android/obj/
+MEI/MEI.iOS/bin/
+MEI/MEI.iOS/obj/
 # Xamarin Components
 Components/
 
