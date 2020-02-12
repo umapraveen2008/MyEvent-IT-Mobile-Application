@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace EventIT.iOS
+namespace MEI.iOS
 {
     public class Application
     {

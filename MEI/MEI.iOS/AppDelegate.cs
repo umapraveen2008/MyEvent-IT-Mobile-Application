@@ -39,7 +39,7 @@ namespace MEI.iOS
 
             global::Xamarin.Forms.Forms.Init();
             global::Xamarin.FormsMaps.Init();
-            LoadApplication(new App());
+            App ap = new  App();            
 
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
             RoundedBoxViewRenderer.Init();
@@ -85,12 +85,12 @@ namespace MEI.iOS
                 {
                     var alertsAllowed = (settings.AlertSetting == UNNotificationSetting.Enabled);
                 });
-                Messaging.SharedInstance.Delegate = this;
             }
-            Messaging.SharedInstance.ShouldEstablishDirectChannel = true;
             UIApplication.SharedApplication.RegisterForRemoteNotifications();
             UIApplication.SharedApplication.SetStatusBarStyle(UIStatusBarStyle.LightContent, false);
             FirebasePushNotificationManager.Initialize(options, true);
+            LoadApplication(ap);
+            ap.StartApp();
             return base.FinishedLaunching(app, options);
 
         }
@@ -245,7 +245,7 @@ namespace MEI.iOS
 
         public void AddUserPhoneTOGCM(object sender, EventArgs e)
         {
-            App.phoneID = InstanceId.SharedInstance.Token;
+            //App.phoneID = InstanceId.SharedInstance.Token;
             Uri address = new Uri("http://www.myeventit.com/PHP/AddPhone.php");
             NameValueCollection nameValueCollection = new NameValueCollection();
             nameValueCollection["deviceid"] = CrossDeviceInfo.Current.Id;

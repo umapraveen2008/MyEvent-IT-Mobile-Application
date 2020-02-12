@@ -7,10 +7,10 @@ using Xamarin.Forms.Platform.iOS;
 using Foundation;
 using System.Diagnostics;
 using MEI.Controls;
-using EventIT.iOS.CustomRenderers;
+using MEI.iOS.CustomRenderers;
 
 [assembly: ExportRenderer(typeof(CircleImage), typeof(CircleImageRenderer))]
-namespace EventIT.iOS.CustomRenderers
+namespace MEI.iOS.CustomRenderers
 {
     [Preserve(AllMembers = true)]
     public class CircleImageRenderer : ImageRenderer

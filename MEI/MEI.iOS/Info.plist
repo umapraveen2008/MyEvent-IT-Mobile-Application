@@ -134,7 +134,7 @@
 	<key>NSSiriUsageDescription</key>
 	<string>Requires permission to use siri.</string>
 	<key>XSAppIconAssets</key>
-	<string>Media.xcassets/AppIcons.appiconset</string>
+	<string>MEIAssets.xcassets/MEI App Icons.appiconset</string>
 	<key>NSLocation</key>
 	<string></string>
 	<key>NSLocationAlwaysUsageDescription</key>
@@ -147,5 +147,20 @@
 	<false/>
 	<key>CFBundleName</key>
 	<string>MyEvent it</string>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeName</key>
+			<string>MKDirectionsRequest</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.apple.maps.directionsrequest</string>
+			</array>
+		</dict>
+	</array>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIMainStoryboardFile</key>
+	<string>LaunchScreen</string>
 </dict>
 </plist>

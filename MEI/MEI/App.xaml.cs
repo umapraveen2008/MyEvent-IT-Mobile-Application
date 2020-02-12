@@ -100,8 +100,7 @@ namespace MEI
         public App()
         {
             // The root page of your application      
-            InitializeComponent();
-            //MainPage = new LoginPage();
+            InitializeComponent();            
 
         }
 
