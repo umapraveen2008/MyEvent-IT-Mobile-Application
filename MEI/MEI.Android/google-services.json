@@ -21,19 +21,24 @@
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAtmGqf6gzZAgHo7kjziBL9O1XelBy4DqI"
+          "current_key": "AIzaSyC1e9yQJSKvpmLb-Tua_jL7PM39vQfjEn0"
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1040238333834-9uiiugp6qon3jubjiq8tvba97g2ta42t.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1040238333834-180lcb3gstl1ihtakkj334vnmej29tn5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.cgsg.myeventit"
+              }
+            }
+          ]
         }
       }
     }

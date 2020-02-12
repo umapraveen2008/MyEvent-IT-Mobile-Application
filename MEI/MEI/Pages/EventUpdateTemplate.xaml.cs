@@ -182,7 +182,7 @@ namespace MEI.Pages
             if (post != null)
             {
                 postImage.IsVisible = true;               
-                ServerDomain currentDomain = ((HomeLayout)App.Current.MainPage).currentDomain;
+                ServerDomain currentDomain = ((HomeLayout)App.Current.MainPage).notificationDomain;
                 postHeader.Text = currentDomain.domainName;
                 if (!string.IsNullOrEmpty(currentDomain.domainLogo))
                 {

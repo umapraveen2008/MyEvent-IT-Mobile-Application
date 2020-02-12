@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.cgsgroup.myeventit" android:installLocation="internalOnly" android:versionName="1.18" xmlns:tools="http://schemas.android.com/tools" android:versionCode="18">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.cgsgroup.myeventit" android:installLocation="internalOnly" android:versionName="1.19" xmlns:tools="http://schemas.android.com/tools" android:versionCode="19">
 	<uses-sdk android:minSdkVersion="26" android:targetSdkVersion="28" android:allowBackup="false" />
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
@@ -38,13 +38,13 @@
 	<application android:label="MyEvent it" android:icon="@drawable/mei_appicon_g" android:usesCleartextTraffic="true">
 		<meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyAtmGqf6gzZAgHo7kjziBL9O1XelBy4DqI" />
 		<uses-library android:name="org.apache.http.legacy" android:required="false" />
-		<receiver android:name="com.google.android.gms.gcm.GcmReceiver" android:exported="true" android:permission="com.google.android.c2dm.permission.SEND">
+		<!--<receiver android:name="com.google.android.gms.gcm.GcmReceiver" android:exported="true" android:permission="com.google.android.c2dm.permission.SEND">
 			<intent-filter>
 				<action android:name="com.google.android.c2dm.intent.RECEIVE" />
 				<action android:name="com.google.android.c2dm.intent.REGISTRATION" />
 				<category android:name="com.cgsgroup.myeventit" />
 			</intent-filter>
-		</receiver>
+		</receiver>-->
 	</application>
 	<!--<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />-->

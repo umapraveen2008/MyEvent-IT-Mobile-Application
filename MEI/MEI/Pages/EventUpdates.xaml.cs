@@ -16,7 +16,8 @@ namespace MEI.Pages
         public ObservableCollection<ServerEventPost> posts = new ObservableCollection<ServerEventPost>();
         public EventUpdates()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            ((HomeLayout)App.Current.MainPage).notificationDomain = ((HomeLayout)App.Current.MainPage).currentDomain;
             eventUpdatesList.RefreshCommand = LoadEventUpdatesCommand;
             eventUpdatesList.ItemTemplate = new DataTemplate(typeof(EventUpdateTemplate));
             eventUpdatesList.HasUnevenRows = true;

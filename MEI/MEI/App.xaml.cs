@@ -1,5 +1,7 @@
 ﻿using FFImageLoading.Forms;
 using MEI.Pages;
+using Plugin.FirebasePushNotification;
+using Plugin.FirebasePushNotification.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
@@ -65,10 +67,11 @@ namespace MEI
         public static bool gettingUpdates = false;
         public static EventHandler localPushNotification;
         public static EventHandler closeApp;
-        public static EventHandler registerPhoneToServer;
+        public static string registerPhoneID;
         public static string allDomainEvents = String.Empty;
         public static string userProfileData = String.Empty;
         public static GetServerData serverData = new GetServerData();
+        public static EventHandler<FirebasePushNotificationDataEventArgs> PushNotification;
         public static bool AppHaveInternet = true;
         public static EventHandler cropImage;
         public static string userID;
@@ -108,13 +111,35 @@ namespace MEI
             //ResetUser(this, null);
             //if (!string.IsNullOrEmpty(GetUser))
             //GetUserEvent(this, null);
-           // MainPage = new LoginPage();
-            // Handle when your app starts
+            // MainPage = new LoginPage();
+            // Handle when your app starts            
+            
         }
 
         public void StartApp()
         {
             GetUserEvent(this, null);
+            CrossFirebasePushNotification.Current.RegisterForPushNotifications();
+            CrossFirebasePushNotification.Current.Subscribe("MEI");
+            CrossFirebasePushNotification.Current.NotificationHandler = null;
+            CrossFirebasePushNotification.Current.OnTokenRefresh += (s, p) =>
+            {
+                App.phoneID = p.Token;
+                System.Diagnostics.Debug.WriteLine($"TOKEN REC: {p.Token}");                
+            };
+
+            CrossFirebasePushNotification.Current.OnNotificationReceived += (s, p) =>
+            {
+                try
+                {
+                    PushNotification(s, p);
+                }
+                catch (Exception ex)
+                {
+
+                }
+
+            };
             MainPage = new LoginPage();
         }
 

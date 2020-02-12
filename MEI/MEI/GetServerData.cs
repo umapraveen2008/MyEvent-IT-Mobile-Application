@@ -78,7 +78,7 @@ namespace MEI
         private string unsubscribeForDomain_URL = "UnSubscribeForDomainEvent.php";
 
         private string getSubscriptionStatus_URL = "subscriptionInfo.php";
-
+        private string addPhoneURL = "AddPhone.php";
         public bool isLoaded = false;
 
         public GetServerData()
@@ -243,6 +243,31 @@ namespace MEI
             } while (retry);
             return returnObject;
         }
+
+        public async Task AddPhone(string deviceid,string phoneid,string userid)
+        {
+            
+                try
+                {
+                    mei_user.registeredDomainList.Clear();
+                    var client = App.serverData.GetHttpClient();
+                    var postData = new List<KeyValuePair<string, string>>();
+                    postData.Add(new KeyValuePair<string, string>("deviceid", deviceid));
+                    postData.Add(new KeyValuePair<string, string>("phonegcmid", phoneid));
+                    postData.Add(new KeyValuePair<string, string>("userid", userid));
+                    HttpContent content = new FormUrlEncodedContent(postData);
+                    CancellationToken c = new CancellationToken();
+                    HttpResponseMessage result = await client.PostAsync(httpAppend + addPhoneURL, content, c);
+                    var domainListResponse = await result.Content.ReadAsStringAsync();
+                    Console.WriteLine(domainListResponse);
+                }
+                catch (Exception e)
+                {
+                }
+          
+          
+        }
+
 
         public async void SyncBookmarkList()
         {

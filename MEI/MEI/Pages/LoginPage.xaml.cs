@@ -5,6 +5,7 @@ using System.Net.Http;
 
 using System.Threading;
 using MEI.Controls;
+using Plugin.DeviceInfo;
 
 namespace MEI.Pages
 {
@@ -47,12 +48,12 @@ namespace MEI.Pages
                 }
                 else
                 {
-                    showPasswordIcon.Source = "mei_hideicon_w.png";                    
+                    showPasswordIcon.Source = "mei_hideicon_w.png";
                     // showPassword.Text = "Hide";                    
                 }
 
             };
-            showPassword.GestureRecognizers.Add(t);       
+            showPassword.GestureRecognizers.Add(t);
         }
 
 
@@ -61,18 +62,18 @@ namespace MEI.Pages
             try
             {
                 App.GetUserEvent(this, null);
-                
+
                 if (App.GetUser != String.Empty)
                 {
-                     loadingText.Text = "Loading your Profile...";
+                    loadingText.Text = "Loading your Profile...";
                     App.userID = App.GetUser;
                     loading.IsVisible = true;
                     loginForm.IsVisible = false;
-                   
+
                     if (App.AppResume)
                     {
                         loadingText.Text = "Syncing subscriptions...";
-                        await progressBar.ProgressTo(0.2, 250, Easing.Linear);                        
+                        await progressBar.ProgressTo(0.2, 250, Easing.Linear);
                         App.serverData.GetLocalToVariable();
                         App.serverData.mei_user.currentUser = await App.serverData.GetUserWithID(App.userID);
                         //await progressBar.ProgressTo(0.4, 250, Easing.Linear);
@@ -85,8 +86,8 @@ namespace MEI.Pages
                         await App.serverData.GetRegisteredDomain();
                         await progressBar.ProgressTo(0.8, 250, Easing.Linear);
                         loadingText.Text = "Syncing shipping addresses...";
-                        
-                        App.serverData.GetUserAddressList(); 
+
+                        App.serverData.GetUserAddressList();
                         App.serverData.CreateUserTokenList();
                         //await progressBar.ProgressTo(0.9, 250, Easing.Linear);
                         loadingText.Text = "Syncing subscriptions...";
@@ -108,9 +109,9 @@ namespace MEI.Pages
                     loginForm.IsVisible = true;
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                await DisplayAlert("User ID", e.ToString(), "OK");                
+                await DisplayAlert("User ID", e.ToString(), "OK");
                 loading.IsVisible = false;
                 loginForm.IsVisible = true;
             }
@@ -149,7 +150,7 @@ namespace MEI.Pages
 
         public async void CheckLogin(object sender, EventArgs e)
         {
-            
+
             if (string.IsNullOrEmpty(username.Text))
             {
                 await DisplayAlert("Alert", "Email Required", "OK");
@@ -165,100 +166,100 @@ namespace MEI.Pages
                 await DisplayAlert("Alert", "Password Required", "OK");
                 return;
             }
-            
+
 
             loadingText.Text = "Checking with server...";
             loading.IsVisible = true;
             loginForm.IsVisible = false;
-            
-        
-                bool retry = false;
-                do
+
+
+            bool retry = false;
+            do
+            {
+                try
                 {
-                    try
+                    string address = "http://www.myeventit.com/PHP/CheckUserLogin.php/";
+                    var client = App.serverData.GetHttpClient();
+                    var postData = new List<KeyValuePair<string, string>>();
+                    postData.Add(new KeyValuePair<string, string>("email", username.Text.ToLower()));
+                    postData.Add(new KeyValuePair<string, string>("password", password.Text));
+                    HttpContent content = new FormUrlEncodedContent(postData);
+                    CancellationToken c = new CancellationToken();
+                    HttpResponseMessage result = await client.PostAsync(address, content, c);
+                    var isRegistered = await result.Content.ReadAsStringAsync();
+                    if (isRegistered.ToString() != "false" && isRegistered.ToString() != "Inactive")
                     {
-                        string address = "http://www.myeventit.com/PHP/CheckUserLogin.php/";
-                        var client = App.serverData.GetHttpClient();
-                        var postData = new List<KeyValuePair<string, string>>();
-                        postData.Add(new KeyValuePair<string, string>("email", username.Text.ToLower()));
-                        postData.Add(new KeyValuePair<string, string>("password", password.Text));
-                        HttpContent content = new FormUrlEncodedContent(postData);
-                        CancellationToken c = new CancellationToken();
-                        HttpResponseMessage result = await client.PostAsync(address, content, c);
-                        var isRegistered = await result.Content.ReadAsStringAsync();
-                        if (isRegistered.ToString() != "false" && isRegistered.ToString() != "Inactive")
-                        {
-                            App.serverData.allDomainEvents = new List<DomainGroup>();
-                            App.serverData.mei_user = new UserProfile();
-                            App.AppHaveInternet = true;
-                            App.userID = isRegistered.ToString();
-                            App.SaveUser(this, null);                            
-                            loadingText.Text = "Loading your Profile...";
-                            loading.IsVisible = true;
-                            loginForm.IsVisible = false;
-                            await progressBar.ProgressTo(0.2, 250, Easing.Linear);
-                            loadingText.Text = "Syncing registered Domains...";
-                            var regDomains = await App.serverData.GetRegisteredDomain();                            
-                            await progressBar.ProgressTo(0.4, 250, Easing.Linear);
-                            loadingText.Text = "Syncing requested Domains...";
-                            App.serverData.mei_user.currentUser = await App.serverData.GetUserWithID(App.userID);
-                            App.serverData.CreateUserTokenList();
-                            await App.serverData.GetRequestedDomains();
-                            await progressBar.ProgressTo(0.6, 250, Easing.Linear);
-                            loadingText.Text = "Syncing notes...";
-                            App.serverData.SyncUserNotes();
-                            await progressBar.ProgressTo(0.8, 250, Easing.Linear);
-                            loadingText.Text = "Syncing shipping addresses...";
-                            App.serverData.GetUserAddressList();
-                            await progressBar.ProgressTo(0.9, 250, Easing.Linear);
-                            loadingText.Text = "Syncing subscriptions...";
-                            App.serverData.GetUserSubscriptions();
-                            await progressBar.ProgressTo(1, 250, Easing.Linear);
-                            App.registerPhoneToServer(this, null);
-                            Application.Current.MainPage = new HomeLayout();
-                        }
-                        else
-                        {
-                            if (isRegistered.ToString() == "false")
-                            {
-                                App.AppHaveInternet = true;
-                                await DisplayAlert("Alert", "User email or Password is Invalid", "OK");
-                                loading.IsVisible = false;
-                                loginForm.IsVisible = true;
-                                return;
-                            }
-                            else
-                            {
-                                App.AppHaveInternet = true;
-                                var k = await DisplayAlert("Alert", "Your account is still unverified.","Resend Confirmation Link","Ok");
-                                if(k)
-                                {
-                                var j = await App.serverData.ResendVerficationEmail(username.Text);
-                                if(j)
-                                {
-                                  await DisplayAlert("Alert", "Confirmation link will be sent to your email.", "Ok");
-                                }
-                                }
-                                loading.IsVisible = false;
-                                loginForm.IsVisible = true;
-                                return;
-                            }
-                        }
+                        App.serverData.allDomainEvents = new List<DomainGroup>();
+                        App.serverData.mei_user = new UserProfile();
+                        App.AppHaveInternet = true;
+                        App.userID = isRegistered.ToString();
+                        App.SaveUser(this, null);
+                        loadingText.Text = "Loading your Profile...";
+                        loading.IsVisible = true;
+                        loginForm.IsVisible = false;
+                        await progressBar.ProgressTo(0.2, 250, Easing.Linear);
+                        loadingText.Text = "Syncing registered Domains...";
+                        var regDomains = await App.serverData.GetRegisteredDomain();
+                        await progressBar.ProgressTo(0.4, 250, Easing.Linear);
+                        loadingText.Text = "Syncing requested Domains...";
+                        App.serverData.mei_user.currentUser = await App.serverData.GetUserWithID(App.userID);
+                        App.serverData.CreateUserTokenList();
+                        await App.serverData.GetRequestedDomains();
+                        await progressBar.ProgressTo(0.6, 250, Easing.Linear);
+                        loadingText.Text = "Syncing notes...";
+                        App.serverData.SyncUserNotes();
+                        await progressBar.ProgressTo(0.8, 250, Easing.Linear);
+                        loadingText.Text = "Syncing shipping addresses...";
+                        App.serverData.GetUserAddressList();
+                        await progressBar.ProgressTo(0.9, 250, Easing.Linear);
+                        loadingText.Text = "Syncing subscriptions...";
+                        App.serverData.GetUserSubscriptions();
+                        await progressBar.ProgressTo(1, 250, Easing.Linear);
+                        App.serverData.AddPhone(CrossDeviceInfo.Current.Id, App.phoneID, App.userID);
+                        Application.Current.MainPage = new HomeLayout();
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        if (ex.GetType() == typeof(System.Net.WebException))
-                            retry = await App.Current.MainPage.DisplayAlert("Alert", "No internet connection found. Please check your internet.", "Retry", "Cancel");
-                        else
-                            retry = true;
-                        if (!retry)
+                        if (isRegistered.ToString() == "false")
                         {
-                            App.AppHaveInternet = false;
+                            App.AppHaveInternet = true;
+                            await DisplayAlert("Alert", "User email or Password is Invalid", "OK");
                             loading.IsVisible = false;
                             loginForm.IsVisible = true;
+                            return;
+                        }
+                        else
+                        {
+                            App.AppHaveInternet = true;
+                            var k = await DisplayAlert("Alert", "Your account is still unverified.", "Resend Confirmation Link", "Ok");
+                            if (k)
+                            {
+                                var j = await App.serverData.ResendVerficationEmail(username.Text);
+                                if (j)
+                                {
+                                    await DisplayAlert("Alert", "Confirmation link will be sent to your email.", "Ok");
+                                }
+                            }
+                            loading.IsVisible = false;
+                            loginForm.IsVisible = true;
+                            return;
                         }
                     }
-                } while (retry);               
+                }
+                catch (Exception ex)
+                {
+                    if (ex.GetType() == typeof(System.Net.WebException))
+                        retry = await App.Current.MainPage.DisplayAlert("Alert", "No internet connection found. Please check your internet.", "Retry", "Cancel");
+                    else
+                        retry = true;
+                    if (!retry)
+                    {
+                        App.AppHaveInternet = false;
+                        loading.IsVisible = false;
+                        loginForm.IsVisible = true;
+                    }
+                }
+            } while (retry);
         }
     }
 }

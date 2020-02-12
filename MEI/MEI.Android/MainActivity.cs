@@ -26,6 +26,9 @@ using Android.Runtime;
 using MEI;
 using Xamarin;
 using FFImageLoading.Forms.Platform;
+using Plugin.FirebasePushNotification.Abstractions;
+using Firebase;
+using Plugin.FirebasePushNotification;
 
 namespace MEI.Droid
 {
@@ -51,8 +54,11 @@ namespace MEI.Droid
             {
                 Xamarin.Essentials.Platform.Init(this, savedInstanceState);
                 Forms.Init(this, savedInstanceState);
-                FormsMaps.Init(this, savedInstanceState);                
-                Forms.SetTitleBarVisibility(this,AndroidTitleBarVisibility.Never);
+                FormsMaps.Init(this, savedInstanceState);
+                Forms.SetTitleBarVisibility(this, AndroidTitleBarVisibility.Never);
+
+                
+
 
                 App ap = new MEI.App();
                 LoadApplication(ap);
@@ -76,7 +82,7 @@ namespace MEI.Droid
                 App.resetRoundView = ResetRoundView;
                 App.SetNotificationSounds = SetNotificationSound;
                 App.SetUserData = SetUserData;
-                App.registerPhoneToServer = AddUserPhoneTOGCM;
+                App.PushNotification = AndroidPushNotification;
                 App.AddEventReminder = SetCurrentEventReminder;
                 ISharedPreferences pref = GetSharedPreferences("MEI_UserPreferences", FileCreationMode.Private);
                 bool hasDirectory = pref.Contains("DomainDirectory");
@@ -92,20 +98,9 @@ namespace MEI.Droid
                 GetNotification();
                 GetUserData();
                 GetNotificationSound();
+                //FirebasePushNotificationManager.ProcessIntent(this, Intent);
                 ap.StartApp();
-                /* ThreadPool.QueueUserWorkItem(o =>
-                 {
-                     try
-                     {
-                         GoogleCloudMessaging gcm = GoogleCloudMessaging.GetInstance(this);
-                         string id = gcm.Register("1040238333834");
-                         App.phoneID = id;
-                     }
-                     catch(Exception e)
-                     {
-                         Console.WriteLine(e.ToString());
-                     }
-                 });*/
+
             }
             catch (Exception e)
             {
@@ -113,6 +108,12 @@ namespace MEI.Droid
                 Log.Debug("Creation Error", "Error in creating Application..");
             }
         }
+        //protected override void OnNewIntent(Intent intent)
+        //{
+        //    base.OnNewIntent(intent);
+        //    FirebasePushNotificationManager.ProcessIntent(this, intent);
+        //}
+
 
         public void ResetRoundView(object sender, EventArgs e)
         {
@@ -551,32 +552,27 @@ namespace MEI.Droid
             }
             return String.Empty;
         }
-    }
-}
-    /*
-    [Service(Exported = false), IntentFilter(new[] { "com.google.android.c2dm.intent.RECEIVE" })]
-    public class MyGcmListenerService : GcmListenerService
-    {       
-        public override void OnMessageReceived(string from, Bundle data)
+
+        public void AndroidPushNotification(object sender, FirebasePushNotificationDataEventArgs p)
         {
             try
             {
                 ISharedPreferences pref = GetSharedPreferences("MEI_UserPreferences", FileCreationMode.Private);
                 if (pref.Contains("MEI_UserNotificaiton"))
                 {
-                    if(pref.GetBoolean("MEI_UserNotificaiton", true)&& !string.IsNullOrEmpty(pref.GetString("MEI_UserData", String.Empty)))
+                    if (pref.GetBoolean("MEI_UserNotificaiton", true) && !string.IsNullOrEmpty(pref.GetString("MEI_UserData", String.Empty)))
                     {
-                        var message = App.HtmlToPlainText(data.GetString("message"));
-                        var header = data.GetString("header");
-                        var imageURL = data.GetString("image");
-                        if (imageURL == ""||imageURL.ToLower().Contains("pdf"))
+                        var message = App.HtmlToPlainText(p.Data["message"].ToString());
+                        var header = p.Data["header"].ToString();
+                        var imageURL = p.Data["image"].ToString();
+                        if (imageURL == "" || imageURL.ToLower().Contains("pdf"))
                             SendNotification(message, header);
                         else
                             SendNotification(message, header, imageURL);
                     }
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
             }
@@ -587,31 +583,32 @@ namespace MEI.Droid
             try
             {
 
-                
-                string channelID = "General";
+
+                string channelID = "MEI";
                 const int notificationID = 0;
                 var intent = new Intent(this, typeof(MainActivity));
                 intent.AddFlags(ActivityFlags.ClearTop | ActivityFlags.SingleTop);
                 var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
-                ShortcutBadger.ApplyCount(BaseContext, 1);
-                
+                //ShortcutBadger.ApplyCount(BaseContext, 1);
+
                 var notificationBuilder = new Notification.Builder(this, channelID)
-                    .SetSmallIcon(Resource.Drawable.mei_notification)
+                    .SetSmallIcon(Resource.Drawable.mei_menuicon3_dg)
                     .SetLargeIcon(BitmapFactory.DecodeResource(Resources, Resource.Drawable.mei_appicon_g))
                     .SetContentTitle(header)
-                    .SetContentText(message)
+                    .SetContentText(message)                    
                     .SetAutoCancel(true)
+                    .SetBadgeIconType(NotificationBadgeIconType.Small)
                     .SetContentIntent(pendingIntent);
                 var notificationManager = (NotificationManager)GetSystemService(Context.NotificationService);
-                NotificationChannel mChannel = new NotificationChannel(channelID, "name", NotificationImportance.High);
+                NotificationChannel mChannel = new NotificationChannel(channelID, "MEI", NotificationImportance.High);
                 Notification notification = notificationBuilder.Build();
                 notification.Sound = Android.Media.RingtoneManager.GetDefaultUri(Android.Media.RingtoneType.Notification);
                 notification.Defaults = App.NotificationSounds ? NotificationDefaults.Sound : NotificationDefaults.Lights;
-                
+
                 notificationManager.CreateNotificationChannel(mChannel);
                 notificationManager.Notify(notificationID, notification);
-                    
-                
+
+
                 try
                 {
                     if (App.Current.MainPage != null)
@@ -627,33 +624,34 @@ namespace MEI.Droid
                     Console.WriteLine(ex.ToString());
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
             }
         }
 
-        void SendNotification(string message,string header,string image)
+        void SendNotification(string message, string header, string image)
         {
             try
             {
-                string channelID = "General";
+                string channelID = "MEI";
                 const int notificationID = 0;
                 var intent = new Intent(this, typeof(MainActivity));
                 intent.AddFlags(ActivityFlags.ClearTop | ActivityFlags.SingleTop);
                 var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
-                ShortcutBadger.ApplyCount(BaseContext, 1);
-                var notificationBuilder = new Notification.Builder(this,channelID)
-                    .SetSmallIcon(Resource.Drawable.mei_notification)
+                //ShortcutBadger.ApplyCount(BaseContext, 1);
+                var notificationBuilder = new Notification.Builder(this, channelID)
+                    .SetSmallIcon(Resource.Drawable.mei_menuicon3_dg)
                     .SetLargeIcon(BitmapFactory.DecodeResource(Resources, Resource.Drawable.mei_appicon_g))
                     .SetContentTitle(header)
-                    .SetContentText(message)                    
+                    .SetBadgeIconType(NotificationBadgeIconType.Small)                    
+                    .SetContentText(message)
                     .SetAutoCancel(true)
                     .SetStyle(new Notification.BigPictureStyle()
                     .BigPicture(GetImageBitmapFromUrl(image)).SetSummaryText(message))
                     .SetContentIntent(pendingIntent);
                 var notificationManager = (NotificationManager)GetSystemService(Context.NotificationService);
-                NotificationChannel mChannel = new NotificationChannel(channelID, "name", NotificationImportance.High);
+                NotificationChannel mChannel = new NotificationChannel(channelID, "MEI", NotificationImportance.High);
                 Notification notification = notificationBuilder.Build();
                 notification.Sound = Android.Media.RingtoneManager.GetDefaultUri(Android.Media.RingtoneType.Notification);
                 notification.Defaults = App.NotificationSounds ? NotificationDefaults.Sound : NotificationDefaults.Lights;
@@ -670,12 +668,12 @@ namespace MEI.Droid
                         }
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Console.WriteLine(ex.ToString());
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
             }
@@ -697,27 +695,9 @@ namespace MEI.Droid
             return imageBitmap;
         }
 
+
     }
-
-
-
-    //[Service]
-    //[IntentFilter(new[] { "com.google.firebase.INSTANCE_ID_EVENT" })]
-    //public class MyFirebaseIIDService : FirebaseInstanceIdService
-    //{
-    //    const string TAG = "MyFirebaseIIDService";
-    //    public override void OnTokenRefresh()
-    //    {
-    //        var refreshedToken = FirebaseInstanceId.Instance.Token;
-    //        Log.Debug(TAG, "Refreshed token: " + refreshedToken);
-    //        SendRegistrationToServer(refreshedToken);
-    //    }
-
-    //    void SendRegistrationToServer(string token)
-    //    {
-    //        App.phoneID = token;
-    //    }
-    //}
 }
-*/
+
+
 

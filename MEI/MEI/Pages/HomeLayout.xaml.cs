@@ -1528,11 +1528,14 @@ namespace MEI
                     , Constraint.RelativeToParent((p) => { return p.Height; }));
             ////indicator.IsVisible = false;
         }
+        public ServerDomain notificationDomain;
 
-        public async void CreateDomainPosts(int index)
+
+        public async void CreateDomainPosts(int index,ServerDomain cDomain)
         {
 
             DomainNotifications domainDetail = new DomainNotifications();
+            notificationDomain = cDomain;
             await domainDetail.CreateUpdates(index);
             OverlayScreen os = new OverlayScreen();
             os.SetScreen(domainDetail, "Domain Notifications");
@@ -1540,6 +1543,7 @@ namespace MEI
                     , Constraint.RelativeToParent((p) => { return p.Height; }));
             ////indicator.IsVisible = false;
         }
+
 
         public void CreateSessionDetail(object s, EventArgs e)
         {

@@ -69,8 +69,8 @@ namespace MEI.Pages
             TapGestureRecognizer viewDomainPosts = new TapGestureRecognizer();
             viewDomainPosts.Tapped += (s, e) =>
             {
-                int i = App.serverData.mei_user.registeredDomainList.FindIndex(x => x.firmID == currentDomain.firmID);
-                ((HomeLayout)App.Current.MainPage).CreateDomainPosts(i);
+                int i = App.serverData.mei_user.registeredDomainList.FindIndex(x => x.firmID == currentDomain.firmID);                
+                ((HomeLayout)App.Current.MainPage).CreateDomainPosts(i,currentDomain);
             };
             viewDomainNotifications.GestureRecognizers.Add(viewDomainPosts);
         }

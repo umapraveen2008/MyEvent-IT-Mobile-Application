@@ -14,6 +14,8 @@ using Java.Lang;
 using Android.Content.PM;
 using MEI.Droid;
 using Android;
+using Firebase;
+using Plugin.FirebasePushNotification;
 
 namespace MEI.Droid
 {
@@ -26,6 +28,7 @@ namespace MEI.Droid
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.splash);
         }
+     
 
         protected override void OnResume()
         {
