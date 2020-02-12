@@ -2,37 +2,146 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>UIDeviceFamily</key>
-    <array>
-        <integer>1</integer>
-        <integer>2</integer>
-    </array>
-    <key>UISupportedInterfaceOrientations</key>
-    <array>
-        <string>UIInterfaceOrientationPortrait</string>
-        <string>UIInterfaceOrientationLandscapeLeft</string>
-        <string>UIInterfaceOrientationLandscapeRight</string>
-    </array>
-    <key>UISupportedInterfaceOrientations~ipad</key>
-    <array>
-        <string>UIInterfaceOrientationPortrait</string>
-        <string>UIInterfaceOrientationPortraitUpsideDown</string>
-        <string>UIInterfaceOrientationLandscapeLeft</string>
-        <string>UIInterfaceOrientationLandscapeRight</string>
-    </array>
-    <key>MinimumOSVersion</key>
-    <string>8.0</string>
-    <key>CFBundleDisplayName</key>
-    <string>MEI</string>
-    <key>CFBundleIdentifier</key>
-    <string>com.companyname.MEI</string>
-    <key>CFBundleVersion</key>
-    <string>1.0</string>
-    <key>UILaunchStoryboardName</key>
-    <string>LaunchScreen</string>
-    <key>CFBundleName</key>
-    <string>MEI</string>
-    <key>XSAppIconAssets</key>
-    <string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>UIRequiresFullScreen</key>
+	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>www.myeventit.com</key>
+			<dict>
+				<key>NSExceptionMinimumTLSVersion</key>
+				<string>TLSv1.0</string>
+				<key>NSExceptionRequiresForwardSecrecy</key>
+				<false/>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
+		</dict>
+	</dict>
+	<key>UIDeviceFamily</key>
+	<array>
+		<integer>1</integer>
+	</array>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>MinimumOSVersion</key>
+	<string>10.3</string>
+	<key>CFBundleDisplayName</key>
+	<string>MyEvent it</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.cgsg.myeventit</string>
+	<key>CFBundleIconFiles</key>
+	<array>
+		<string>Icon@2x.png</string>
+		<string>Icon.png</string>
+		<string>Icon-60@2x.png</string>
+		<string>Icon-Small@2x.png</string>
+		<string>Icon-Small.png</string>
+		<string>Icon-Small-40@2x.png</string>
+	</array>
+	<key>CFBundleShortVersionString</key>
+	<string>2</string>
+	<key>UIStatusBarHidden~ipad</key>
+	<true/>
+	<key>UIStatusBarTintParameters</key>
+	<dict>
+		<key>UINavigationBar</key>
+		<dict>
+			<key>Style</key>
+			<string>UIBarStyleDefault</string>
+			<key>Translucent</key>
+			<false/>
+			<key>TintColor</key>
+			<dict>
+				<key>Red</key>
+				<real>1</real>
+				<key>Green</key>
+				<real>1</real>
+				<key>Blue</key>
+				<real>1</real>
+			</dict>
+		</dict>
+	</dict>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+		<string>fetch</string>
+	</array>
+	<key>UIStatusBarHidden</key>
+	<true/>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
+	<key>UIPrerenderedIcon</key>
+	<true/>
+	<key>UILaunchImages</key>
+	<array>
+		<dict>
+			<key>UILaunchImageMinimumOSVersion</key>
+			<string>7.0</string>
+			<key>UILaunchImageName</key>
+			<string>Default-568h</string>
+			<key>UILaunchImageOrientation</key>
+			<string>Portrait</string>
+			<key>UILaunchImageSize</key>
+			<string>{320, 568}</string>
+		</dict>
+		<dict>
+			<key>UILaunchImageMinimumOSVersion</key>
+			<string>8.0</string>
+			<key>UILaunchImageName</key>
+			<string>Default-667h</string>
+			<key>UILaunchImageOrientation</key>
+			<string>Portrait</string>
+			<key>UILaunchImageSize</key>
+			<string>{375, 667}</string>
+		</dict>
+		<dict>
+			<key>UILaunchImageMinimumOSVersion</key>
+			<string>8.0</string>
+			<key>UILaunchImageName</key>
+			<string>Default-736h</string>
+			<key>UILaunchImageOrientation</key>
+			<string>Portrait</string>
+			<key>UILaunchImageSize</key>
+			<string>{414, 736}</string>
+		</dict>
+	</array>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleBlackOpaque</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Requires permission to add profile picture.</string>
+	<key>NSContactsUsageDescription</key>
+	<string>Requires permission to download v-cards.</string>
+	<key>NSRemindersUsageDescription</key>
+	<string>Requires permission to add reminder for event.</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Requires permission to add event schedule to your calender.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Requires permission to use microphone.</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>Requires permission to use music.</string>
+	<key>NSSiriUsageDescription</key>
+	<string>Requires permission to use siri.</string>
+	<key>XSAppIconAssets</key>
+	<string>Media.xcassets/AppIcons.appiconset</string>
+	<key>NSLocation</key>
+	<string></string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Requires Location to give map details</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Requires Location to give map details</string>
+	<key>CFBundleVersion</key>
+	<string>10</string>
 </dict>
 </plist>

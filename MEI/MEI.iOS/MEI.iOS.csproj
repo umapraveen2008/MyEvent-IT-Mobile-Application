@@ -61,7 +61,13 @@
     <CodesignKey>iPhone Developer</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
+    <AppExtensionDebugBundleId />
+  </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CustomRenderers\CircleImageRenderer.cs" />
+    <Compile Include="CustomRenderers\ExtendedLabelRender.cs" />
+    <Compile Include="FFImageLoading\Forms\Touch.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />
