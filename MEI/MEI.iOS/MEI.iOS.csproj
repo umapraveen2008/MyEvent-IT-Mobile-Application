@@ -26,6 +26,8 @@
     <MtouchArch>x86_64</MtouchArch>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
+    <CodesignProvision>VS: WildCard Development</CodesignProvision>
+    <CodesignKey>iPhone Developer: Gerard Merritt (Z52VE53N62)</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -35,6 +37,8 @@
     <WarningLevel>4</WarningLevel>
     <MtouchLink>None</MtouchLink>
     <MtouchArch>x86_64</MtouchArch>
+    <CodesignProvision>VS: WildCard Development</CodesignProvision>
+    <CodesignKey>iPhone Developer: Gerard Merritt (Z52VE53N62)</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -58,8 +62,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARM64</MtouchArch>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Developer: Gerard Merritt (Z52VE53N62)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignProvision>VS: WildCard Development</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
     <AppExtensionDebugBundleId />
@@ -73,6 +78,7 @@
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="GoogleService-Info.plist" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -164,8 +170,271 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\MEI\MEI.csproj">
-      <Project>{9DD2CB2D-8DE6-4AF2-B148-D8FAECC2A8C3}</Project>
+      <Project>{B4316115-AFDE-4BEA-8387-3869CCFF711D}</Project>
       <Name>MEI</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mei_aboutdomainicon_dg.png" />
+    <BundleResource Include="Resources\mei_aboutdomainicon_w.png" />
+    <BundleResource Include="Resources\mei_aboutevent_btn.png" />
+    <BundleResource Include="Resources\mei_abouticon_dg.png" />
+    <BundleResource Include="Resources\mei_abouticon_w.png" />
+    <BundleResource Include="Resources\mei_adddomainemptyicon_g.png" />
+    <BundleResource Include="Resources\mei_addicon_w.png" />
+    <BundleResource Include="Resources\mei_addnote_active.png" />
+    <BundleResource Include="Resources\mei_addressbookicon_dg.png" />
+    <BundleResource Include="Resources\mei_addressbookicon_w.png" />
+    <BundleResource Include="Resources\mei_addressicon_dg.png" />
+    <BundleResource Include="Resources\mei_addressicon_w.png" />
+    <BundleResource Include="Resources\mei_alerticon_r.png" />
+    <BundleResource Include="Resources\mei_alerticon_w.png" />
+    <BundleResource Include="Resources\mei_appicon_g.png" />
+    <BundleResource Include="Resources\mei_attachicon_dg.png" />
+    <BundleResource Include="Resources\mei_attachicon_w.png" />
+    <BundleResource Include="Resources\mei_attendeeicon_w.png" />
+    <BundleResource Include="Resources\mei_attendees_btn.png" />
+    <BundleResource Include="Resources\mei_awwsnapicon_g.png" />
+    <BundleResource Include="Resources\mei_backicon_dg.png" />
+    <BundleResource Include="Resources\mei_backicon_w.png" />
+    <BundleResource Include="Resources\mei_bgpattern_g.png" />
+    <BundleResource Include="Resources\mei_bgpattern_w.png" />
+    <BundleResource Include="Resources\mei_bioicon_dg.png" />
+    <BundleResource Include="Resources\mei_bookmark_active.png" />
+    <BundleResource Include="Resources\mei_bookmark_bookmarked.png" />
+    <BundleResource Include="Resources\mei_bookmarked_active.png" />
+    <BundleResource Include="Resources\mei_bookmarksicon_dg.png" />
+    <BundleResource Include="Resources\mei_bookmarksicon_w.png" />
+    <BundleResource Include="Resources\mei_bugreport_dg.png" />
+    <BundleResource Include="Resources\mei_carticon_dg.png" />
+    <BundleResource Include="Resources\mei_carticon_w.png" />
+    <BundleResource Include="Resources\mei_catalog_btn.png" />
+    <BundleResource Include="Resources\mei_chaticon_dg.png" />
+    <BundleResource Include="Resources\mei_chaticon_w.png" />
+    <BundleResource Include="Resources\mei_closeicon_dg.png" />
+    <BundleResource Include="Resources\mei_closeicon_w.png" />
+    <BundleResource Include="Resources\mei_commenticon_dg.png" />
+    <BundleResource Include="Resources\mei_commenticon_g.png" />
+    <BundleResource Include="Resources\mei_commenticon_w.png" />
+    <BundleResource Include="Resources\mei_creditcardicon_dg.png" />
+    <BundleResource Include="Resources\mei_creditcardicon_w.png" />
+    <BundleResource Include="Resources\mei_dataprotecticon_dg.png" />
+    <BundleResource Include="Resources\mei_dataprotecticon_w.png" />
+    <BundleResource Include="Resources\mei_dateicon_dg.png" />
+    <BundleResource Include="Resources\mei_dateicon_w.png" />
+    <BundleResource Include="Resources\mei_deleteicon_dg.png" />
+    <BundleResource Include="Resources\mei_deleteicon_w.png" />
+    <BundleResource Include="Resources\mei_documentsicon_dg.png" />
+    <BundleResource Include="Resources\mei_documentsicon_w.png" />
+    <BundleResource Include="Resources\mei_domainicon_dg.png" />
+    <BundleResource Include="Resources\mei_domainicon_w.png" />
+    <BundleResource Include="Resources\mei_domainicon2_dg.png" />
+    <BundleResource Include="Resources\mei_domainicon2_w.png" />
+    <BundleResource Include="Resources\mei_downloadfromcloudicon_dg.png" />
+    <BundleResource Include="Resources\mei_downloadfromcloudicon_w.png" />
+    <BundleResource Include="Resources\mei_downloadicon_dg.png" />
+    <BundleResource Include="Resources\mei_downloadicon_w.png" />
+    <BundleResource Include="Resources\mei_editname_dg.png" />
+    <BundleResource Include="Resources\mei_editpassowrdicon_dg.png" />
+    <BundleResource Include="Resources\mei_editprofileicon_dg.png" />
+    <BundleResource Include="Resources\mei_emailicon_dg.png" />
+    <BundleResource Include="Resources\mei_emailicon_w.png" />
+    <BundleResource Include="Resources\mei_eventfeedback_dg.png" />
+    <BundleResource Include="Resources\mei_eventfeedback_w.png" />
+    <BundleResource Include="Resources\mei_eventlisticon_w.png" />
+    <BundleResource Include="Resources\mei_exhibitoricon_dg.png" />
+    <BundleResource Include="Resources\mei_exhibitoricon_w.png" />
+    <BundleResource Include="Resources\mei_exhibitorst_btn.png" />
+    <BundleResource Include="Resources\mei_faq_btn.png" />
+    <BundleResource Include="Resources\mei_faqicon_dg.png" />
+    <BundleResource Include="Resources\mei_faqicon_w.png" />
+    <BundleResource Include="Resources\mei_fbicon_active.png" />
+    <BundleResource Include="Resources\mei_feedbackicon_dg.png" />
+    <BundleResource Include="Resources\mei_feedbackicon_w.png" />
+    <BundleResource Include="Resources\mei_filtericon_dg.png" />
+    <BundleResource Include="Resources\mei_filtericon_w.png" />
+    <BundleResource Include="Resources\mei_fingerprinticon_dg.png" />
+    <BundleResource Include="Resources\mei_fingerprinticon_w.png" />
+    <BundleResource Include="Resources\mei_flooricon_dg.png" />
+    <BundleResource Include="Resources\mei_flooricon_w.png" />
+    <BundleResource Include="Resources\mei_floormap_btn.png" />
+    <BundleResource Include="Resources\mei_foodicon_dg.png" />
+    <BundleResource Include="Resources\mei_foodicon_w.png" />
+    <BundleResource Include="Resources\mei_gplusicon_active.png" />
+    <BundleResource Include="Resources\mei_helpicon_dg.png" />
+    <BundleResource Include="Resources\mei_helpicon_w.png" />
+    <BundleResource Include="Resources\mei_hideicon_dg.png" />
+    <BundleResource Include="Resources\mei_hideicon_w.png" />
+    <BundleResource Include="Resources\mei_homeicon.png" />
+    <BundleResource Include="Resources\mei_idicon_w.png" />
+    <BundleResource Include="Resources\mei_idverified_dg.png" />
+    <BundleResource Include="Resources\mei_idverified_w.png" />
+    <BundleResource Include="Resources\mei_infoicon_dg.png" />
+    <BundleResource Include="Resources\mei_infoicon_w.png" />
+    <BundleResource Include="Resources\mei_insertcardicon_dg.png" />
+    <BundleResource Include="Resources\mei_insertcardicon_w.png" />
+    <BundleResource Include="Resources\mei_jobcompanyicon_dg.png" />
+    <BundleResource Include="Resources\mei_likeicon_dg.png" />
+    <BundleResource Include="Resources\mei_likeicon_g.png" />
+    <BundleResource Include="Resources\mei_likeicon_r.png" />
+    <BundleResource Include="Resources\mei_linkedinicon_active.png" />
+    <BundleResource Include="Resources\mei_lock_dg.png" />
+    <BundleResource Include="Resources\mei_lock_r.png" />
+    <BundleResource Include="Resources\mei_lock_w.png" />
+    <BundleResource Include="Resources\mei_logouticon_dg.png" />
+    <BundleResource Include="Resources\mei_logouticon_w.png" />
+    <BundleResource Include="Resources\mei_mainlogo.png" />
+    <BundleResource Include="Resources\mei_mainlogo_g.png" />
+    <BundleResource Include="Resources\mei_menuicon_dg.png" />
+    <BundleResource Include="Resources\mei_menuicon_w.png" />
+    <BundleResource Include="Resources\mei_menuicon1_dg.png" />
+    <BundleResource Include="Resources\mei_menuicon1_w.png" />
+    <BundleResource Include="Resources\mei_menuicon3_dg.png" />
+    <BundleResource Include="Resources\mei_menuicon3_w.png" />
+    <BundleResource Include="Resources\mei_menuicon4_dg.png" />
+    <BundleResource Include="Resources\mei_menuicon4_w.png" />
+    <BundleResource Include="Resources\mei_mtticketsicon_dg.png" />
+    <BundleResource Include="Resources\mei_mtticketsicon_w.png" />
+    <BundleResource Include="Resources\mei_nobioicon_g.png" />
+    <BundleResource Include="Resources\mei_nobioicon_r.png" />
+    <BundleResource Include="Resources\mei_nobookmarksicon_g.png" />
+    <BundleResource Include="Resources\mei_nobookmarksicon_r.png" />
+    <BundleResource Include="Resources\mei_nocardicon_g.png" />
+    <BundleResource Include="Resources\mei_nocardicon_r.png" />
+    <BundleResource Include="Resources\mei_nochaticon_g.png" />
+    <BundleResource Include="Resources\mei_nochaticon_r.png" />
+    <BundleResource Include="Resources\mei_nodomainsfoundicon_g.png" />
+    <BundleResource Include="Resources\mei_nodomainsfoundicon_r.png" />
+    <BundleResource Include="Resources\mei_noexhibitorsicon_g.png" />
+    <BundleResource Include="Resources\mei_noexhibitorsicon_gr.png" />
+    <BundleResource Include="Resources\mei_nofloormapicon_g.png" />
+    <BundleResource Include="Resources\mei_nofloormapicon_p.png" />
+    <BundleResource Include="Resources\mei_noitemscatalogicon_g.png" />
+    <BundleResource Include="Resources\mei_noitemscatalogicon_r.png" />
+    <BundleResource Include="Resources\mei_nonotesicon_g.png" />
+    <BundleResource Include="Resources\mei_nonotesicon_r.png" />
+    <BundleResource Include="Resources\mei_nopurchasesicon_b.png" />
+    <BundleResource Include="Resources\mei_nopurchasesicon_g.png" />
+    <BundleResource Include="Resources\mei_nosessionsicon_g.png" />
+    <BundleResource Include="Resources\mei_nosessionsicon_p.png" />
+    <BundleResource Include="Resources\mei_nospeakersicon_db.png" />
+    <BundleResource Include="Resources\mei_nospeakersicon_g.png" />
+    <BundleResource Include="Resources\mei_nosponsorsicon_g.png" />
+    <BundleResource Include="Resources\mei_nosponsorsicon_o.png" />
+    <BundleResource Include="Resources\mei_notesicon_dg.png" />
+    <BundleResource Include="Resources\mei_notesicon_w.png" />
+    <BundleResource Include="Resources\mei_notification.png" />
+    <BundleResource Include="Resources\mei_notifyicon_dg.png" />
+    <BundleResource Include="Resources\mei_notifyicon_w.png" />
+    <BundleResource Include="Resources\mei_notimelineicon_g.png" />
+    <BundleResource Include="Resources\mei_notimelineicon_r.png" />
+    <BundleResource Include="Resources\mei_novenuemapicon_g.png" />
+    <BundleResource Include="Resources\mei_novenuemapicon_gr.png" />
+    <BundleResource Include="Resources\mei_okicon_dg.png" />
+    <BundleResource Include="Resources\mei_okicon_w.png" />
+    <BundleResource Include="Resources\mei_optionsicon_dg.png" />
+    <BundleResource Include="Resources\mei_optionsicon_w.png" />
+    <BundleResource Include="Resources\mei_phoneicon_dg.png" />
+    <BundleResource Include="Resources\mei_phoneicon_w.png" />
+    <BundleResource Include="Resources\mei_pricetagiconcon_g.png" />
+    <BundleResource Include="Resources\mei_pricetagiconcon_w.png" />
+    <BundleResource Include="Resources\mei_privacypolicy_dg.png" />
+    <BundleResource Include="Resources\mei_privacypolicy_w.png" />
+    <BundleResource Include="Resources\mei_privacypolicyicon_dg.png" />
+    <BundleResource Include="Resources\mei_profileprivacyicon_dg.png" />
+    <BundleResource Include="Resources\mei_profileprivacyicon_w.png" />
+    <BundleResource Include="Resources\mei_purchasesicon_dg.png" />
+    <BundleResource Include="Resources\mei_purchasesicon_w.png" />
+    <BundleResource Include="Resources\mei_purchasesicon2_dg.png" />
+    <BundleResource Include="Resources\mei_purchasesicon2_w.png" />
+    <BundleResource Include="Resources\mei_refreshicon_dg.png" />
+    <BundleResource Include="Resources\mei_refreshicon_w.png" />
+    <BundleResource Include="Resources\mei_roleicon_dg.png" />
+    <BundleResource Include="Resources\mei_roleicon_w.png" />
+    <BundleResource Include="Resources\mei_saveicon_dg.png" />
+    <BundleResource Include="Resources\mei_saveicon_w.png" />
+    <BundleResource Include="Resources\mei_schedule_btn.png" />
+    <BundleResource Include="Resources\mei_searchicon_dg.png" />
+    <BundleResource Include="Resources\mei_searchicon_w.png" />
+    <BundleResource Include="Resources\mei_sendicon_dg.png" />
+    <BundleResource Include="Resources\mei_sessionlocation_dg.png" />
+    <BundleResource Include="Resources\mei_sessionlocation_w.png" />
+    <BundleResource Include="Resources\mei_sessiontime_dg.png" />
+    <BundleResource Include="Resources\mei_sessiontime_w.png" />
+    <BundleResource Include="Resources\mei_settingsicon_dg.png" />
+    <BundleResource Include="Resources\mei_settingsicon_w.png" />
+    <BundleResource Include="Resources\mei_shareicon_dg.png" />
+    <BundleResource Include="Resources\mei_shareicon_w.png" />
+    <BundleResource Include="Resources\mei_shoppingbagicon_g.png" />
+    <BundleResource Include="Resources\mei_shoppingbagicon_w.png" />
+    <BundleResource Include="Resources\mei_showicon_b.png" />
+    <BundleResource Include="Resources\mei_showicon_dg.png" />
+    <BundleResource Include="Resources\mei_showicon_w.png" />
+    <BundleResource Include="Resources\mei_soundicon_dg.png" />
+    <BundleResource Include="Resources\mei_speakericon_dg.png" />
+    <BundleResource Include="Resources\mei_speakericon_w.png" />
+    <BundleResource Include="Resources\mei_speakers_btn.png" />
+    <BundleResource Include="Resources\mei_sponsoricon_dg.png" />
+    <BundleResource Include="Resources\mei_sponsoricon_w.png" />
+    <BundleResource Include="Resources\mei_sponsors_btn.png" />
+    <BundleResource Include="Resources\mei_stampicon_dg.png" />
+    <BundleResource Include="Resources\mei_stampicon_r.png" />
+    <BundleResource Include="Resources\mei_stampicon_w.png" />
+    <BundleResource Include="Resources\mei_tandc_dg.png" />
+    <BundleResource Include="Resources\mei_tandc_w.png" />
+    <BundleResource Include="Resources\mei_termsicon_dg.png" />
+    <BundleResource Include="Resources\mei_ticketicon_dg.png" />
+    <BundleResource Include="Resources\mei_ticketicon_w.png" />
+    <BundleResource Include="Resources\mei_ticketicon_w_v1.png" />
+    <BundleResource Include="Resources\mei_timeline_btn.png" />
+    <BundleResource Include="Resources\mei_timelineicon_dg.png" />
+    <BundleResource Include="Resources\mei_timelineicon_w.png" />
+    <BundleResource Include="Resources\mei_twittericon_active.png" />
+    <BundleResource Include="Resources\mei_unlock_dg.png" />
+    <BundleResource Include="Resources\mei_unlock_gr.png" />
+    <BundleResource Include="Resources\mei_unlock_w.png" />
+    <BundleResource Include="Resources\mei_usericon_dg.png" />
+    <BundleResource Include="Resources\mei_usericon_w.png" />
+    <BundleResource Include="Resources\mei_vcarddownloadicon_active.png" />
+    <BundleResource Include="Resources\mei_venueicon_dg.png" />
+    <BundleResource Include="Resources\mei_venueicon_w.png" />
+    <BundleResource Include="Resources\mei_venuemap_btn.png" />
+    <BundleResource Include="Resources\mei_walleticon_dg.png" />
+    <BundleResource Include="Resources\mei_walleticon_w.png" />
+    <BundleResource Include="Resources\mei_weblinkicon_active.png" />
+    <BundleResource Include="Resources\mei_websiteicon_dg.png" />
+    <BundleResource Include="Resources\mei_websiteicon_w.png" />
+    <BundleResource Include="Resources\1536X2008.png" />
+    <BundleResource Include="Resources\768X1004.png" />
+    <BundleResource Include="Resources\Default.png" />
+    <BundleResource Include="Resources\Default%402x.png" />
+    <BundleResource Include="Resources\Default-568h%402x.png" />
+    <BundleResource Include="Resources\Default-667h%402x.png" />
+    <BundleResource Include="Resources\Default-736h%403x.png" />
+    <BundleResource Include="Resources\Default-Landscape.png" />
+    <BundleResource Include="Resources\Default-Landscape%402x.png" />
+    <BundleResource Include="Resources\Default-Portrait.png" />
+    <BundleResource Include="Resources\Default-Portrait%402x.png" />
+    <BundleResource Include="Resources\Icon.png" />
+    <BundleResource Include="Resources\Icon%402x.png" />
+    <BundleResource Include="Resources\Icon-60.png" />
+    <BundleResource Include="Resources\Icon-60%402x.png" />
+    <BundleResource Include="Resources\Icon-60%403x.png" />
+    <BundleResource Include="Resources\Icon-72.png" />
+    <BundleResource Include="Resources\Icon-72%402x.png" />
+    <BundleResource Include="Resources\Icon-76.png" />
+    <BundleResource Include="Resources\Icon-76%402x.png" />
+    <BundleResource Include="Resources\Icon-Small.png" />
+    <BundleResource Include="Resources\Icon-Small%402x.png" />
+    <BundleResource Include="Resources\Icon-Small%403x.png" />
+    <BundleResource Include="Resources\Icon-Small-40.png" />
+    <BundleResource Include="Resources\Icon-Small-40%402x.png" />
+    <BundleResource Include="Resources\Icon-Small-40%403x.png" />
+    <BundleResource Include="Resources\Icon-Small-50.png" />
+    <BundleResource Include="Resources\Icon-Small-50%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ITunesArtwork Include="Resources\iTunesArtwork.png" />
+    <ITunesArtwork Include="Resources\iTunesArtwork%402x.png" />
   </ItemGroup>
 </Project>

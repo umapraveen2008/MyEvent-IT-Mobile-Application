@@ -2301,39 +2301,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ADELFOS-PC\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "/Users/umapraveen/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\CG Solutions Group\\MEI Mobile Application\\MEI\\MEI.iOS\\MEI.iOS.csproj",
+      "projectUniqueName": "/Users/umapraveen/Desktop/Other Projects/My Event IT/MEI/MEI.iOS/MEI.iOS.csproj",
       "projectName": "MEI.iOS",
-      "projectPath": "E:\\CG Solutions Group\\MEI Mobile Application\\MEI\\MEI.iOS\\MEI.iOS.csproj",
-      "packagesPath": "C:\\Users\\ADELFOS-PC\\.nuget\\packages\\",
-      "outputPath": "E:\\CG Solutions Group\\MEI Mobile Application\\MEI\\MEI.iOS\\obj\\",
+      "projectPath": "/Users/umapraveen/Desktop/Other Projects/My Event IT/MEI/MEI.iOS/MEI.iOS.csproj",
+      "packagesPath": "/Users/umapraveen/.nuget/packages/",
+      "outputPath": "/Users/umapraveen/Desktop/Other Projects/My Event IT/MEI/MEI.iOS/obj/",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\ADELFOS-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "/Users/umapraveen/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "xamarinios10"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "E:\\CG Solutions Group\\MEI Mobile Application\\MEI\\MEI\\MEI.csproj": {
-              "projectPath": "E:\\CG Solutions Group\\MEI Mobile Application\\MEI\\MEI\\MEI.csproj"
+            "/Users/umapraveen/Desktop/Other Projects/My Event IT/MEI/MEI/MEI.csproj": {
+              "projectPath": "/Users/umapraveen/Desktop/Other Projects/My Event IT/MEI/MEI/MEI.csproj"
             }
           }
         }

@@ -23,13 +23,15 @@ using CoreLocation;
 using Xamarin.Forms.Maps;
 using Badge.Plugin;
 using MEI;
+using Plugin.FirebasePushNotification;
+using Plugin.FirebasePushNotification.Abstractions;
+using ObjCRuntime;
 
-namespace EventIT.iOS
+namespace MEI.iOS
 {
     [Register("AppDelegate")]
     public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate, IUNUserNotificationCenterDelegate, IMessagingDelegate
     {
-        NSData DeviceToken { get; set; }
 
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
@@ -38,10 +40,9 @@ namespace EventIT.iOS
             global::Xamarin.Forms.Forms.Init();
             global::Xamarin.FormsMaps.Init();
             LoadApplication(new App());
-            navController = new UINavigationController();
-            NSError err;
-            FFImageLoading.Forms.Platform.CachedImageRenderer.Init();            
-            RoundedBoxViewRenderer.Init();         
+
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
+            RoundedBoxViewRenderer.Init();
 
             App.createContact = CreateContact;
             App.CopyToClipBoard = CopyText;
@@ -55,7 +56,7 @@ namespace EventIT.iOS
             App.SetNotificationSounds = SetNotificationSound;
             App.SetDomainData = SaveDomainData;
             App.AddEventReminder = AddEventToCalender;
-            App.registerPhoneToServer = AddUserPhoneTOGCM;
+            App.PushNotification = IOSNotification;
             App.SetUserData = SaveUserData;
             App.iosMapClick = OpenPin;
             if(NSUserDefaults.StandardUserDefaults.ValueForKey(new NSString("DirectoryUpdate")) == null)
@@ -68,7 +69,7 @@ namespace EventIT.iOS
             GetNotification();
             GetNotificationSound();
             UIApplication.SharedApplication.SetStatusBarStyle(UIStatusBarStyle.LightContent, false);
-            Firebase.Core.App.Configure();            
+            FirebasePushNotificationManager.Initialize(options,true);          
             CrossBadge.Current.ClearBadge();
             if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
             {
@@ -89,6 +90,7 @@ namespace EventIT.iOS
             Messaging.SharedInstance.ShouldEstablishDirectChannel = true;
             UIApplication.SharedApplication.RegisterForRemoteNotifications();
             UIApplication.SharedApplication.SetStatusBarStyle(UIStatusBarStyle.LightContent, false);
+            FirebasePushNotificationManager.Initialize(options, true);
             return base.FinishedLaunching(app, options);
 
         }
@@ -258,44 +260,7 @@ namespace EventIT.iOS
             Console.WriteLine("Disconnected from FCM");
         }
 
-        public override void DidReceiveRemoteNotification(UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
-        {
-            CrossBadge.Current.SetBadge(1);
-            if (NSUserDefaults.StandardUserDefaults.ValueForKey(new NSString("UserNotificaiton")) != null && NSUserDefaults.StandardUserDefaults.BoolForKey("UserNotificaiton") && !string.IsNullOrEmpty(NSUserDefaults.StandardUserDefaults.StringForKey("MEI_UserID")))
-            {
-                string title = (userInfo[new NSString("header")] as NSString).ToString();
-                string message = (userInfo[new NSString("message")] as NSString).ToString();
-                string imageURL = (userInfo[new NSString("image")] as NSString).ToString();
-                var notificaiton = new UNMutableNotificationContent();
-                notificaiton.Title = title;
-                notificaiton.Body = App.HtmlToPlainText(message);
-                notificaiton.Badge = 1;
-                var trigger = UNTimeIntervalNotificationTrigger.CreateTrigger(0.1, false);
-                var requestID = "MEI_LocalNotification";
-                var request = UNNotificationRequest.FromIdentifier(requestID, notificaiton, trigger);
-                UNUserNotificationCenter.Current.AddNotificationRequest(request, (err) =>
-                {
-                    if (err != null)
-                    {
-
-                    }
-                });
-                try
-                {
-                   if (App.Current.MainPage != null)
-                    { 
-                        if (App.Current.MainPage.GetType() == typeof(HomeLayout))
-                        {
-                            ((HomeLayout)App.Current.MainPage).ResetRegisteredDomainList();
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.ToString());
-                }
-            }
-        }
+        
 
         [Export("userNotificationCenter:willPresentNotification:withCompletionHandler:")]
         public void WillPresentNotification(UNUserNotificationCenter center, UNNotification notification, Action<UNNotificationPresentationOptions> completionHandler)
@@ -305,14 +270,14 @@ namespace EventIT.iOS
             completionHandler(notifications);
         }
 
-        public void ApplicationReceivedRemoteMessage(RemoteMessage remoteMessage)
+        public void IOSNotification(object sender, FirebasePushNotificationDataEventArgs fps)
         {
             CrossBadge.Current.SetBadge(1);
             if (NSUserDefaults.StandardUserDefaults.ValueForKey(new NSString("UserNotificaiton")) != null && NSUserDefaults.StandardUserDefaults.BoolForKey("UserNotificaiton") && !string.IsNullOrEmpty(NSUserDefaults.StandardUserDefaults.StringForKey("MEI_UserID")))
             {
-                string title = (remoteMessage.AppData[new NSString("header")] as NSString).ToString();
-                string message = (remoteMessage.AppData[new NSString("message")] as NSString).ToString();
-                string imageURL = (remoteMessage.AppData[new NSString("image")] as NSString).ToString();
+                string title = (fps.Data[new NSString("header")] as NSString).ToString();
+                string message = App.HtmlToPlainText((fps.Data[new NSString("message")] as NSString).ToString());
+                string imageURL = (fps.Data[new NSString("image")] as NSString).ToString();
                 var notificaiton = new UNMutableNotificationContent();
 
                 notificaiton.Title = title;
@@ -322,9 +287,9 @@ namespace EventIT.iOS
                     var url = new Uri(imageURL.ToString());
                     var webClient = new WebClient();
                     webClient.DownloadDataAsync(url);
-                    webClient.DownloadDataCompleted += (s, e) =>
+                    webClient.DownloadDataCompleted += (s, ex) =>
                     {
-                        var bytes = e.Result; // get the downloaded data
+                        var bytes = ex.Result; // get the downloaded data
                         string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
                         string localFilename = "downloaded.png";
                         string localPath = Path.Combine(documentsPath, localFilename);
@@ -613,20 +578,18 @@ namespace EventIT.iOS
 
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
         {
-            Debug.Write("Registered");
+            FirebasePushNotificationManager.DidRegisterRemoteNotifications(deviceToken);
         }
 
         public override void FailedToRegisterForRemoteNotifications(UIApplication application, NSError error)
         {
-
+            FirebasePushNotificationManager.RemoteNotificationRegistrationFailed(error);
         }
 
-        public void DidRefreshRegistrationToken(Messaging messaging, string fcmToken)
+        public override void DidReceiveRemoteNotification(UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
         {
-            if (!string.IsNullOrEmpty(fcmToken))
-            {
-                App.phoneID = fcmToken;
-            }
+            FirebasePushNotificationManager.DidReceiveMessage(userInfo);
+            completionHandler(UIBackgroundFetchResult.NewData);
         }
     }
 

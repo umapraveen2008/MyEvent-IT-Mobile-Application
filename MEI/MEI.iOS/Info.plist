@@ -51,7 +51,7 @@
 		<string>Icon-Small-40@2x.png</string>
 	</array>
 	<key>CFBundleShortVersionString</key>
-	<string>2</string>
+	<string>2.1</string>
 	<key>UIStatusBarHidden~ipad</key>
 	<true/>
 	<key>UIStatusBarTintParameters</key>
@@ -75,8 +75,8 @@
 	</dict>
 	<key>UIBackgroundModes</key>
 	<array>
-		<string>remote-notification</string>
 		<string>fetch</string>
+		<string>remote-notification</string>
 	</array>
 	<key>UIStatusBarHidden</key>
 	<true/>
@@ -142,6 +142,10 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Requires Location to give map details</string>
 	<key>CFBundleVersion</key>
-	<string>10</string>
+	<string>11</string>
+	<key>FirebaseAppDelegateProxyEnabled</key>
+	<false/>
+	<key>CFBundleName</key>
+	<string>MyEvent it</string>
 </dict>
 </plist>

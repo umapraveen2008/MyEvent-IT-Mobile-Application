@@ -1,39 +1,33 @@
 {
   "format": 1,
   "restore": {
-    "E:\\CG Solutions Group\\MEI Mobile Application\\MEI\\MEI.iOS\\MEI.iOS.csproj": {}
+    "/Users/umapraveen/Desktop/Other Projects/My Event IT/MEI/MEI.iOS/MEI.iOS.csproj": {}
   },
   "projects": {
-    "E:\\CG Solutions Group\\MEI Mobile Application\\MEI\\MEI.iOS\\MEI.iOS.csproj": {
+    "/Users/umapraveen/Desktop/Other Projects/My Event IT/MEI/MEI.iOS/MEI.iOS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\CG Solutions Group\\MEI Mobile Application\\MEI\\MEI.iOS\\MEI.iOS.csproj",
+        "projectUniqueName": "/Users/umapraveen/Desktop/Other Projects/My Event IT/MEI/MEI.iOS/MEI.iOS.csproj",
         "projectName": "MEI.iOS",
-        "projectPath": "E:\\CG Solutions Group\\MEI Mobile Application\\MEI\\MEI.iOS\\MEI.iOS.csproj",
-        "packagesPath": "C:\\Users\\ADELFOS-PC\\.nuget\\packages\\",
-        "outputPath": "E:\\CG Solutions Group\\MEI Mobile Application\\MEI\\MEI.iOS\\obj\\",
+        "projectPath": "/Users/umapraveen/Desktop/Other Projects/My Event IT/MEI/MEI.iOS/MEI.iOS.csproj",
+        "packagesPath": "/Users/umapraveen/.nuget/packages/",
+        "outputPath": "/Users/umapraveen/Desktop/Other Projects/My Event IT/MEI/MEI.iOS/obj/",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ADELFOS-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "/Users/umapraveen/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "xamarinios10"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "xamarinios10": {
             "projectReferences": {
-              "E:\\CG Solutions Group\\MEI Mobile Application\\MEI\\MEI\\MEI.csproj": {
-                "projectPath": "E:\\CG Solutions Group\\MEI Mobile Application\\MEI\\MEI\\MEI.csproj"
+              "/Users/umapraveen/Desktop/Other Projects/My Event IT/MEI/MEI/MEI.csproj": {
+                "projectPath": "/Users/umapraveen/Desktop/Other Projects/My Event IT/MEI/MEI/MEI.csproj"
               }
             }
           }
@@ -105,29 +99,25 @@
         }
       }
     },
-    "E:\\CG Solutions Group\\MEI Mobile Application\\MEI\\MEI\\MEI.csproj": {
+    "/Users/umapraveen/Desktop/Other Projects/My Event IT/MEI/MEI/MEI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\CG Solutions Group\\MEI Mobile Application\\MEI\\MEI\\MEI.csproj",
+        "projectUniqueName": "/Users/umapraveen/Desktop/Other Projects/My Event IT/MEI/MEI/MEI.csproj",
         "projectName": "MEI",
-        "projectPath": "E:\\CG Solutions Group\\MEI Mobile Application\\MEI\\MEI\\MEI.csproj",
-        "packagesPath": "C:\\Users\\ADELFOS-PC\\.nuget\\packages\\",
-        "outputPath": "E:\\CG Solutions Group\\MEI Mobile Application\\MEI\\MEI\\obj\\",
+        "projectPath": "/Users/umapraveen/Desktop/Other Projects/My Event IT/MEI/MEI/MEI.csproj",
+        "packagesPath": "/Users/umapraveen/.nuget/packages/",
+        "outputPath": "/Users/umapraveen/Desktop/Other Projects/My Event IT/MEI/MEI/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\ADELFOS-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "/Users/umapraveen/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -205,7 +195,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.101/RuntimeIdentifierGraph.json"
         }
       }
     }
