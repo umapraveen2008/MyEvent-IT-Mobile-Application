@@ -100,8 +100,7 @@ namespace MEI
         public App()
         {
             // The root page of your application      
-            InitializeComponent();            
-
+            InitializeComponent();
         }
 
         protected override void OnStart()
@@ -112,7 +111,8 @@ namespace MEI
             //GetUserEvent(this, null);
             // MainPage = new LoginPage();
             // Handle when your app starts            
-            
+            StartApp();
+            MainPage = new LoginPage();
         }
 
         public void StartApp()
@@ -121,11 +121,6 @@ namespace MEI
             CrossFirebasePushNotification.Current.RegisterForPushNotifications();
             CrossFirebasePushNotification.Current.Subscribe("MEI");
             CrossFirebasePushNotification.Current.NotificationHandler = null;
-            CrossFirebasePushNotification.Current.OnTokenRefresh += (s, p) =>
-            {
-                App.phoneID = p.Token;
-                System.Diagnostics.Debug.WriteLine($"TOKEN REC: {p.Token}");                
-            };
 
             CrossFirebasePushNotification.Current.OnNotificationReceived += (s, p) =>
             {
@@ -139,7 +134,13 @@ namespace MEI
                 }
 
             };
-            MainPage = new LoginPage();
+
+            CrossFirebasePushNotification.Current.OnTokenRefresh += (s, p) =>
+            {
+                App.phoneID = p.Token;
+                System.Diagnostics.Debug.WriteLine($"TOKEN REC: {p.Token}");
+            };
+
         }
 
         protected override void OnSleep()

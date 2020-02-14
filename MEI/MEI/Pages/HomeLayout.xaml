@@ -113,7 +113,7 @@
                     </Grid>
 
                 </RelativeLayout>
-                <ContentView  BackgroundColor="#31c3ee" x:Name="indicator" RelativeLayout.WidthConstraint=
+                <ContentView  BackgroundColor="#31c3ee"  x:Name="indicator" RelativeLayout.WidthConstraint=
          "{ConstraintExpression Type=RelativeToParent,
                                 Property=Width,
                                 Factor=0.06}"

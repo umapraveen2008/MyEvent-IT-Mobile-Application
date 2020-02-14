@@ -1,49 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-
-using Foundation;
-using UIKit;
-using System.Diagnostics;
-using Firebase;
-using Firebase.CloudMessaging;
 using System.Collections.Specialized;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
 using System.Net;
+using Badge.Plugin;
 using Contacts;
 using ContactsUI;
-using Xamarin.Forms;
 using CoreGraphics;
-using UserNotifications;
-using RoundedBoxView.Forms.Plugin.iOSUnified;
-using Firebase.InstanceID;
-using System.IO;
-using EventKit;
-using Plugin.DeviceInfo;
 using CoreLocation;
-using Xamarin.Forms.Maps;
-using Badge.Plugin;
-using MEI;
+using EventKit;
+using Firebase.CloudMessaging;
+using Foundation;
+using Plugin.DeviceInfo;
 using Plugin.FirebasePushNotification;
 using Plugin.FirebasePushNotification.Abstractions;
-using ObjCRuntime;
+using RoundedBoxView.Forms.Plugin.iOSUnified;
+using UIKit;
+using UserNotifications;
+using Xamarin.Forms;
+using Xamarin.Forms.Maps;
 
 namespace MEI.iOS
-{
+{    
+
     [Register("AppDelegate")]
     public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate, IUNUserNotificationCenterDelegate, IMessagingDelegate
     {
 
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-
-
             global::Xamarin.Forms.Forms.Init();
             global::Xamarin.FormsMaps.Init();
-            App ap = new  App();            
-
+            App ap = new App();
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
+            Firebase.Core.App.Configure();
             RoundedBoxViewRenderer.Init();
-
+            navController = new UINavigationController();
             App.createContact = CreateContact;
             App.CopyToClipBoard = CopyText;
             App.localPushNotification = PushNotification;
@@ -59,7 +53,7 @@ namespace MEI.iOS
             App.PushNotification = IOSNotification;
             App.SetUserData = SaveUserData;
             App.iosMapClick = OpenPin;
-            if(NSUserDefaults.StandardUserDefaults.ValueForKey(new NSString("DirectoryUpdate")) == null)
+            if (NSUserDefaults.StandardUserDefaults.ValueForKey(new NSString("DirectoryUpdate")) == null)
             {
                 NSUserDefaults.StandardUserDefaults.SetBool(true, "DirectoryUpdate");
                 ResetUser(this, null);
@@ -68,29 +62,23 @@ namespace MEI.iOS
             GetUserData();
             GetNotification();
             GetNotificationSound();
-            UIApplication.SharedApplication.SetStatusBarStyle(UIStatusBarStyle.LightContent, false);
-            FirebasePushNotificationManager.Initialize(options,true);          
-            CrossBadge.Current.ClearBadge();
-            if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
+            UNUserNotificationCenter.Current.Delegate = new UNUserNotificationCenterDelegate();
+            UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert, (a, e) =>
             {
-                // iOS 10 or later
-                var authOptions = UNAuthorizationOptions.Alert | UNAuthorizationOptions.Badge | UNAuthorizationOptions.Sound;
-                UNUserNotificationCenter.Current.RequestAuthorization(authOptions, (granted, error) =>
-                {
-                    Console.WriteLine(granted);
-                });
 
-                UNUserNotificationCenter.Current.Delegate = this;
-                UNUserNotificationCenter.Current.GetNotificationSettings((settings) =>
-                {
-                    var alertsAllowed = (settings.AlertSetting == UNNotificationSetting.Enabled);
-                });
-            }
+            });
+            UNUserNotificationCenter.Current.GetNotificationSettings((settings) =>
+            {
+                var alretsAllowed = (settings.AlertSetting == UNNotificationSetting.Enabled);
+            });
+            
+            UIApplication.SharedApplication.SetStatusBarStyle(UIStatusBarStyle.LightContent, false);            
+            CrossBadge.Current.ClearBadge();         
             UIApplication.SharedApplication.RegisterForRemoteNotifications();
             UIApplication.SharedApplication.SetStatusBarStyle(UIStatusBarStyle.LightContent, false);
             FirebasePushNotificationManager.Initialize(options, true);
             LoadApplication(ap);
-            ap.StartApp();
+            //ap.StartApp();
             return base.FinishedLaunching(app, options);
 
         }
@@ -185,7 +173,7 @@ namespace MEI.iOS
         public NSDate ConvertDateTimeToNSDate(DateTime date)
         {
             DateTime newDate = System.TimeZoneInfo.ConvertTime(
-                new DateTime(2001, 1, 1, 0, 0, 0),TimeZoneInfo.Local);
+                new DateTime(2001, 1, 1, 0, 0, 0), TimeZoneInfo.Local);
             return NSDate.FromTimeIntervalSinceReferenceDate(
                 (date - newDate).TotalSeconds);
         }
@@ -260,11 +248,11 @@ namespace MEI.iOS
             Console.WriteLine("Disconnected from FCM");
         }
 
-        
+
 
         [Export("userNotificationCenter:willPresentNotification:withCompletionHandler:")]
         public void WillPresentNotification(UNUserNotificationCenter center, UNNotification notification, Action<UNNotificationPresentationOptions> completionHandler)
-        {
+        {            
             System.Console.WriteLine(notification.Request.Content.UserInfo);
             var notifications = UNNotificationPresentationOptions.Alert;
             completionHandler(notifications);
@@ -272,100 +260,100 @@ namespace MEI.iOS
 
         public void IOSNotification(object sender, FirebasePushNotificationDataEventArgs fps)
         {
-            CrossBadge.Current.SetBadge(1);
+            CrossBadge.Current.SetBadge(1);           
             if (NSUserDefaults.StandardUserDefaults.ValueForKey(new NSString("UserNotificaiton")) != null && NSUserDefaults.StandardUserDefaults.BoolForKey("UserNotificaiton") && !string.IsNullOrEmpty(NSUserDefaults.StandardUserDefaults.StringForKey("MEI_UserID")))
-            {
-                string title = (fps.Data[new NSString("header")] as NSString).ToString();
-                string message = App.HtmlToPlainText((fps.Data[new NSString("message")] as NSString).ToString());
-                string imageURL = (fps.Data[new NSString("image")] as NSString).ToString();
-                var notificaiton = new UNMutableNotificationContent();
+             {
+                 string title = (fps.Data[new NSString("aps.alert.title")] as NSString).ToString();
+                 string message = App.HtmlToPlainText((fps.Data[new NSString("aps.alert.body")] as NSString).ToString());
+                 string imageURL = "";// (fps.Data[new NSString("aps.alert.image")] as NSString).ToString();
+                 var notificaiton = new UNMutableNotificationContent();
 
-                notificaiton.Title = title;
-                notificaiton.Body = App.HtmlToPlainText(message);
-                if (!string.IsNullOrEmpty(imageURL) && !imageURL.ToLower().Contains("pdf"))
-                {
-                    var url = new Uri(imageURL.ToString());
-                    var webClient = new WebClient();
-                    webClient.DownloadDataAsync(url);
-                    webClient.DownloadDataCompleted += (s, ex) =>
-                    {
-                        var bytes = ex.Result; // get the downloaded data
-                        string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-                        string localFilename = "downloaded.png";
-                        string localPath = Path.Combine(documentsPath, localFilename);
-                        File.WriteAllBytes(localPath, bytes);
-                        var localUrl = NSUrl.FromString("file:///" + localPath);
-                        var attachmentID = "image";
-                        var options = new UNNotificationAttachmentOptions();
-                        NSError _error;
-                        var attachment = UNNotificationAttachment.FromIdentifier(attachmentID, localUrl, options, out _error);
-                        if (_error == null)
-                        {
-                            notificaiton.Attachments = new UNNotificationAttachment[] { attachment };
-                            notificaiton.Badge = 1;
-                            var trigger = UNTimeIntervalNotificationTrigger.CreateTrigger(0.1, false);
-                            var requestID = "MEI_LocalNotification";
-                            var request = UNNotificationRequest.FromIdentifier(requestID, notificaiton, trigger);
-                            UNUserNotificationCenter.Current.AddNotificationRequest(request, (error) =>
-                            {
-                                if (error != null)
-                                {
+                 notificaiton.Title = title;
+                 notificaiton.Body = App.HtmlToPlainText(message);
+                 if (!string.IsNullOrEmpty(imageURL) && !imageURL.ToLower().Contains("pdf"))
+                 {
+                     var url = new Uri(imageURL.ToString());
+                     var webClient = new WebClient();
+                     webClient.DownloadDataAsync(url);
+                     webClient.DownloadDataCompleted += (s, ex) =>
+                     {
+                         var bytes = ex.Result; // get the downloaded data
+                         string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+                         string localFilename = "downloaded.png";
+                         string localPath = Path.Combine(documentsPath, localFilename);
+                         File.WriteAllBytes(localPath, bytes);
+                         var localUrl = NSUrl.FromString("file:///" + localPath);
+                         var attachmentID = "image";
+                         var options = new UNNotificationAttachmentOptions();
+                         NSError _error;
+                         var attachment = UNNotificationAttachment.FromIdentifier(attachmentID, localUrl, options, out _error);
+                         if (_error == null)
+                         {
+                             notificaiton.Attachments = new UNNotificationAttachment[] { attachment };
+                             notificaiton.Badge = 1;
+                             var trigger = UNTimeIntervalNotificationTrigger.CreateTrigger(0.1, false);
+                             var requestID = "MEI_LocalNotification";
+                             var request = UNNotificationRequest.FromIdentifier(requestID, notificaiton, trigger);
+                             UNUserNotificationCenter.Current.AddNotificationRequest(request, (error) =>
+                             {
+                                 if (error != null)
+                                 {
 
-                                }
-                            });
-                        }
-                        else
-                        {
-                            Debug.Write(_error.ToString());
-                        }
-                    };
+                                 }
+                             });
+                         }
+                         else
+                         {
+                             Debug.Write(_error.ToString());
+                         }
+                     };
 
-                    try
-                    {
-                        if (App.Current.MainPage != null)
-                        {
-                            if (App.Current.MainPage.GetType() == typeof(HomeLayout))
-                            {
-                                ((HomeLayout)App.Current.MainPage).ResetRegisteredDomainList();
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(ex.ToString());
-                    }
-                }
-                else
-                {
-                    notificaiton.Badge = 1;
-                    var trigger = UNTimeIntervalNotificationTrigger.CreateTrigger(0.1, false);
-                    var requestID = "MEI_LocalNotification";
-                    var request = UNNotificationRequest.FromIdentifier(requestID, notificaiton, trigger);
-                    UNUserNotificationCenter.Current.AddNotificationRequest(request, (err) =>
-                    {
-                        if (err != null)
-                        {
+                     try
+                     {
+                         if (App.Current.MainPage != null)
+                         {
+                             if (App.Current.MainPage.GetType() == typeof(HomeLayout))
+                             {
+                                 ((HomeLayout)App.Current.MainPage).ResetRegisteredDomainList();
+                             }
+                         }
+                     }
+                     catch (Exception ex)
+                     {
+                         Console.WriteLine(ex.ToString());
+                     }
+                 }
+                 else
+                 {
+                     notificaiton.Badge = 1;
+                     var trigger = UNTimeIntervalNotificationTrigger.CreateTrigger(0.1, false);
+                     var requestID = "MEI_LocalNotification";
+                     var request = UNNotificationRequest.FromIdentifier(requestID, notificaiton, trigger);
+                     UNUserNotificationCenter.Current.AddNotificationRequest(request, (err) =>
+                     {
+                         if (err != null)
+                         {
 
-                        }
-                    });
+                         }
+                     });
 
-                    try
-                    {
-                        if (App.Current.MainPage != null)
-                        {
-                            if (App.Current.MainPage.GetType() == typeof(HomeLayout))
-                            {
-                                ((HomeLayout)App.Current.MainPage).ResetRegisteredDomainList();
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(ex.ToString());
-                    }
-                }
-            }
-
+                     try
+                     {
+                         if (App.Current.MainPage != null)
+                         {
+                             if (App.Current.MainPage.GetType() == typeof(HomeLayout))
+                             {
+                                 ((HomeLayout)App.Current.MainPage).ResetRegisteredDomainList();
+                             }
+                         }
+                     }
+                     catch (Exception ex)
+                     {
+                         Console.WriteLine(ex.ToString());
+                     }
+                 }
+             }
+             
         }
 
         static CNContactViewController personViewController;
@@ -379,37 +367,22 @@ namespace MEI.iOS
 
         public static void PushNotification(object s, EventArgs e)
         {
-            if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
-            {
-                var notificaiton = new UNMutableNotificationContent();
-                notificaiton.Title = App.lpushItem.title;
-                notificaiton.Body = App.lpushItem.message;
-                notificaiton.Badge = 1;
-                var trigger = UNTimeIntervalNotificationTrigger.CreateTrigger(1, false);
-                var requestID = "MEI_LocalNotification";
-                var request = UNNotificationRequest.FromIdentifier(requestID, notificaiton, trigger);
-                UNUserNotificationCenter.Current.AddNotificationRequest(request, (err) =>
-                {
-                    if (err != null)
-                    {
+            var notificaiton = new UNMutableNotificationContent();
 
-                    }
-                });
-            }
-            else
+            notificaiton.Title = App.lpushItem.title;
+            notificaiton.Body = App.HtmlToPlainText(App.lpushItem.message);
+            notificaiton.Badge = 1;
+            var trigger = UNTimeIntervalNotificationTrigger.CreateTrigger(0.1, false);
+            var requestID = "MEI";
+            var request = UNNotificationRequest.FromIdentifier(requestID, notificaiton, trigger);
+            UNUserNotificationCenter.Current.AddNotificationRequest(request, (err) =>
             {
-                UILocalNotification notification = new UILocalNotification();
-                notification.AlertAction = App.lpushItem.title;
-                notification.AlertBody = App.lpushItem.message;
-                UIApplication.SharedApplication.ScheduleLocalNotification(notification);
-            }
-            //UILocalNotification notification = new UILocalNotification();
-            //notification.AlertAction = App.lpushItem.title;
-            //notification.AlertBody = App.lpushItem.message;
-            //notification.FireDate = NSDate.FromTimeIntervalSinceNow(0);
-            //notification.ApplicationIconBadgeNumber = 1;
-            //notification.SoundName = UILocalNotification.DefaultSoundName;
-            //UIApplication.SharedApplication.ScheduleLocalNotification(notification);
+                if (err != null)
+                {
+
+                }
+            });
+
         }
 
         public static void CopyClipBoard(string text)
@@ -482,7 +455,7 @@ namespace MEI.iOS
             };
             UIApplication.SharedApplication.KeyWindow.RootViewController.ShowViewController(imagePicker, null);
         }
-        
+
         public static async void CreateContact(object sender, EventArgs e)
         {
             var store = new CNContactStore();
@@ -586,11 +559,12 @@ namespace MEI.iOS
             FirebasePushNotificationManager.RemoteNotificationRegistrationFailed(error);
         }
 
+        
+
         public override void DidReceiveRemoteNotification(UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
         {
             FirebasePushNotificationManager.DidReceiveMessage(userInfo);
             completionHandler(UIBackgroundFetchResult.NewData);
         }
     }
-
 }

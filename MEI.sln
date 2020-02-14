@@ -5,9 +5,11 @@ VisualStudioVersion = 16.0.29519.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEI.Android", "MEI\MEI.Android\MEI.Android.csproj", "{2A0C4506-C9D2-4F03-930A-8B502ECFC24B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEI.iOS", "MEI\MEI.iOS\MEI.iOS.csproj", "{219C82B4-9ED1-4AA3-B694-6244606E794E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEI.iOS1", "MEI\MEI.iOS\MEI.iOS1.csproj", "{219C82B4-9ED1-4AA3-B694-6244606E794E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEI", "MEI\MEI\MEI.csproj", "{B4316115-AFDE-4BEA-8387-3869CCFF711D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MEI", "MEI\MEI\MEI.csproj", "{B4316115-AFDE-4BEA-8387-3869CCFF711D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEI.iOS", "MEI\MEI.iOS\MEI.iOS.csproj", "{5D78DD58-A346-4CD0-8DB6-1A9312FC38D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,6 +75,16 @@ Global
 		{B4316115-AFDE-4BEA-8387-3869CCFF711D}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{B4316115-AFDE-4BEA-8387-3869CCFF711D}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{B4316115-AFDE-4BEA-8387-3869CCFF711D}.Release|iPhoneSimulator.Deploy.0 = Release|Any CPU
+		{5D78DD58-A346-4CD0-8DB6-1A9312FC38D9}.Debug|Any CPU.ActiveCfg = Debug|iPhone
+		{5D78DD58-A346-4CD0-8DB6-1A9312FC38D9}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{5D78DD58-A346-4CD0-8DB6-1A9312FC38D9}.Debug|iPhone.Build.0 = Debug|iPhone
+		{5D78DD58-A346-4CD0-8DB6-1A9312FC38D9}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{5D78DD58-A346-4CD0-8DB6-1A9312FC38D9}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{5D78DD58-A346-4CD0-8DB6-1A9312FC38D9}.Release|Any CPU.ActiveCfg = Release|iPhone
+		{5D78DD58-A346-4CD0-8DB6-1A9312FC38D9}.Release|iPhone.ActiveCfg = Release|iPhone
+		{5D78DD58-A346-4CD0-8DB6-1A9312FC38D9}.Release|iPhone.Build.0 = Release|iPhone
+		{5D78DD58-A346-4CD0-8DB6-1A9312FC38D9}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{5D78DD58-A346-4CD0-8DB6-1A9312FC38D9}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

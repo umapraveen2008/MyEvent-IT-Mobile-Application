@@ -50,5 +50,6 @@
     <Import Project="$(NuGetPackageRoot)xamarin.firebase.common\60.1142.1\build\MonoAndroid80\Xamarin.Firebase.Common.targets" Condition="Exists('$(NuGetPackageRoot)xamarin.firebase.common\60.1142.1\build\MonoAndroid80\Xamarin.Firebase.Common.targets')" />
     <Import Project="$(NuGetPackageRoot)xamarin.firebase.iid\60.1142.1\build\MonoAndroid80\Xamarin.Firebase.Iid.targets" Condition="Exists('$(NuGetPackageRoot)xamarin.firebase.iid\60.1142.1\build\MonoAndroid80\Xamarin.Firebase.Iid.targets')" />
     <Import Project="$(NuGetPackageRoot)xamarin.firebase.messaging\60.1142.1\build\MonoAndroid80\Xamarin.Firebase.Messaging.targets" Condition="Exists('$(NuGetPackageRoot)xamarin.firebase.messaging\60.1142.1\build\MonoAndroid80\Xamarin.Firebase.Messaging.targets')" />
+    <Import Project="$(NuGetPackageRoot)netstandard.library\2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('$(NuGetPackageRoot)netstandard.library\2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />
   </ImportGroup>
 </Project>

@@ -825,7 +825,7 @@ namespace MEI
 
         public void SetScreen(Type objectType)
         {
-            indicator.IsVisible = true;
+            indicator.IsVisible = false;
             if (eventHomePage != null)
             {
                 eventHomePage.IsVisible = isSameType(typeof(EventHomePage), objectType);
