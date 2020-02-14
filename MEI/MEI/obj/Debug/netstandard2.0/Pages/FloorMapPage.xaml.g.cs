@@ -13,7 +13,7 @@
 namespace MEI.Pages {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Pages/FloorMapPage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Pages\\FloorMapPage.xaml")]
     public partial class FloorMapPage : global::Xamarin.Forms.ContentView {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]

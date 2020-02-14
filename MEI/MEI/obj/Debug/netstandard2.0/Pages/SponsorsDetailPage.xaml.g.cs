@@ -13,7 +13,7 @@
 namespace MEI.Pages {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Pages/SponsorsDetailPage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Pages\\SponsorsDetailPage.xaml")]
     public partial class SponsorsDetailPage : global::Xamarin.Forms.ContentView {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]

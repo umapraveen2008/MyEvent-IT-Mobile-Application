@@ -13,7 +13,7 @@
 namespace MEI {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Pages/HomeLayout.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Pages\\HomeLayout.xaml")]
     public partial class HomeLayout : global::Xamarin.Forms.MasterDetailPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]

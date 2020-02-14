@@ -13,7 +13,7 @@
 namespace MEI.Pages {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Pages/EventUpdateTemplate.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Pages\\EventUpdateTemplate.xaml")]
     public partial class EventUpdateTemplateView : global::Xamarin.Forms.ContentView {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]

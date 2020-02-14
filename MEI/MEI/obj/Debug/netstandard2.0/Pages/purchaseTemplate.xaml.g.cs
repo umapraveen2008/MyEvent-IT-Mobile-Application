@@ -13,7 +13,7 @@
 namespace MEI.Pages {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Pages/purchaseTemplate.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Pages\\purchaseTemplate.xaml")]
     public partial class PurchaseTemplateView : global::Xamarin.Forms.ContentView {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]

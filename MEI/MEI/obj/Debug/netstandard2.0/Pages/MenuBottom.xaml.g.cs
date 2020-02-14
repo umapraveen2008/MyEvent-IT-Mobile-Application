@@ -13,7 +13,7 @@
 namespace MEI.Pages {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Pages/MenuBottom.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Pages\\MenuBottom.xaml")]
     public partial class MenuBottom : global::Xamarin.Forms.StackLayout {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]

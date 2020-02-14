@@ -13,7 +13,7 @@
 namespace MEI.Pages {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Pages/OnBoardScreen.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Pages\\OnBoardScreen.xaml")]
     public partial class OnBoardScreen : global::Xamarin.Forms.CarouselPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]

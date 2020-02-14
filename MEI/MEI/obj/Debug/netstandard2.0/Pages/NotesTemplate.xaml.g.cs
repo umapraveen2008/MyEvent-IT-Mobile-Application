@@ -13,7 +13,7 @@
 namespace MEI.Pages {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Pages/NotesTemplate.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Pages\\NotesTemplate.xaml")]
     public partial class NotesTemplateView : global::Xamarin.Forms.ContentView {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]

@@ -13,7 +13,7 @@
 namespace MEI.Pages {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Pages/ShippingList.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Pages\\ShippingList.xaml")]
     public partial class ShippingList : global::Xamarin.Forms.ContentView {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]

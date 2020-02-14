@@ -13,7 +13,7 @@
 namespace MEI.Pages {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Pages/EventMap.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Pages\\EventMap.xaml")]
     public partial class EventMap : global::Xamarin.Forms.StackLayout {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]

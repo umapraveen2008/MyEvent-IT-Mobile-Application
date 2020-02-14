@@ -45,13 +45,14 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARM64</MtouchArch>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Developer: Gerard Merritt (Z52VE53N62)</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <CodesignEntitlements>
     </CodesignEntitlements>
     <MtouchLink>None</MtouchLink>
     <MtouchInterpreter>-all</MtouchInterpreter>
     <MtouchSdkVersion>13.2</MtouchSdkVersion>
+    <CodesignProvision>VS: WildCard Development</CodesignProvision>
     <CodesignExtraArgs />
     <CodesignResourceRules />
   </PropertyGroup>
@@ -185,7 +186,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\MEI\MEI.csproj">
-      <Project>{B4316115-AFDE-4BEA-8387-3869CCFF711D}</Project>
+      <Project>{9DD2CB2D-8DE6-4AF2-B148-D8FAECC2A8C3}</Project>
       <Name>MEI</Name>
     </ProjectReference>
   </ItemGroup>
