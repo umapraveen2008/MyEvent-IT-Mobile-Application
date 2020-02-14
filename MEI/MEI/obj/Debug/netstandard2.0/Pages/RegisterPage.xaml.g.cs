@@ -13,7 +13,7 @@
 namespace MEI.Pages {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Pages\\RegisterPage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Pages/RegisterPage.xaml")]
     public partial class RegisterPage : global::MEI.Controls.GradientPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]

@@ -13,7 +13,7 @@
 namespace MEI.Pages {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Pages\\ForgotPassword.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Pages/ForgotPassword.xaml")]
     public partial class ForgotPassword : global::MEI.Controls.GradientPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]

@@ -13,7 +13,7 @@
 namespace MEI.Pages {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Pages\\CatalogItemDetail.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Pages/CatalogItemDetail.xaml")]
     public partial class CatalogItemDetail : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
