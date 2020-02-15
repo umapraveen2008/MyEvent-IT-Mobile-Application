@@ -4,6 +4,7 @@
              x:Class="MEI.Pages.EventHomePage" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#ebeff2">
     <ScrollView>
         <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Padding="0,30">
+            <Label x:Name="eventName" FontSize="Title" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" TextColor="#505f6d"/>
             <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                 <Grid HorizontalOptions="FillAndExpand" Margin="5">
                     <Grid.RowDefinitions>

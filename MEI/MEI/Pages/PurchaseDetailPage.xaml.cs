@@ -167,7 +167,7 @@ namespace MEI.Pages
             }
         }
 
-        public async void ContactSenderFunction(object sender, EventArgs e)
+        public void ContactSenderFunction(object sender, EventArgs e)
         {            
             string subject = "Order ID : " + transaction.transactionID;
             Device.OpenUri(new Uri("mailto:"+domainEmail+ "?subject="+subject));

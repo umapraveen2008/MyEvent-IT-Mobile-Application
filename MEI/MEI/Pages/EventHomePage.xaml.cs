@@ -17,8 +17,14 @@ namespace MEI.Pages
             home = ((HomeLayout)App.Current.MainPage);
         }
 
+        public void SetName()
+        {
+            eventName.Text = ((HomeLayout)App.Current.MainPage).GetCurrentDomainEvent().s_event.eventName.ToUpper();
+        }
+
         public void CreateScreen(object sender,EventArgs e)
         {
+
             home.SetSideMenuItem(int.Parse(((Button)sender).AutomationId));
         }        
     }

@@ -238,6 +238,7 @@ namespace MEI.iOS.CustomRenderers
                         break;
 
                 }
+                uiLabel.TextContainer.LineBreakMode = UILineBreakMode.TailTruncation;
                 uiLabel.TextContainer.LineFragmentPadding = 0;
                 uiLabel.TextContainerInset = UIEdgeInsets.Zero;
                 uiLabel.ShouldInteractWithUrl += (tView, req, type) =>
@@ -257,6 +258,7 @@ namespace MEI.iOS.CustomRenderers
                 uiLabel.ClearsContextBeforeDrawing = true;
                 uiLabel.ClearsOnInsertion = true;
                 uiLabel.AutosizesSubviews = true;
+                uiLabel.TextContainer.WidthTracksTextView = false;
                 uiLabel.TextColor = view.TextColor.ToUIColor();
                 uiLabel.Font = UIFont.SystemFontOfSize((float)view.FontSize);
                 uiLabel.DataDetectorTypes = UIDataDetectorType.Link;
@@ -338,8 +340,8 @@ namespace MEI.iOS.CustomRenderers
                             ((UITextView)Control).UserInteractionEnabled = false;
                         }
 
-                        ((UITextView)Control).NeedsUpdateConstraints();
-                        ((UITextView)Control).SetNeedsLayout();
+                        //((UITextView)Control).NeedsUpdateConstraints();
+                        //((UITextView)Control).SetNeedsLayout();
                     }
                 }
             }
@@ -358,6 +360,7 @@ namespace MEI.iOS.CustomRenderers
             try
             {
                 var view = e.NewElement as Label;
+                UpdateUi(view);
             }
             catch
             {
@@ -372,6 +375,7 @@ namespace MEI.iOS.CustomRenderers
 
 
                 var view = Element as Label;
+                UpdateUi(view);
             }
             catch
             {
@@ -385,7 +389,6 @@ namespace MEI.iOS.CustomRenderers
 
             try
             {
-
                 if (view.TextColor != Color.Default)
                 {
                     this.Control.TextColor = view.TextColor.ToUIColor();
@@ -433,11 +436,6 @@ namespace MEI.iOS.CustomRenderers
                     var myHtmlData = NSData.FromString(text, NSStringEncoding.Unicode);
                     NSAttributedString htmlText = new NSAttributedString(myHtmlData, attr, ref nsError);
                     Control.AttributedText = htmlText;
-                    //UITextView uilabel = new UITextView(new CGRect(0, 0, view.Width, view.Height));
-                    //uilabel.AttributedText = htmlText;
-                    //uilabel.Editable = false;
-                    //uilabel.DataDetectorTypes = UIDataDetectorType.All;
-                    //SetNativeControl(uilabel);
                 }
             }
             catch

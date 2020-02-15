@@ -66,32 +66,32 @@ namespace MEI.Pages
         public OnBoard GetOnBoard(int id)
         {
             OnBoard nOnboard = new OnBoard();
-            nOnboard.imageSource = "obs"+(id+1).ToString()+".png";
+            nOnboard.imageSource = "mei_education_0" + (id+1).ToString()+".png";
             switch(id)
             {
                 case 0:
-                    nOnboard.imageDescription = "Use the top left icon to open the event menu, use the top right icon to open event selection page. ";//"Use hamburger icon to access event menu.<br>Use dotted menu to access all events panel <br>";
-                    nOnboard.imageHeader = "Navigation Bar";
+                    nOnboard.imageDescription = "Search for Organizations to Join. ";//"Use hamburger icon to access event menu.<br>Use dotted menu to access all events panel <br>";
+                    nOnboard.imageHeader = "Search";
                     nOnboard.buttonText = "Next";
                     break;
                 case 1:
-                    nOnboard.imageDescription = "All the available events are shown on this screen. Select one of them to access.";
-                    nOnboard.imageHeader = "Event Selection";
+                    nOnboard.imageDescription = "Verify You are Joining the Correct Organization.";
+                    nOnboard.imageHeader = "Select Organisation";
                     nOnboard.buttonText = "Next";
                     break;
                 case 2:
-                    nOnboard.imageDescription = "This is the event menu, here you can access your settings, notes, bookmarks and also look at other registered users. You can also access relative information of the selected event.";
+                    nOnboard.imageDescription = "View all Events Within the Organization.";
                     nOnboard.imageHeader = "Event Menu";
                     nOnboard.buttonText = "Next";
                     break;
                 case 3:
-                    nOnboard.imageDescription = "Click on the star to bookmark sessions, speakers etc.";
-                    nOnboard.imageHeader = "Bookmark";
+                    nOnboard.imageDescription = "View all Event Items.";
+                    nOnboard.imageHeader = "Event Items";
                     nOnboard.buttonText = "Next";
                     break;
                 case 4:
-                    nOnboard.imageDescription = "All of your bookmarks can be accessed here.";
-                    nOnboard.imageHeader = "Your Bookmarks";
+                    nOnboard.imageDescription = "Manage Settings Here.";
+                    nOnboard.imageHeader = "Settings";
                     nOnboard.buttonText = "Finish";
                     break;
                     

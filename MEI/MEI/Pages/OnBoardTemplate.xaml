@@ -6,11 +6,11 @@
              xmlns:controls="clr-namespace:MEI.Controls;assembly=MEI">
     <Grid HorizontalOptions="FillAndExpand" Padding="0,20,0,0" VerticalOptions="FillAndExpand" RowSpacing="0" BackgroundColor="#1C1D21">
       <Grid.RowDefinitions>
-        <RowDefinition Height="5*"></RowDefinition>
-        <RowDefinition Height="5*"></RowDefinition>
+        <RowDefinition Height="7*"></RowDefinition>
+        <RowDefinition Height="3*"></RowDefinition>
       </Grid.RowDefinitions>
       <ContentView Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-        <Image Source="eventlogodefaulticon.png" x:Name="pageImage"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill"></Image>
+        <Image Source="eventlogodefaulticon.png" x:Name="pageImage"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFit"></Image>
       </ContentView>
       <Grid Grid.Row="1" Grid.Column="0" RowSpacing="0" BackgroundColor="White" VerticalOptions="FillAndExpand" >
         <Grid.RowDefinitions>

@@ -223,9 +223,15 @@ namespace MEI.Pages
                     }
                     else
                     {
-                        clickURL = "";
+                        clickURL = post.postPicture;
                         postImageLayout.IsVisible = false;
+
                         eventPost.Text = eventPost.Text+"<br><a href='" + post.postPicture + "'>Attachment<a>";
+                        //TapGestureRecognizer tap = new TapGestureRecognizer();
+                        //tap.Tapped += (s, e) => {
+                        //    ((HomeLayout)App.Current.MainPage).CreateWebView(this, null, clickURL, "Attachment");
+                        //};
+                        //eventPost.GestureRecognizers.Add(tap);
                         height = height + 50;                 
                     }
                 }

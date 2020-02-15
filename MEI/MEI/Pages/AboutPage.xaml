@@ -34,7 +34,7 @@
                         <Label Text="About Event" TextColor="#36404a" XAlign="Start" FontSize="Medium" VerticalOptions="CenterAndExpand"/>
                     </ContentView>
                     <StackLayout  Padding="10" VerticalOptions="FillAndExpand">
-                        <Label x:Name="eventDescription" XAlign="Start" FontSize="Small" Text="Event Description" VerticalOptions="FillAndExpand" TextColor="#505f6d"/>
+                        <Label TextType="Html" x:Name="eventDescription" XAlign="Start" FontSize="Small" Text="Event Description" VerticalOptions="FillAndExpand" TextColor="#505f6d"/>
                         <ContentView BackgroundColor="White" x:Name="emptyList" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="5">
                             <StackLayout VerticalOptions="CenterAndExpand">
                                 <Image Source="mei_nobioicon_g.png" WidthRequest="50" HeightRequest="50"></Image>

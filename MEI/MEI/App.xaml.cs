@@ -84,7 +84,7 @@ namespace MEI
         public static string firmID = "";
         public static byte[] uploadStream;
         public static AppCartList AppCart = new AppCartList();
-        public static bool FirstTime;
+        public static bool FirstTime = true;
 
         public struct LocalPushNotificationItem
         {
@@ -112,6 +112,7 @@ namespace MEI
             // MainPage = new LoginPage();
             // Handle when your app starts            
             StartApp();
+            
             MainPage = new LoginPage();
         }
 
@@ -139,7 +140,9 @@ namespace MEI
             {
                 App.phoneID = p.Token;
                 System.Diagnostics.Debug.WriteLine($"TOKEN REC: {p.Token}");
+
             };
+          
 
         }
 

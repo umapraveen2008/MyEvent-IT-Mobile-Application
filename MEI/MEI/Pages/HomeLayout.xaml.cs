@@ -257,11 +257,6 @@ namespace MEI
                     eventList.Children.Clear();
                     ////indicator.IsVisible = true;
                     await SetLoading(false, "");
-                    if (App.FirstTime)
-                    {
-                        OpenEducation(this,null);
-                        App.FirstTime = false;
-                    }
                     //IsGestureEnabled = false;
                 }
                 //if(!updateCheckRunning)             
@@ -998,7 +993,7 @@ namespace MEI
         public void CreateEventHomePage()
         {
             //this.IsPresented = false;
-            screenName.Text = GetCurrentDomainEvent().s_event.eventName;
+            screenName.Text = "Home";// GetCurrentDomainEvent().s_event.eventName;
             homeButton.IsVisible = true;
             feedbackButton.IsVisible = true;
             if (eventHomePage == null)
@@ -1007,6 +1002,7 @@ namespace MEI
                 ParentLayout.Children.Add(eventHomePage);
             }
             IsPresented = false;
+            eventHomePage.SetName();
             ResetButtons();
             SetCurrentScreen(eventHomePage, ParentLayout);
         }

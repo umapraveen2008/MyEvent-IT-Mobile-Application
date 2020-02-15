@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Threading;
 using MEI.Controls;
 using Plugin.DeviceInfo;
+using System.Threading.Tasks;
 
 namespace MEI.Pages
 {
@@ -65,6 +66,7 @@ namespace MEI.Pages
 
                 if (App.GetUser != String.Empty)
                 {
+                    App.FirstTime = false;
                     loadingText.Text = "Loading your Profile...";
                     App.userID = App.GetUser;
                     loading.IsVisible = true;
@@ -87,9 +89,9 @@ namespace MEI.Pages
                         await progressBar.ProgressTo(0.8, 250, Easing.Linear);
                         loadingText.Text = "Syncing shipping addresses...";
 
-                        App.serverData.GetUserAddressList();
-                        App.serverData.CreateUserTokenList();
-                        //await progressBar.ProgressTo(0.9, 250, Easing.Linear);
+                        await App.serverData.GetUserAddressList();
+                        await App.serverData.CreateUserTokenList();
+                        await progressBar.ProgressTo(0.9, 250, Easing.Linear);
                         loadingText.Text = "Syncing subscriptions...";
                         await App.serverData.GetUserSubscriptions();
                         await progressBar.ProgressTo(1, 250, Easing.Linear);
@@ -97,7 +99,7 @@ namespace MEI.Pages
                     }
                     else
                     {
-                        App.FirstTime = true;
+                      
                         loading.IsVisible = false;
                         loginForm.IsVisible = true;
                     }
@@ -105,8 +107,19 @@ namespace MEI.Pages
                 }
                 else
                 {
-                    loading.IsVisible = false;
-                    loginForm.IsVisible = true;
+                    loading.IsVisible = true;
+                    loginForm.IsVisible = false;
+                    if (App.FirstTime)
+                    {
+                        App.FirstTime = false;
+                        await Task.Delay(1000);
+                        Application.Current.MainPage = new OnBoardScreen();
+                    }
+                    else
+                    {
+                        loading.IsVisible = false;
+                        loginForm.IsVisible = true;
+                    }
                 }
             }
             catch (Exception e)
@@ -203,19 +216,19 @@ namespace MEI.Pages
                         await progressBar.ProgressTo(0.4, 250, Easing.Linear);
                         loadingText.Text = "Syncing requested Domains...";
                         App.serverData.mei_user.currentUser = await App.serverData.GetUserWithID(App.userID);
-                        App.serverData.CreateUserTokenList();
+                        await App.serverData.CreateUserTokenList();
                         await App.serverData.GetRequestedDomains();
                         await progressBar.ProgressTo(0.6, 250, Easing.Linear);
                         loadingText.Text = "Syncing notes...";
-                        App.serverData.SyncUserNotes();
+                        await App.serverData.SyncUserNotes();
                         await progressBar.ProgressTo(0.8, 250, Easing.Linear);
                         loadingText.Text = "Syncing shipping addresses...";
-                        App.serverData.GetUserAddressList();
+                        await App.serverData.GetUserAddressList();
                         await progressBar.ProgressTo(0.9, 250, Easing.Linear);
                         loadingText.Text = "Syncing subscriptions...";
-                        App.serverData.GetUserSubscriptions();
+                        await App.serverData.GetUserSubscriptions();
                         await progressBar.ProgressTo(1, 250, Easing.Linear);
-                        App.serverData.AddPhone(CrossDeviceInfo.Current.Id, App.phoneID, App.userID);
+                        await App.serverData.AddPhone(CrossDeviceInfo.Current.Id, App.phoneID, App.userID);
                         Application.Current.MainPage = new HomeLayout();
                     }
                     else
