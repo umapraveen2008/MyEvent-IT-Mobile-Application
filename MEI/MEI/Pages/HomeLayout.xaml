@@ -4,14 +4,9 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              x:Class="MEI.HomeLayout"
-             xmlns:local="clr-namespace:MEI.Pages;assembly=MEI" xmlns:locals="clr-namespace:MEI.Controls;assembly=MEI" BackgroundColor="White">
+             xmlns:local="clr-namespace:MEI.Pages;assembly=MEI" BackgroundColor="White">
     <MasterDetailPage.Detail>
         <ContentPage BackgroundColor="#ebeff2">
-            <ContentPage.Resources>
-                <ResourceDictionary>
-                    <locals:HyperLinkLabelConvertor x:Key="HyperLinkLabelConvertor" />
-                </ResourceDictionary>
-            </ContentPage.Resources>
             <RelativeLayout>
                 <RelativeLayout VerticalOptions="FillAndExpand" x:Name="mainPage" HorizontalOptions="FillAndExpand">
                     <Grid x:Name="PrimaryScreen" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" RowSpacing="0"  RelativeLayout.WidthConstraint=
@@ -33,7 +28,7 @@
                             <Grid x:Name="iosBar" HorizontalOptions="FillAndExpand" HeightRequest="50"  BackgroundColor="#31c3ee" >
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="1.5*"></ColumnDefinition>
-                                    <ColumnDefinition Width="6*"></ColumnDefinition>
+                                    <ColumnDefinition Width="6.5*"></ColumnDefinition>
                                     <ColumnDefinition Width="1*"></ColumnDefinition>
                                     <ColumnDefinition Width="1*"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
@@ -45,7 +40,7 @@
                                         <Image Source="mei_menuicon4_w.png" HeightRequest="30" WidthRequest="30"  VerticalOptions="Center" HorizontalOptions="Center"/>
                                     </ContentView>
                                     <ContentView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                                        <Label TextColor="White"  VerticalOptions="Center" HorizontalOptions="CenterAndExpand" LineBreakMode="TailTruncation" Text="About Event" x:Name="screenName"  FontSize="Medium"/>
+                                        <Label TextColor="White"  VerticalOptions="Center" HorizontalOptions="CenterAndExpand" LineBreakMode="TailTruncation" Text="About Event" x:Name="screenName"  FontSize="Medium" />
                                     </ContentView>
                                 </StackLayout>
                                 <ContentView  Grid.Column="2" Grid.Row="0" Padding="5" x:Name="cartButton">
@@ -54,7 +49,7 @@
                                     </ContentView.GestureRecognizers>
                                     <Grid>
                                         <Image Source="mei_carticon_w.png"/>
-                                        <Label x:Name="cartItemCount" Text="0" TextColor="White" FontSize="Medium" HorizontalTextAlignment="End" FontAttributes="Bold" Margin="0,-3,0,0"/>
+                                        <Label x:Name="cartItemCount" Text="0" VerticalTextAlignment="Start" VerticalOptions="FillAndExpand"  HorizontalOptions="FillAndExpand" TextColor="White" FontSize="Medium" HorizontalTextAlignment="End" FontAttributes="Bold" Margin="5,-3,0,0"/>
                                     </Grid>
                                 </ContentView>
                                 <ContentView  Grid.Column="3" Grid.Row="0" Padding="5" x:Name="feedbackButton">

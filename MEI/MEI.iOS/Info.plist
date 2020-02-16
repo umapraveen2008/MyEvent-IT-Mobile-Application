@@ -25,10 +25,8 @@
 	</dict>
 	<key>CFBundleIdentifier</key>
 	<string>com.cgsg.myeventit</string>
-	<key>CFBundleShortVersionString</key>
-	<string>3</string>
 	<key>CFBundleVersion</key>
-	<string>10</string>
+	<string>13</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>
@@ -53,7 +51,7 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>XSAppIconAssets</key>
-	<string>Media.xcassets/AppIcons.appiconset</string>
+	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>UIRequiresFullScreen</key>
 	<true/>
 	<key>UIStatusBarHidden</key>
@@ -113,13 +111,19 @@
 	<string>Requires permission to use music.</string>
 	<key>NSSiriUsageDescription</key>
 	<string>Requires permission to use siri.</string>
-	<key>NSLocation</key>
-	<string></string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Requires Location to give map details</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Requires Location to give map details</string>
 	<key>FirebaseAppDelegateProxyEnabled</key>
 	<false/>
+	<key>CFBundleName</key>
+	<string>MyEvent it</string>
+	<key>CFBundleShortVersionString</key>
+	<string>3</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>Requires premssion for bluetooth if files need to transfered.</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>Requires premssion for bluetooth if files need to transfered.</string>
 </dict>
 </plist>

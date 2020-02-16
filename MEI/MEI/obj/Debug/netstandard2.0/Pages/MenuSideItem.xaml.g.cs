@@ -13,7 +13,7 @@
 namespace MEI.Pages {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Pages\\MenuSideItem.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Pages/MenuSideItem.xaml")]
     public partial class MenuSideItem : global::Xamarin.Forms.StackLayout {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]

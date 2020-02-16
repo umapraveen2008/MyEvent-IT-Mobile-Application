@@ -8,6 +8,8 @@ using System.ComponentModel;
 using CoreAnimation;
 using MEI.iOS.CustomRenderers;
 using MEI.Controls;
+using System.Text.RegularExpressions;
+using static CoreText.CTFontFeatureAlternateKana;
 
 [assembly: ExportRenderer(typeof(Label), typeof(AwesomeHyperLinkLabelRenderer))]
 [assembly: ExportRenderer(typeof(WebView), typeof(CustomWebViewRenderer))]
@@ -206,7 +208,30 @@ namespace MEI.iOS.CustomRenderers
 
     }
 
+    public class HyperLinkLabel : ViewRenderer
+    {
+        protected override void OnElementChanged(ElementChangedEventArgs<View> e)
+        {
+            base.OnElementChanged(e);
 
+            var view = (Label)Element;
+            if (view == null) return;
+
+            UITextView uilabelleftside = new UITextView(new CGRect(0, 0, view.Width, view.Height));
+            uilabelleftside.Text = view.Text;
+            uilabelleftside.Font = UIFont.SystemFontOfSize((float)view.FontSize);
+            uilabelleftside.Editable = false;
+
+            // Setting the data detector types mask to capture all types of link-able data
+            uilabelleftside.DataDetectorTypes = UIDataDetectorType.All;
+            uilabelleftside.BackgroundColor = UIColor.Clear;
+            ((UITextView)Control).Font = view.Font.ToUIFont();
+            ((UITextView)Control).TextColor = view.TextColor.ToUIColor();
+            ((UITextView)Control).UserInteractionEnabled = true;
+            // overriding Xamarin Forms Label and replace with our native control
+            SetNativeControl(uilabelleftside);
+        }
+    }
 
     public class AwesomeHyperLinkLabelRenderer : ViewRenderer
     {
@@ -222,8 +247,7 @@ namespace MEI.iOS.CustomRenderers
             {
                 var view = (Label)Element;
                 if (view == null) return;
-                view.VerticalOptions = LayoutOptions.Center;
-                UITextView uiLabel = new UITextView(new CGRect(0, 0, view.Width, view.Height));
+                UITextView uiLabel = new UITextView(new CGRect(view.AnchorX, view.AnchorY, view.Width, view.Height));
                 SetNativeControl(uiLabel);
                 switch (view.HorizontalTextAlignment)
                 {
@@ -254,10 +278,9 @@ namespace MEI.iOS.CustomRenderers
                     return true;
                 };
                 uiLabel.BackgroundColor = view.BackgroundColor.ToUIColor();
-
                 uiLabel.ClearsContextBeforeDrawing = true;
                 uiLabel.ClearsOnInsertion = true;
-                uiLabel.AutosizesSubviews = true;
+                uiLabel.AutosizesSubviews = false;
                 uiLabel.TextContainer.WidthTracksTextView = false;
                 uiLabel.TextColor = view.TextColor.ToUIColor();
                 uiLabel.Font = UIFont.SystemFontOfSize((float)view.FontSize);
@@ -275,6 +298,22 @@ namespace MEI.iOS.CustomRenderers
             }
         }
 
+        void setVerticalAlign()
+        {
+
+            // !!  Control.Bounds.Height is set to 0 initially.. How do I change this? 
+
+            float topCorrect = (float)(Control.Bounds.Height - ((UITextView)Control).ContentSize.Height);
+
+            topCorrect = topCorrect / 2;
+            //topCorrect = topCorrect < 0.0 ? (float) 0.0 : topCorrect;
+
+            if (((UITextView)Control).ContentSize.Height < Control.Bounds.Height)
+            {
+                ((UITextView)Control).SetContentOffset(new CGPoint(0, -topCorrect), true);
+            }
+        }
+
         protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             base.OnElementPropertyChanged(sender, e);
@@ -283,19 +322,6 @@ namespace MEI.iOS.CustomRenderers
                 var view = (Label)Element;
                 if (view == null) return;
 
-                if (Control != null)
-                {
-                    ((UITextView)Control).ClearsContextBeforeDrawing = true;
-                    float topCorrect = (float)(((UITextView)Control).Bounds.Height - ((UITextView)Control).ContentSize.Height);
-
-                    topCorrect = topCorrect / 2;
-                    //topCorrect = topCorrect < 0.0 ? (float) 0.0 : topCorrect;
-
-                    if (((UITextView)Control).ContentSize.Height < ((UITextView)Control).Bounds.Height)
-                    {
-                        ((UITextView)Control).SetContentOffset(new CGPoint(0, -topCorrect), true);
-                    }
-                }
                 if (view != null)
                     SetUIText(view);
             }
@@ -322,7 +348,7 @@ namespace MEI.iOS.CustomRenderers
                             attr.DocumentType = NSDocumentType.HTML;
 
 
-                            string text = "<div style = 'font-size:15px; font-family: Lato'>" + view.Text + "</div>";
+                            string text = "<div style = 'font-size:15px; font-family: Opensans' >" + view.Text + "</div>";
                             var myHtmlData = NSData.FromString(text, NSStringEncoding.Unicode);
                             NSAttributedString htmlText = new NSAttributedString(myHtmlData, attr, ref nsError);
                             ((UITextView)Control).AttributedText = htmlText;
@@ -340,8 +366,10 @@ namespace MEI.iOS.CustomRenderers
                             ((UITextView)Control).UserInteractionEnabled = false;
                         }
 
-                        //((UITextView)Control).NeedsUpdateConstraints();
-                        //((UITextView)Control).SetNeedsLayout();
+                        ((UITextView)Control).NeedsUpdateConstraints();
+                        ((UITextView)Control).SetNeedsLayout();
+
+                        setVerticalAlign();
                     }
                 }
             }
@@ -436,6 +464,20 @@ namespace MEI.iOS.CustomRenderers
                     var myHtmlData = NSData.FromString(text, NSStringEncoding.Unicode);
                     NSAttributedString htmlText = new NSAttributedString(myHtmlData, attr, ref nsError);
                     Control.AttributedText = htmlText;
+                    foreach (Match item in Regex.Matches(text, @"(http|ftp|https):\/\/([\w\-_]+(?:(?:\.[\w\-_]+)+))([\w\-\.,@?^=%&amp;:/~\+#]*[\w\-\@?^=%&amp;/~\+#])?"))
+                    {
+                        var gesture = new UITapGestureRecognizer();
+
+                        gesture.AddTarget(() =>
+                        {
+                            var url = new NSUrl("https://" + item.Value);
+
+                            if (UIApplication.SharedApplication.CanOpenUrl(url))
+                                UIApplication.SharedApplication.OpenUrl(url);
+                        });
+
+                        Control.AddGestureRecognizer(gesture);
+                    }
                 }
             }
             catch
